@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Squad de Vendas - Aumente suas Vendas 3x em 30 Dias</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            padding: 20px 0;
+            background: rgba(15, 15, 30, 0.95);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #00d4ff, #0099ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav a {
+            color: #e0e0e0;
+            text-decoration: none;
+            margin-left: 30px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #00d4ff;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #0f0f1e 0%, #1a2847 50%, #0f0f1e 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -30%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 153, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #00d4ff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 22px;
+            color: #b0b0b0;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 50px;
+            background: linear-gradient(135deg, #00d4ff, #0099ff);
+            color: #000;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 18px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.5);
+        }
+
+        .cta-secondary {
+            display: inline-block;
+            padding: 18px 50px;
+            background: transparent;
+            color: #00d4ff;
+            text-decoration: none;
+            border: 2px solid #00d4ff;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 18px;
+            transition: all 0.3s;
+            margin-left: 20px;
+        }
+
+        .cta-secondary:hover {
+            background: #00d4ff;
+            color: #000;
+        }
+
+        /* ===== FEATURES ===== */
+        .features {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 60px;
+            background: linear-gradient(135deg, #00d4ff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            padding: 40px;
+            border-radius: 15px;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(0, 212, 255, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #00d4ff;
+        }
+
+        .feature-card p {
+            color: #b0b0b0;
+            line-height: 1.8;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 100%);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 153, 255, 0.3);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 60px;
+            color: #00d4ff;
+            opacity: 0.2;
+        }
+
+        .stars {
+            color: #ffd700;
+            font-size: 18px;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-text {
+            margin-bottom: 20px;
+            color: #d0d0d0;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            color: #00d4ff;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .testimonial-role {
+            color: #888;
+            font-size: 14px;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #00d4ff, #0099ff);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 48px;
+            color: #000;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .cta-section p {
+            font-size: 20px;
+            color: rgba(0, 0, 0, 0.8);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button-dark {
+            display: inline-block;
+            padding: 18px 50px;
+            background: #000;
+            color: #00d4ff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 18px;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button-dark:hover {
+            transform: scale(1.05);
+            background: #1a1a1a;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: rgba(15, 15, 30, 0.95);
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #888;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            nav a {
+                margin-left: 15px;
+                font-size: 14px;
+            }
+
+            .cta-secondary {
+                display: block;
+                margin-top: 20px;
+                margin-left: 0;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .cta-section h2 {
+                font-size: 32px;
+            }
+
+            .hero {
+                padding: 80px 0;
+            }
+
+            .features {
+                padding: 60px 0;
+            }
+
+            .testimonials {
+                padding: 60px 0;
+            }
+
+            .cta-section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin-left: 0;
+                margin-right: 20px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .cta-button,
+            .cta-secondary {
+                padding: 15px 40px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <div class="logo">Squad de Vendas</div>
+            <nav>
+                <a href="#features">Recursos</a>
+                <a href="#testimonials">Depoimentos</a>
+                <a href="#cta">Começar</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Aumente Suas Vendas 3x em 30 Dias</h1>
+                <p>Squad de Vendas é a plataforma completa para transformar seu time de vendas em máquinas de geração de receita. Automação inteligente + IA + Integrações sem limite.</p>
+                <button class="cta-button">Começar Gratuitamente</button>
+                <a href="#" class="cta-secondary">Ver Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Por Que Squad de Vendas?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Dashboard Inteligente</h3>
+                    <p>Visualize todos os seus dados de vendas em tempo real. Relatórios automáticos, previsões de receita e insights acionáveis para tomar melhores decisões.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>Automação com IA</h3>
+                    <p>IA generativa que roteiriza prospectos, envia mensagens personalizadas e qualifica leads automaticamente. Seu time foca no que importa: fechar deals.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔌</div>
+                    <h3>Integrações Sem Limite</h3>
+                    <p>Conecte com Hubspot, Pipedrive, WhatsApp, Email, LinkedIn, Slack e centenas de outras ferramentas. Sincronize dados em segundos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">O Que Nossos Clientes Dizem</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Aumentamos nossas vendas em 250% em 2 meses. O Dashboard é incrível e a automação nos economiza 20 horas por semana."</p>
+                    <div class="testimonial-author">Carlos Silva</div>
+                    <div class="testimonial-role">Diretor de Vendas, Tech Solutions</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Melhor investimento que fizemos para vendas. Nosso time ficou mais produtivo e temos dados muito melhores para decisões estratégicas."</p>
+                    <div class="testimonial-author">Ana Martins</div>
+                    <div class="testimonial-role">CEO, Estratégia Digital</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"A IA qualifica leads sozinha. Somos 4 vendedores e conseguimos trabalhar como se fossem 12. ROI de 400% no primeiro ano."</p>
+                    <div class="testimonial-author">Roberto Perez</div>
+                    <div class="testimonial-role">Sócio, Consultoria B2B</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section" id="cta">
+        <div class="container">
+            <h2>Pronto para Revolucionar Suas Vendas?</h2>
+            <p>Teste Squad de Vendas por 30 dias. Sem cartão de crédito. Suporte dedicado incluído.</p>
+            <button class="cta-button-dark">Iniciar Minha Versão Grátis</button>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Squad de Vendas. Todos os direitos reservados.</p>
+            <p>Desenvolvido com ❤️ para vendedores que querem crescer exponencialmente.</p>
+        </div>
+    </footer>
+</body>
+</html>
