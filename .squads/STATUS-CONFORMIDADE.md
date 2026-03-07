@@ -141,12 +141,13 @@ mv ".squads/DOCUMENTOS PDF" backups-squads/
 - [x] Criar `.squads/PASTAS-NAOCONFORMES.md` (opções de limpeza)
 - [x] Criar `.squads/STATUS-CONFORMIDADE.md` (este documento)
 
-### ⏳ Fase 3: Normalização (PENDENTE)
+### ✅ Fase 3: Normalização (CONCLUÍDA)
 
-- [ ] Renomear `Automacao_Profissional/` → `automacao-profissional/`
-- [ ] Remover pastas extraídas não conformes (opção recomendada: A)
-- [ ] Atualizar INDEX.md (remover flags ⚠️)
-- [ ] Git commit: Conformidade AIOX 100%
+- [x] Renomear `Automacao_Profissional/` → `automacao-profissional/`
+- [x] Remover pastas extraídas não conformes (opção recomendada: A)
+- [x] Deletar pasta residual `__MACOSX/`
+- [x] Atualizar INDEX.md (remover flags ⚠️)
+- [ ] Git commit: Conformidade AIOX 100% (próxima)
 
 ### ⏳ Fase 4: Squad Vendas (PENDENTE)
 
