@@ -1,0 +1,138 @@
+apiVersion: aiox/v1
+kind: Squad
+metadata:
+  name: zona-genialidade
+  displayName: "Zona Genialidade Squad"
+  description: "Identifica zona de genialidade, recomenda squad ideal e cria plano de monetização em 30 minutos via assessment comportamental unificado"
+  version: "1.0.0"
+  installDate: "2026-03-07"
+  author: "Jose Carlos Amorim"
+  status: "active"
+
+spec:
+  type: "assessment-guidance"
+  category: "personal-development"
+  slashPrefix: "ZonaGenialidade"
+  patternPrefix: "ZG"
+
+  purpose:
+    headline: "Descubra sua Zona de Genialidade em 30 minutos"
+    deliverables:
+      - "Perfil comportamental unificado (DISC, Enneagram, Clifton, Big Five)"
+      - "Mapeamento zona de genialidade"
+      - "Recomendação squad ideal para criar/operar"
+      - "Plano de monetização concreto"
+    timeline: "30 minutos max"
+    userExperience: "Responda ~43 perguntas. O squad faz o resto."
+
+  targetUsers:
+    - "Alunos do Cohort Fundamentals"
+    - "Empreendedores buscando sua zona de genialidade"
+    - "Operadores de squad interessados em monetizar"
+
+  agents:
+    orchestrator:
+      - name: "zona-genialidade-chief"
+        role: "Pipeline Orchestrator"
+        description: "Coordena fluxo, roteamento e síntese de insights"
+
+    tier_0:
+      - name: "gay-hendricks"
+        framework: "Zone of Genius Model"
+        expertise: "Diagnóstico de zona de genialidade, Upper Limit Problem, Big Leap Process"
+
+    tier_1:
+      - name: "don-clifton"
+        framework: "CliftonStrengths 34"
+        expertise: "Perfil de talentos e 4 domínios de força"
+      - name: "dan-sullivan"
+        framework: "Unique Ability"
+        expertise: "Habilidade única, Who Not How, 10x mindset"
+      - name: "roger-hamilton"
+        framework: "Wealth Dynamics 8 Profiles"
+        expertise: "Perfil de riqueza e mapeamento squad recomendado"
+      - name: "alex-hormozi"
+        framework: "Value Equation + Grand Slam"
+        expertise: "Monetização, criação de ofertas, Core 4"
+
+    tier_2:
+      - name: "kathy-kolbe"
+        framework: "Kolbe A Index"
+        expertise: "Estilo de execução, 4 Action Modes, conativa"
+      - name: "sally-hogshead"
+        framework: "Fascination Advantage"
+        expertise: "Posicionamento, 42 archetypes, 7 vantagens"
+
+  workflows:
+    - name: "genius-zone-discovery"
+      description: "Pipeline completo ponta-a-ponta (assessment → blueprint)"
+    - name: "behavioral-assessment"
+      description: "Assessment comportamental unificado apenas"
+    - name: "squad-recommendation"
+      description: "Recomendação de squad baseado no perfil"
+    - name: "monetization-planning"
+      description: "Plano de monetização da zona de genialidade"
+
+  tasks:
+    - "start"
+    - "run-assessment"
+    - "analyze-genius-profile"
+    - "recommend-squad"
+    - "generate-blueprint"
+
+  qualityGates:
+    - id: "QG-001"
+      name: "Intake Validated"
+      transition: "Input → Tier 0"
+      blocking: true
+    - id: "QG-002"
+      name: "Assessment Complete"
+      transition: "Assessment → Analysis"
+      blocking: true
+    - id: "QG-003"
+      name: "Profile Synthesized"
+      transition: "Analysis → Matching"
+      blocking: true
+    - id: "QG-004"
+      name: "Blueprint Reviewed"
+      transition: "Output → Entrega"
+      blocking: true
+
+  researchFoundation:
+    mindsCount: 7
+    minds:
+      - "Gay Hendricks — Zone of Genius"
+      - "Don Clifton/Gallup — Strengths"
+      - "Dan Sullivan — Unique Ability"
+      - "Roger Hamilton — Wealth Dynamics"
+      - "Alex Hormozi — Value & Monetization"
+      - "Kathy Kolbe — Action Modes"
+      - "Sally Hogshead — Fascination Advantage"
+
+  useCases:
+    - "Diagnóstico comportamental (DISC, Enneagram, Clifton, Big Five)"
+    - "Mapeamento zona de genialidade"
+    - "Recomendação de squad ideal"
+    - "Plano de monetização"
+
+  optionalDependencies:
+    - "mentoria-engine"
+    - "onboarding-intelligence"
+    - "innerlens"
+    - "squad-creator"
+
+  quickStart:
+    completePipeline: "/ZonaGenialidade:tasks:start"
+    assessment: "@zona-genialidade-chief *assess"
+    blueprint: "@zona-genialidade-chief *blueprint"
+    squadRecommendation: "@zona-genialidade-chief *recommend-squad"
+    help: "@zona-genialidade-chief *help"
+
+  tags:
+    - genius-zone
+    - assessment
+    - behavioral-profiling
+    - squad-recommendation
+    - monetization
+    - personal-development
+    - 30-min-process
