@@ -1,0 +1,41 @@
+name: Desafio AIOX
+version: 1.1
+description: Squad de agentes IA para criadores de conteúdo - Criado para participantes do Desafio AIOX
+author: Academia Lendaria
+created: 2026-03-07
+
+agents:
+  - aiox-chief:
+      role: Lider/Orquestrador
+      description: Chief do squad - roteia para agente correto
+      path: agents/aiox-chief.md
+  - video-editor:
+      role: Editor de Videos
+      description: Corta vídeos longos em shorts/reels/clips
+      path: agents/video-editor.md
+  - espiao:
+      role: Analista de Concorrentes
+      description: Analisa canais e padrões de conteúdo
+      path: agents/espiao.md
+  - repurposing:
+      role: Multiplicador de Conteúdo
+      description: Transforma 1 vídeo em múltiplos formatos
+      path: agents/repurposing.md
+  - scriptwriter:
+      role: Roteirista
+      description: Cria roteiros com hooks e CTAs
+      path: agents/scriptwriter.md
+
+tasks:
+  - cortar-video: tasks/cortar-video.md
+  - analisar-canal: tasks/analisar-canal.md
+  - multiplicar-conteudo: tasks/multiplicar-conteudo.md
+
+checklists:
+  - qualidade-corte: checklists/qualidade-corte.md
+  - analise-canal: checklists/analise-canal.md
+  - repurposing: checklists/repurposing.md
+  - roteiro: checklists/roteiro.md
+
+entrypoint: aiox-chief
+status: active

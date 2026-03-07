@@ -106,7 +106,112 @@ hormozi/
 
 ---
 
-### 4. 💰 squad-vendas
+### 4. 🎬 desafio-aiox
+
+**Status:** ✅ INSTALADO (Novo!)
+**Nome formal:** `desafio-aiox`
+**Versão:** 1.1
+**Criação:** 2026-03-07
+
+**Propósito:**
+Squad especializado em criação de conteúdo para YouTubers e criadores de vídeo. Com 5 agentes para análise, edição, repurposing e roteiros.
+
+**Arquitetura:**
+```
+desafio-aiox/
+├── squad.yaml           ✅ Manifesto formal
+├── README.md            ✅
+├── agents/              ← 5 agentes especializados
+│   ├── aiox-chief.md           (Lider/Orquestrador)
+│   ├── video-editor.md         (Cortes de vídeo)
+│   ├── espiao.md               (Análise de concorrentes)
+│   ├── repurposing.md          (Multiplicador de conteúdo)
+│   └── scriptwriter.md         (Roteirista)
+├── tasks/               ← Workflows guiados
+├── checklists/          ← Validação de qualidade
+└── templates/           ← (Capa Lendária - web app)
+```
+
+**Agentes Principais:**
+- `aiox-chief` — Chief do squad (líder/orquestrador)
+- `video-editor` — Corta vídeos em shorts/reels
+- `espiao` — Analisa canais e concorrentes
+- `repurposing` — Multiplica 1 vídeo em 10+ peças
+- `scriptwriter` — Cria roteiros com hooks
+
+**Ativar:**
+```bash
+/aiox-chief
+```
+
+---
+
+### 5. ⚡ zona-genialidade
+
+**Status:** ✅ INSTALADO (NOVO!)
+**Nome formal:** `zona-genialidade`
+**Versão:** 1.0.0
+**Criação:** 2026-02-13
+**Autor:** Jose Carlos Amorim
+
+**Propósito:**
+Identifica zona de genialidade através de assessment comportamental integrado (7 frameworks elite), analisa multi-perspectiva e recomenda squad ideal + plano de monetização em 30 minutos.
+
+**Arquitetura:**
+```
+zona-genialidade/
+├── config.yaml              ✅ Manifesto formal
+├── README.md                ✅ Documentação
+├── agents/                  ✅ 8 agentes especializados
+│   ├── zona-genialidade-chief.md    (Orquestrador)
+│   ├── gay-hendricks.md              (Zone of Genius)
+│   ├── don-clifton.md                (CliftonStrengths)
+│   ├── dan-sullivan.md               (Unique Ability)
+│   ├── roger-hamilton.md             (Wealth Dynamics)
+│   ├── alex-hormozi.md               (Monetização)
+│   ├── kathy-kolbe.md                (Kolbe A Index)
+│   └── sally-hogshead.md             (Fascination)
+├── tasks/                   ✅ 5 tasks
+│   ├── start.md                      (Pipeline completo)
+│   ├── run-assessment.md             (30 min assessment)
+│   ├── analyze-genius-profile.md     (Multi-framework)
+│   ├── recommend-squad.md            (Matching)
+│   └── generate-blueprint.md         (Output final)
+├── data/
+│   └── zona-genialidade-kb.md
+├── checklists/
+├── workflows/
+└── templates/
+```
+
+**Agentes (7 Mentes Elite):**
+- `zona-genialidade-chief` — Orquestrador (coordena fluxo)
+- `gay-hendricks` (T0) — Zone of Genius Model
+- `don-clifton` (T1) — CliftonStrengths 34 (talentos)
+- `dan-sullivan` (T1) — Unique Ability (habilidade única)
+- `roger-hamilton` (T1) — Wealth Dynamics (perfil riqueza → squad)
+- `alex-hormozi` (T1) — Value Equation + Grand Slam (monetização)
+- `kathy-kolbe` (T2) — Kolbe A Index (estilo execução)
+- `sally-hogshead` (T2) — Fascination Advantage (posicionamento)
+
+**Fluxo:**
+```
+1. Assessment (30 min) → 43 perguntas multi-framework
+2. Análise (autônoma) → 7 agentes processam
+3. Blueprint (output) → Perfil + Squad + Monetização
+```
+
+**Ativar:**
+```bash
+@zona-genialidade
+*start          # Pipeline completo (RECOMENDADO)
+*assess         # Assessment apenas
+*blueprint      # Blueprint apenas
+```
+
+---
+
+### 6. 💰 squad-vendas
 
 **Status:** ⏳ MIGRAÇÃO PENDENTE
 **Nome formal:** `squad-vendas`
@@ -166,6 +271,22 @@ Squad de vendas com landing page, material SDR e automação de vendas.
 │   ├── workflows/
 │   └── templates/
 │
+├── hormozi/                  ✅ Conforme
+│   ├── squad.yaml
+│   ├── config.yaml
+│   ├── agents/
+│   ├── tasks/
+│   ├── workflows/
+│   ├── templates/
+│   └── checklists/
+│
+├── desafio-aiox/             ✅ Conforme (NOVO!)
+│   ├── squad.yaml
+│   ├── README.md
+│   ├── agents/
+│   ├── tasks/
+│   └── checklists/
+│
 ├── squad-vendas/             ⚠️ Em migração
 │   ├── squad.yaml            (criar)
 │   ├── README.md
@@ -190,13 +311,13 @@ Squad de vendas com landing page, material SDR e automação de vendas.
 
 | Aspecto | Status | Detalhes |
 |---------|--------|----------|
-| **Nomes em kebab-case** | ✅ 2/3 | `automacao-profissional` ✅, `marketing-arm-mentoria` ✅, `squad-vendas` ⏳ |
-| **squad.yaml obrigatório** | ✅ 2/3 | Automação ✅, Marketing ✅, Vendas ❌ (criar) |
+| **Nomes em kebab-case** | ✅ 4/5 | `automacao-profissional` ✅, `marketing-arm-mentoria` ✅, `desafio-aiox` ✅, `hormozi` ✅, `squad-vendas` ⏳ |
+| **squad.yaml obrigatório** | ✅ 4/5 | Automação ✅, Marketing ✅, Desafio ✅, Hormozi ✅, Vendas ❌ (criar) |
 | **Estrutura L4** | ✅ | Sem .zip, sem PDFs, sem caos |
-| **Componentes mapeados** | ⚠️ 2/3 | Automação ✅, Marketing ✅, Vendas ⏳ |
-| **Documentação** | ✅ 2/3 | Automação ✅, Marketing ✅, Vendas ⏳ |
+| **Componentes mapeados** | ✅ 4/5 | Automação ✅, Marketing ✅, Desafio ✅, Hormozi ✅, Vendas ⏳ |
+| **Documentação** | ✅ 4/5 | Automação ✅, Marketing ✅, Desafio ✅, Hormozi ✅, Vendas ⏳ |
 
-**Score Final:** `66% → 100% (após migração squad-vendas)`
+**Score Final:** `80% → 100% (após migração squad-vendas)`
 
 ---
 
