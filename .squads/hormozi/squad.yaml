@@ -1,0 +1,55 @@
+name: hormozi
+version: 1.0.0
+short-title: Hormozi Squad — $100M Mind System
+description: 15 specialized Alex Hormozi agents mastering his $100M methodology
+author: AIOS Team / Synkra
+license: MIT
+
+aiox:
+  minVersion: "4.31.0"
+  type: squad
+
+requires:
+  node: ">=18.0.0"
+  aiox: ">=4.31.0"
+
+components:
+  agents:
+    - agents/*.md
+  tasks:
+    - tasks/*.md
+  workflows:
+    - workflows/*.yaml
+  templates:
+    - templates/*.md
+  checklists:
+    - checklists/*.md
+
+tags:
+  - hormozi
+  - methodology
+  - business
+  - marketing
+  - sales
+  - offers
+  - scaling
+
+keywords:
+  - alex-hormozi
+  - $100M
+  - business-builder
+  - offers
+  - marketing
+
+metadata:
+  source_mind: alex_hormozi
+  fidelity_target: 0.90
+  total_agents: 15
+  total_tasks: 20+
+  total_workflows: 5+
+  source_files: 165
+  source_size_mb: 165
+  mental_models: 8
+
+dependencies:
+  squads: []
