@@ -1,0 +1,459 @@
+{
+  "numStartups": 99,
+  "installMethod": "native",
+  "autoUpdates": false,
+  "autoCompactEnabled": false,
+  "hasSeenTasksHint": true,
+  "tipsHistory": {
+    "new-user-warmup": 5,
+    "plan-mode-for-complex-tasks": 64,
+    "terminal-setup": 83,
+    "memory-command": 66,
+    "theme-command": 81,
+    "status-line": 81,
+    "prompt-queue": 1,
+    "enter-to-steer-in-relatime": 81,
+    "todo-list": 82,
+    "install-github-app": 83,
+    "install-slack-app": 83,
+    "drag-and-drop-images": 83,
+    "double-esc-code-restore": 83,
+    "continue": 83,
+    "shift-tab": 83,
+    "image-paste": 82,
+    "desktop-app": 66,
+    "web-app": 66,
+    "mobile-app": 66,
+    "default-permission-mode-config": 82,
+    "permissions": 82,
+    "rename-conversation": 65,
+    "custom-commands": 65,
+    "custom-agents": 65,
+    "agent-flag": 65,
+    "git-worktrees": 83,
+    "frontend-design-plugin": 64,
+    "feedback-command": 81
+  },
+  "promptQueueUseCount": 128,
+  "cachedGrowthBookFeatures": {
+    "tengu_1p_event_batch_config": {
+      "scheduledDelayMillis": 10000,
+      "maxExportBatchSize": 400,
+      "maxQueueSize": 8192
+    },
+    "tengu_mcp_tool_search": true,
+    "tengu_scratch": false,
+    "tengu_brass_pebble": false,
+    "tengu_disable_bypass_permissions_mode": false,
+    "tengu_event_sampling_config": {},
+    "tengu_log_segment_events": false,
+    "tengu_log_datadog_events": true,
+    "tengu_marble_anvil": true,
+    "tengu_tool_pear": false,
+    "tengu_scarf_coffee": false,
+    "tengu_keybinding_customization_release": true,
+    "tengu_thinkback": false,
+    "tengu_oboe": true,
+    "tengu_marble_kite": false,
+    "tengu_tst_names_in_messages": false,
+    "tengu_c4w_usage_limit_notifications_enabled": true,
+    "tengu-top-of-feed-tip": {
+      "tip": "",
+      "color": ""
+    },
+    "tengu_react_vulnerability_warning": false,
+    "tengu_code_diff_cli": true,
+    "tengu_pr_status_cli": true,
+    "tengu_post_compact_survey": false,
+    "tengu_claudeai_mcp_connectors": true,
+    "enhanced_telemetry_beta": false,
+    "tengu_tool_search_unsupported_models": [
+      "haiku"
+    ],
+    "tengu_vinteuil_phrase": true,
+    "tengu_pid_based_version_locking": true,
+    "tengu_system_prompt_global_cache": true,
+    "tengu_attribution_header": true,
+    "tengu_workout": false,
+    "tengu_coral_fern": true,
+    "tengu_cache_plum_violet": true,
+    "tengu_streaming_tool_execution2": true,
+    "tengu_session_memory": false,
+    "tengu_cork_m4q": true,
+    "tengu_permission_explainer": true,
+    "tengu_plank_river_frost": "user_intent",
+    "tengu_sm_compact": false,
+    "tengu_compact_cache_prefix": true,
+    "tengu_compact_streaming_retry": false,
+    "tengu_plum_vx3": true,
+    "tengu_chomp_inflection": false,
+    "tengu_silver_lantern": false,
+    "tengu_copper_lantern": false,
+    "tengu_workout2": true,
+    "tengu_penguins_enabled": true,
+    "tengu_plan_mode_interview_phase": false,
+    "tengu_copper_lantern_config": {
+      "meridian": "2026-02-05T07:59:00Z"
+    },
+    "tengu_penguins_off": null,
+    "tengu_mcp_elicitation": false,
+    "tengu_snippet_save": false,
+    "tengu_bergotte_lantern": false,
+    "tengu_birthday_hat": false,
+    "tengu_fgts": false,
+    "tengu_prompt_cache_1h_config": {
+      "allowlist": [
+        "repl_main_thread*",
+        "sdk",
+        "auto_mode"
+      ]
+    },
+    "tengu_immediate_model_command": false,
+    "tengu_disable_streaming_to_non_streaming_fallback": false,
+    "tengu_worktree_mode": true,
+    "tengu_marble_sandcastle": true,
+    "tengu_streaming_text": true,
+    "tengu_pebble_leaf_prune": false,
+    "tengu_birch_mist": true,
+    "tengu_swann_brevity": "focused",
+    "tengu_destructive_command_warning": false,
+    "tengu_oak_drum": false,
+    "tengu_tool_input_aliasing": false,
+    "tengu_slate_nexus": true,
+    "tengu_marble_lantern_disabled": false,
+    "tengu_mulberry_fog": false,
+    "tengu_moth_copse": false,
+    "tengu_ccr_bridge": true,
+    "tengu_summarize_tool_results": true,
+    "tengu_coral_whistle": false,
+    "tengu_amber_prism": false,
+    "tengu_amber_quartz": false,
+    "tengu_auto_background_agents": false,
+    "tengu_turtle_carbon": true,
+    "tengu_kairos_cron": true,
+    "tengu_frond_boric": {},
+    "tengu_quiet_hollow": true,
+    "tengu_herring_clock": false,
+    "tengu_marble_whisper": false,
+    "tengu_cicada_nap_ms": 0,
+    "tengu_miraculo_the_bard": false,
+    "tengu_miraculo_the_bard2": false,
+    "tengu_paper_halyard": false,
+    "tengu_granite_whisper": false,
+    "tengu_desktop_upsell": {
+      "enable_shortcut_tip": false,
+      "enable_startup_dialog": false
+    },
+    "tengu_glacier_2xr": false,
+    "tengu_basalt_3kr": false,
+    "tengu_swinburne_dune": false,
+    "tengu_sotto_voce": true,
+    "tengu_satin_quoll": {},
+    "tengu_grey_wool": true,
+    "tengu_auto_mode_config": {
+      "enabled": "disabled",
+      "twoStageClassifier": true
+    },
+    "tengu_defer_all_bn4": true,
+    "tengu_tst_hint_m7r": false,
+    "tengu_tight_weave": true
+  },
+  "firstStartTime": "2025-10-13T23:27:01.726Z",
+  "userID": "5d1c18c62d52213bad33d7e8c5a38f29beb02a45d31e7334d8872c811b736ffc",
+  "sonnet45MigrationComplete": true,
+  "opus45MigrationComplete": true,
+  "opusProMigrationComplete": true,
+  "thinkingMigrationComplete": true,
+  "cachedChromeExtensionInstalled": false,
+  "changelogLastFetched": 1772865637895,
+  "claudeCodeFirstTokenDate": "2026-02-05T04:43:17.370812Z",
+  "hasCompletedOnboarding": true,
+  "lastOnboardingVersion": "2.1.31",
+  "lastReleaseNotesSeen": "2.1.71",
+  "projects": {
+    "C:/Users/User": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": true,
+      "projectOnboardingSeenCount": 4,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [],
+      "reactVulnerabilityCache": {
+        "detected": false,
+        "package": null,
+        "packageName": null,
+        "version": null,
+        "packageManager": null
+      },
+      "lastCost": 0.05224254999999999,
+      "lastAPIDuration": 11456,
+      "lastAPIDurationWithoutRetries": 11435,
+      "lastToolDuration": 48886,
+      "lastDuration": 342527,
+      "lastLinesAdded": 0,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 26,
+      "lastTotalOutputTokens": 1012,
+      "lastTotalCacheCreationInputTokens": 32617,
+      "lastTotalCacheReadInputTokens": 63853,
+      "lastTotalWebSearchRequests": 0,
+      "lastFpsAverage": 3.69,
+      "lastFpsLow1Pct": 56.53,
+      "lastModelUsage": {
+        "claude-haiku-4-5-20251001": {
+          "inputTokens": 26,
+          "outputTokens": 1012,
+          "cacheReadInputTokens": 63853,
+          "cacheCreationInputTokens": 32617,
+          "webSearchRequests": 0,
+          "costUSD": 0.05224254999999999
+        }
+      },
+      "lastSessionId": "f9bf3c06-466d-4f70-a833-020c8eb6c215",
+      "lastSessionMetrics": {
+        "frame_duration_ms_count": 1251,
+        "frame_duration_ms_min": 0.23140000001876615,
+        "frame_duration_ms_max": 233.62300000002142,
+        "frame_duration_ms_avg": 3.9095466826537173,
+        "frame_duration_ms_p50": 2.841649999987567,
+        "frame_duration_ms_p95": 9.168524999996565,
+        "frame_duration_ms_p99": 17.636997999998236,
+        "hook_duration_ms_count": 1,
+        "hook_duration_ms_min": 1388,
+        "hook_duration_ms_max": 1388,
+        "hook_duration_ms_avg": 1388,
+        "hook_duration_ms_p50": 1388,
+        "hook_duration_ms_p95": 1388,
+        "hook_duration_ms_p99": 1388,
+        "pre_tool_hook_duration_ms_count": 2,
+        "pre_tool_hook_duration_ms_min": 2,
+        "pre_tool_hook_duration_ms_max": 4,
+        "pre_tool_hook_duration_ms_avg": 3,
+        "pre_tool_hook_duration_ms_p50": 3,
+        "pre_tool_hook_duration_ms_p95": 3.9,
+        "pre_tool_hook_duration_ms_p99": 3.98
+      }
+    },
+    "C:/Users/User/code3": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": true,
+      "projectOnboardingSeenCount": 0,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false
+    },
+    "C:/Users/User/code5": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": true,
+      "projectOnboardingSeenCount": 0,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "hasCompletedProjectOnboarding": true
+    },
+    "C:/Users/User/code1": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": true,
+      "projectOnboardingSeenCount": 0,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false
+    }
+  },
+  "hasShownOpus45Notice": {
+    "f1f2c39f-65a5-44c2-8585-66907b1eea07": true
+  },
+  "officialMarketplaceAutoInstallAttempted": true,
+  "officialMarketplaceAutoInstalled": true,
+  "s1mAccessCache": {
+    "f1f2c39f-65a5-44c2-8585-66907b1eea07": {
+      "hasAccess": false,
+      "hasAccessNotAsDefault": false,
+      "timestamp": 1771098768351
+    }
+  },
+  "groveConfigCache": {
+    "13df52dd-4cf3-448e-ac9a-e5250bdcceb8": {
+      "grove_enabled": true,
+      "timestamp": 1772842759072
+    }
+  },
+  "clientDataCache": {
+    "data": {},
+    "timestamp": 1772408880654
+  },
+  "aiosLLMRouting": {
+    "version": "1.1.0",
+    "installedAt": "2026-02-13T22:49:25.510Z",
+    "commands": [
+      "claude-max",
+      "claude-free",
+      "deepseek-usage",
+      "deepseek-proxy"
+    ],
+    "trackingEnabled": true
+  },
+  "skillUsage": {
+    "AIOS:agents:aios-master": {
+      "usageCount": 29,
+      "lastUsedAt": 1772874452434
+    },
+    "AIOS:agents:analyst": {
+      "usageCount": 3,
+      "lastUsedAt": 1772412054263
+    },
+    "AIOS:agents:dev": {
+      "usageCount": 2,
+      "lastUsedAt": 1771039187446
+    },
+    "AIOS:agents:squad-creator": {
+      "usageCount": 15,
+      "lastUsedAt": 1772440474779
+    },
+    "AIOS:agents:architect": {
+      "usageCount": 6,
+      "lastUsedAt": 1771040648732
+    },
+    "security-review": {
+      "usageCount": 1,
+      "lastUsedAt": 1770767612276
+    },
+    "AIOS:agents:qa": {
+      "usageCount": 1,
+      "lastUsedAt": 1771040841609
+    },
+    "AIOS:agents:_README": {
+      "usageCount": 3,
+      "lastUsedAt": 1772430747993
+    },
+    "AIOS:agents:devops": {
+      "usageCount": 1,
+      "lastUsedAt": 1771701245409
+    },
+    "init": {
+      "usageCount": 1,
+      "lastUsedAt": 1771702756196
+    },
+    "AIOX:agents:aiox-master": {
+      "usageCount": 2,
+      "lastUsedAt": 1772874465692
+    },
+    "AIOX:agents:squad-creator": {
+      "usageCount": 4,
+      "lastUsedAt": 1772874705965
+    },
+    "statusline": {
+      "usageCount": 1,
+      "lastUsedAt": 1772866049204
+    },
+    "greet": {
+      "usageCount": 1,
+      "lastUsedAt": 1772873426068
+    },
+    "AIOX:agents:devops": {
+      "usageCount": 1,
+      "lastUsedAt": 1772873609490
+    },
+    "AIOX:squad-creator-pro": {
+      "usageCount": 0,
+      "lastUsedAt": 0,
+      "registered": "2026-03-07T08:45:00Z"
+    },
+    "clone-mind": {
+      "usageCount": 0,
+      "lastUsedAt": 0,
+      "commandPath": "/AIOX:squad-creator-pro",
+      "agent": "oalanicolas"
+    },
+    "extract-dna": {
+      "usageCount": 0,
+      "lastUsedAt": 0,
+      "commandPath": "/AIOX:squad-creator-pro",
+      "agent": "oalanicolas"
+    },
+    "research-mind": {
+      "usageCount": 0,
+      "lastUsedAt": 0,
+      "commandPath": "/AIOX:squad-creator-pro",
+      "agent": "oalanicolas"
+    },
+    "optimize-squad": {
+      "usageCount": 0,
+      "lastUsedAt": 0,
+      "commandPath": "/AIOX:squad-creator-pro",
+      "agent": "pedro-valerio"
+    },
+    "validate-squad-pro": {
+      "usageCount": 0,
+      "lastUsedAt": 0,
+      "commandPath": "/AIOX:squad-creator-pro",
+      "agent": "pedro-valerio"
+    },
+    "squad-fusion": {
+      "usageCount": 0,
+      "lastUsedAt": 0,
+      "commandPath": "/AIOX:squad-creator-pro"
+    },
+    "model-routing": {
+      "usageCount": 0,
+      "lastUsedAt": 0,
+      "commandPath": "/AIOX:squad-creator-pro"
+    },
+    "business-strategy": {
+      "usageCount": 0,
+      "lastUsedAt": 0,
+      "commandPath": "/AIOX:squad-creator-pro",
+      "agent": "thiago_finch"
+    }
+  },
+  "lastPlanModeUse": 1772875373410,
+  "hasShownOpus46Notice": {
+    "f1f2c39f-65a5-44c2-8585-66907b1eea07": true
+  },
+  "penguinModeOrgEnabled": true,
+  "showSpinnerTree": false,
+  "autoUpdatesProtectedForNative": true,
+  "opus46FeedSeenCount": 4,
+  "hasVisitedExtraUsage": true,
+  "oauthAccount": {
+    "accountUuid": "13df52dd-4cf3-448e-ac9a-e5250bdcceb8",
+    "emailAddress": "cappelinadvogados@gmail.com",
+    "organizationUuid": "f1f2c39f-65a5-44c2-8585-66907b1eea07",
+    "hasExtraUsageEnabled": true,
+    "billingType": "apple_subscription",
+    "accountCreatedAt": "2024-11-14T15:45:59.495904Z",
+    "subscriptionCreatedAt": "2024-11-18T04:07:38.769804Z",
+    "displayName": "Mariana Cappelin"
+  },
+  "feedbackSurveyState": {
+    "lastShownTime": 1772844762514
+  },
+  "hasUsedBackslashReturn": true,
+  "sonnet1m45MigrationComplete": true,
+  "birthdayHatAnimationCount": 3,
+  "cachedExtraUsageDisabledReason": null,
+  "githubRepoPaths": {
+    "mcca1105/synkra-aios-framework": [
+      "C:\\Users\\User\\code5"
+    ]
+  },
+  "toolUsage": {
+    "Bash": {
+      "usageCount": 1,
+      "lastUsedAt": 1772410101271
+    }
+  }
+}
