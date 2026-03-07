@@ -1,0 +1,11 @@
+# Backups - Não versionado
+# Esta pasta contém squads zipados e documentação histórica
+# Não deve ser commitado para evitar crescimento do repositório
+
+*.zip
+*.pdf
+DOCUMENTOS PDF/
+
+# Exceção: Manter este README como documentação
+!README.md
+!.gitignore
