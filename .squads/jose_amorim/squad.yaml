@@ -1,0 +1,71 @@
+apiVersion: aiox/v1
+kind: Squad
+metadata:
+  name: jose_amorim
+  displayName: "Squad José Carlos Amorim"
+  description: "Mind clone of José Carlos Amorim - Nexialismo, business strategy & AI integration expert"
+  version: "1.0.0"
+  installDate: "2026-03-07"
+  source: "MMOS Mind Mapping Pipeline v3.0"
+  status: "active"
+
+spec:
+  type: "mind-clone"
+  category: "thought-leader"
+
+  mindProfile:
+    name: "José Carlos Amorim"
+    slug: "jose_amorim"
+    archetype: "private_individual"
+    specialization:
+      - "Nexialismo (proprietary framework)"
+      - "Business Architecture"
+      - "AI Integration Strategy"
+      - "Content Strategy (Instagram/Newsletter)"
+    fidelity: "85-90%"
+    sources: 7
+    completedAt: "2026-01-31"
+
+  agents:
+    - name: "jose_amorim"
+      role: "Thought Leader Clone"
+      persona: "Jose Amorim System Prompt"
+      description: "José Carlos Amorim mental model clone for strategic advice"
+      instructions: "system_prompts/generalista.md"
+      knowledgeBase:
+        - "kb/story-bank.yaml"
+        - "kb/voice-dna-instagram.yaml"
+        - "kb/content-dna.yaml"
+        - "kb/llm-blacklist.yaml"
+        - "kb/frameworks-proprietarios.yaml"
+
+  artifacts:
+    analysis:
+      - "analysis/layer-analysis.md"
+      - "analysis/patterns.md"
+    synthesis:
+      - "synthesis/frameworks_synthesized.md"
+      - "synthesis/voice_guide.md"
+      - "synthesis/communication_templates.md"
+      - "synthesis/decision_patterns.md"
+    implementation:
+      - "implementation/identity_core.yaml"
+      - "implementation/instructions_core.yaml"
+    docs:
+      - "docs/README.md"
+      - "SPECIAL_CASE.md"
+
+  validation:
+    status: "completed"
+    fidelity_score: "85-90%"
+    methodology: "DNA Mental™ (hybrid: self-authored + interview)"
+    checkpoints_passed: [6, 7, 8]
+    stated_demonstrated_alignment: "92%"
+
+  tags:
+    - mind-clone
+    - nexialismo
+    - business-strategy
+    - ai-expert
+    - portuguese-content
+    - instagram-voice
