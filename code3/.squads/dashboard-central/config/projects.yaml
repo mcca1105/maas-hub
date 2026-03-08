@@ -1,0 +1,211 @@
+# Dashboard Central - Squad Configuration
+# Define all projects/squads that the dashboard will monitor
+
+projects:
+  # Squad 1: Squad de Vendas
+  - name: Squad de Vendas
+    id: squad-vendas
+    path: squad-vendas
+    port: 3001
+    status: active
+    healthCheck:
+      url: http://localhost:3001/health
+      timeout: 5000
+      interval: 30000
+    metadata:
+      type: Frontend
+      description: Landing page e marketing site
+      gitRepo: https://github.com/user/squad-vendas
+      gitBranch: main
+      primaryAgent: dev
+    endpoints:
+      health: http://localhost:3001/health
+      logs: .aiox/logs/squad-vendas.log
+
+  # Squad 2: Prospect Hunter
+  - name: Prospect Hunter
+    id: prospect-hunter
+    path: prospect-hunter
+    port: 3003
+    status: active
+    healthCheck:
+      url: http://localhost:3003/api/health
+      timeout: 5000
+      interval: 30000
+    metadata:
+      type: Full-Stack
+      description: Search prospects + messaging integration
+      gitRepo: https://github.com/user/prospect-hunter
+      gitBranch: main
+      primaryAgent: dev
+    endpoints:
+      health: http://localhost:3003/api/health
+      logs: .aiox/logs/prospect-hunter.log
+
+  # Squad 3: Zona de Genialidade
+  - name: Zona de Genialidade
+    id: zona-genialidade
+    path: .squads/zona-genialidade
+    port: 3004
+    status: active
+    healthCheck:
+      url: http://localhost:3004/health
+      timeout: 5000
+      interval: 30000
+    metadata:
+      type: Assessment Tool
+      description: 7-framework genius assessment
+      gitRepo: https://github.com/user/zona-genialidade
+      gitBranch: main
+      primaryAgent: qa
+    endpoints:
+      health: http://localhost:3004/health
+      logs: .aiox/logs/zona-genialidade.log
+
+  # Squad 4: Automação Profissional
+  - name: Automação Profissional
+    id: automacao-profissional
+    path: .squads/automacao-profissional
+    port: 3005
+    status: active
+    healthCheck:
+      url: http://localhost:3005/health
+      timeout: 5000
+      interval: 30000
+    metadata:
+      type: Backend/RPA
+      description: Workflow automation and process orchestration
+      gitRepo: https://github.com/user/automacao-profissional
+      gitBranch: main
+      primaryAgent: architect
+    endpoints:
+      health: http://localhost:3005/health
+      logs: .aiox/logs/automacao-profissional.log
+      database: http://localhost:5432/postgres
+
+  # Squad 5: Desafio AIOX
+  - name: Desafio AIOX
+    id: desafio-aiox
+    path: .squads/desafio-aiox
+    port: 3006
+    status: active
+    healthCheck:
+      url: http://localhost:3006/health
+      timeout: 5000
+      interval: 30000
+    metadata:
+      type: Content Creation
+      description: Video editing, repurposing, and content strategy
+      gitRepo: https://github.com/user/desafio-aiox
+      gitBranch: main
+      primaryAgent: dev
+    endpoints:
+      health: http://localhost:3006/health
+      logs: .aiox/logs/desafio-aiox.log
+
+# Dashboard Configuration
+dashboard:
+  # Server Settings
+  port: 3000
+  host: localhost
+  environment: development
+
+  # Health Check Settings
+  healthCheck:
+    enabled: true
+    interval: 30000              # 30 seconds
+    timeout: 5000                # 5 seconds per check
+    retries: 3
+    consecutiveFailuresThreshold: 3
+
+  # Log Streaming Settings
+  logs:
+    enabled: true
+    directory: .aiox/logs
+    maxLines: 100                # Stream latest 100 lines
+    refreshInterval: 1000        # Check for new logs every 1s
+    chunkSize: 50                # Send 50 lines at a time
+
+  # WebSocket Settings
+  websocket:
+    enabled: true
+    path: /ws
+    reconnectionDelay: 1000
+    reconnectionDelayMax: 5000
+    reconnectionAttempts: Infinity
+
+  # API Settings
+  api:
+    prefix: /api
+    version: v1
+    timeout: 30000
+    rateLimit: 100               # requests per minute
+
+  # Logging
+  logging:
+    level: info                  # debug | info | warn | error
+    format: json                 # json | text
+    file: .aiox/logs/dashboard.log
+
+# AIOX Framework Integration
+aiox:
+  enabled: true
+  coreDir: .aiox-core
+  projectRoot: .
+  projectStatusFile: .aiox/project-status.yaml
+  workflowStateDir: .aiox/workflow-state
+  agentInvoker:
+    enabled: true
+    timeout: 60000              # 60 seconds for agent execution
+    maxConcurrent: 5            # Max 5 concurrent agents
+
+# Monitoring & Metrics (Optional)
+monitoring:
+  enabled: false                # Enable when needed
+  prometheus:
+    enabled: false
+    port: 9090
+    path: /metrics
+  datadog:
+    enabled: false
+    apiKey: ${DATADOG_API_KEY}
+    siteUrl: https://datadoghq.com
+
+# Feature Flags
+features:
+  workflowDispatcher: true      # Allow dispatching workflows
+  logViewer: true                # Real-time log viewer
+  agentMonitor: true             # Agent status display
+  gitIntegration: false          # Git status display (WIP)
+  notifications: false           # Slack/Email notifications
+  persistence: false             # Database logging (WIP)
+
+# Security
+security:
+  corsOrigins:
+    - http://localhost:3000
+    - http://localhost:3001
+    - http://localhost:3003
+    - http://localhost:3004
+    - http://localhost:3005
+    - http://localhost:3006
+  helmet:
+    enabled: true
+  contentSecurityPolicy: false
+  authentication: false          # Local dev only
+
+# Advanced Options
+advanced:
+  # Keep last N health checks in memory
+  healthHistorySize: 100
+
+  # Keep last N log entries in buffer
+  logBufferSize: 500
+
+  # Cleanup old logs (days)
+  logRetentionDays: 7
+
+  # Performance tuning
+  enableCompression: true
+  enableCaching: true
+  cacheTTL: 60000                # 60 seconds

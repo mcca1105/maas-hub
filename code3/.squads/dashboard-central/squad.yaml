@@ -1,0 +1,81 @@
+squad:
+  name: Dashboard Central
+  id: dashboard-central
+  version: 1.0.0
+  status: planning
+  created: 2026-03-07
+
+  purpose: |
+    Orquestra e monitora todos os squads/projetos AIOX
+    em uma única interface unificada com:
+    - Status real-time de todos os projetos
+    - Health checks automáticos
+    - Agregação de logs
+    - Monitoramento de agentes
+    - Orquestração visual de workflows
+
+  responsibilities:
+    orchestration: Orquestra agentes via AIOX Agent Invoker
+    monitoring: Health checks periódicos de todos os squads
+    logging: Agregação centralizada de logs
+    visualization: Dashboard web responsivo em tempo real
+    integration: Proxy e bridge para APIs dos squads
+
+  agents:
+    - id: dashboard-orchestrator
+      name: Dashboard Orchestrator
+      role: Coordena monitoramento e health checks
+      location: agents/dashboard-orchestrator.md
+      workspace_integration: read_write
+      capabilities:
+        - health_check_orchestration
+        - log_aggregation
+        - real_time_monitoring
+
+  tech_stack:
+    frontend:
+      - React 18+
+      - TypeScript
+      - WebSocket (Socket.io)
+      - Tailwind CSS
+      - Responsive Design
+    backend:
+      - Node.js 18+
+      - Express.js
+      - Socket.io
+      - AIOX Agent Invoker
+      - File-based config (YAML)
+    infrastructure:
+      - Docker (opcional)
+      - Port 3000 (Dashboard)
+      - WebSocket para logs reais
+
+  dependencies:
+    framework:
+      - aiox >= 4.31.1
+    other_squads:
+      - squad-vendas
+      - automacao-profissional
+      - zona-genialidade
+      - prospect-hunter
+      - desafio-aiox
+
+  ports:
+    dashboard: 3000
+    squad_vendas: 3001
+    squad_prospect_hunter: 3003
+    squad_zona_genialidade: 3004
+    squad_automacao: 3005
+
+  contact: "Mariana"
+
+  conformance:
+    aiox_level: L4
+    framework_boundary: respects_L1_L2
+    protected_paths:
+      - .aiox-core/core
+      - .aiox-core/constitution.md
+    mutable_paths:
+      - .squads/dashboard-central/
+      - docs/stories/
+      - docs/architecture/

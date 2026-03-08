@@ -1,0 +1,38 @@
+{
+  "name": "synkra-workspace",
+  "version": "1.0.0",
+  "description": "AIOX workspace manager - Orchestrates multiple squads and projects",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "dev": "npm run dev:dashboard",
+    "dev:dashboard": "cd .squads/dashboard-central && npm run dev",
+    "dev:vendas": "cd squad-vendas && npm run dev",
+    "dev:prospect": "cd prospect-hunter && npm run dev",
+    "dev:assessment": "cd .squads/zona-genialidade && npm run dev",
+    "dev:automacao": "cd .squads/automacao-profissional && npm run dev",
+    "dev:all": "concurrently \"npm run dev:dashboard\" \"npm run dev:vendas\" \"npm run dev:prospect\" \"npm run dev:assessment\" \"npm run dev:automacao\"",
+    "status": "aiox doctor",
+    "graph": "aiox graph --deps --format=html",
+    "lint": "echo 'Lint scripts inherited from individual squads'",
+    "test": "echo 'Test scripts inherited from individual squads'"
+  },
+  "keywords": [
+    "aiox",
+    "orchestration",
+    "dashboard",
+    "squads",
+    "monitoring"
+  ],
+  "author": "Mariana",
+  "license": "ISC",
+  "workspaces": [
+    ".squads/dashboard-central",
+    "squad-vendas",
+    "prospect-hunter"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
