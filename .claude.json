@@ -1,5 +1,5 @@
 {
-  "numStartups": 145,
+  "numStartups": 150,
   "installMethod": "native",
   "autoUpdates": false,
   "autoCompactEnabled": false,
@@ -34,7 +34,7 @@
     "frontend-design-plugin": 64,
     "feedback-command": 112
   },
-  "promptQueueUseCount": 183,
+  "promptQueueUseCount": 184,
   "cachedGrowthBookFeatures": {
     "tengu_1p_event_batch_config": {
       "scheduledDelayMillis": 10000,
@@ -112,7 +112,7 @@
     "tengu_immediate_model_command": false,
     "tengu_disable_streaming_to_non_streaming_fallback": false,
     "tengu_worktree_mode": true,
-    "tengu_marble_sandcastle": true,
+    "tengu_marble_sandcastle": false,
     "tengu_streaming_text": true,
     "tengu_pebble_leaf_prune": false,
     "tengu_birch_mist": true,
