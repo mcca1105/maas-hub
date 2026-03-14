@@ -3,10 +3,6 @@
   "language": "portuguese",
   "autoUpdatesChannel": "latest",
   "skipDangerousModePermissionPrompt": true,
-  "statusLine": {
-    "type": "command",
-    "command": "echo ''"
-  },
   "companyAnnouncements": [
     "Bem-vinda Mariana Cappelin! 🚀 Vamos trabalhar?"
   ]
