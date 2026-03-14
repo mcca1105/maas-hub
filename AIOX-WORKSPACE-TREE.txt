@@ -1,0 +1,302 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                  MARIANA'S AIOX WORKSPACE — COMPLETE MAP                     ║
+║                             2026-03-14                                        ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+C:\Users\User\
+│
+├── 📚 DOCUMENTATION (NEW)
+│   ├── SQUADS-FRAMEWORK-MASTER.md          ✅ 11 squads overview
+│   ├── AGENTS-COMPLETE-INDEX.md            ✅ 49+ agents detailed
+│   └── QUICK-ACCESS-GUIDE.md               ✅ Fast reference guide
+│
+├── 🎨 SQUADS DIRECTORY (.squads/)
+│   │
+│   ├── ✅ design/                          [AIOX L4 CONFORME]
+│   │   ├── squad.yaml                      ✅ Config
+│   │   ├── MEMORY.md                       ✅ Squad memory
+│   │   ├── README.md                       ✅ v4.0.0
+│   │   ├── TEST-VALIDATION-REPORT.md       ✅ Test results
+│   │   ├── agents/                         (10 agentes)
+│   │   │   ├── design-chief.md             🎯 Orchestrator
+│   │   │   ├── marty-neumeier.md           📊 Brand Strategy (T0)
+│   │   │   ├── dave-malouf.md              ⚙️ DesignOps (T0)
+│   │   │   ├── chris-do.md                 💰 Design Business (T1)
+│   │   │   ├── paddy-galloway.md           🎬 YouTube (T1)
+│   │   │   ├── joe-mcnally.md              📸 Photography (T1)
+│   │   │   ├── brad-frost.md               🎨 Design Systems (T2)
+│   │   │   ├── aaron-draplin.md            🔥 Logo Design (T2)
+│   │   │   ├── peter-mckinnon.md           ☕ Photo Editing (T2)
+│   │   │   └── premium-design.md           💎 Dark Themes (T2)
+│   │   ├── tasks/                          (67 tasks)
+│   │   ├── templates/                      (13 templates)
+│   │   ├── checklists/                     (22 checklists)
+│   │   ├── workflows/                      (4 workflows)
+│   │   └── data/                           (9 KB files)
+│   │
+│   ├── 🟡 content-distillery/              [AIOX CONFORME - Falta MEMORY.md]
+│   │   ├── squad.yaml                      ✅
+│   │   ├── README.md                       ✅
+│   │   └── agents/                         (9 agentes)
+│   │       ├── content-chief.md            🎯 Orchestrator
+│   │       ├── copywriter-master.md        ✍️ Copy Master
+│   │       ├── data-analytics.md           📊 Analytics
+│   │       ├── social-strategist.md        📱 Social Media
+│   │       ├── email-master.md             📧 Email Marketing
+│   │       ├── video-expert.md             🎬 Video
+│   │       ├── seo-specialist.md           🔍 SEO
+│   │       ├── brand-voice.md              🎙️ Brand Voice
+│   │       └── content-calendar.md         📅 Planning
+│   │
+│   ├── 🟡 desafio-aiox/                   [AIOX CONFORME - Falta MEMORY.md]
+│   │   ├── squad.yaml                      ✅
+│   │   ├── README.md                       ✅
+│   │   └── agents/                         (6 agentes)
+│   │       ├── aiox-chief.md               🚀 Orchestrator
+│   │       ├── espiao.md                   🕵️ Spy Agent
+│   │       ├── repurposing.md              ♻️ Repurposing
+│   │       ├── scriptwriter.md             ✍️ Scripts
+│   │       ├── video-editor.md             🎬 Video Editing
+│   │       └── challenge-validator.md      ✅ Validator
+│   │
+│   ├── 🟡 hormozi/                        [AIOX CONFORME - Falta MEMORY.md]
+│   │   ├── squad.yaml                      ✅
+│   │   ├── README.md                       ✅
+│   │   └── agents/                         (16 agentes - MAIOR!)
+│   │       ├── hormozi-master.md           💼 Orchestrator
+│   │       ├── offer-architect.md          🎯 Offer Design
+│   │       ├── funnel-builder.md           🔗 Funnels
+│   │       ├── copywriter-elite.md         🏆 Copy Master
+│   │       ├── pricing-strategist.md       💰 Pricing
+│   │       ├── scaling-expert.md           📈 Scaling
+│   │       ├── launch-manager.md           🚀 Launches
+│   │       └── +9 more agents
+│   │
+│   ├── 🟡 zona-genialidade/               [AIOX CONFORME - Falta MEMORY.md]
+│   │   ├── squad.yaml                      ✅
+│   │   ├── README.md                       ✅
+│   │   ├── agents/                         (8 agentes)
+│   │   │   ├── zone-guide.md               🧗 Zone Assessment
+│   │   │   ├── clifton-analyzer.md         💡 CliftonStrengths
+│   │   │   ├── unique-ability.md           ⭐ Unique Ability
+│   │   │   ├── wealth-expert.md            💰 Wealth Dynamics
+│   │   │   └── +4 more
+│   │   └── data/                           (Assessment frameworks)
+│   │   STATUS: Bloco 1-2 ✅ | Bloco 3-7 ⏸️
+│   │
+│   ├── 🟡 automacao-profissional/         [AIOX CONFORME - Falta MEMORY.md]
+│   │   ├── squad.yaml                      ✅
+│   │   ├── README.md                       ✅
+│   │   └── (Workflow automation framework)
+│   │
+│   ├── 🟡 jose-amorim/                    [AIOX CONFORME - L2→L4 Migrado]
+│   │   ├── squad.yaml                      ✅
+│   │   ├── README.md                       ✅
+│   │   └── (Mind Clone - 85-90% fidelity)
+│   │       ├── Voice DNA
+│   │       ├── Thinking DNA
+│   │       └── 35+ artifacts
+│   │
+│   ├── 🟡 marketing-arm-mentoria/         [AIOX CONFORME - Falta MEMORY.md]
+│   │   ├── squad.yaml                      ✅
+│   │   ├── README.md                       ✅
+│   │   └── (Marketing mentorship)
+│   │
+│   ├── 🟠 direct-response-marketing/      [NÃO CONFORME - config.yaml ainda]
+│   │   ├── config.yaml                     ⚠️ Needs migration
+│   │   └── (DRM frameworks)
+│   │
+│   ├── 🟠 squad-creator-pro/              [NÃO CONFORME - config.yaml ainda]
+│   │   ├── config.yaml                     ⚠️ Needs migration
+│   │   ├── README.md                       ✅
+│   │   └── Pro Agents:
+│   │       ├── oalanicolas.md              🧠 Mind Cloning
+│   │       ├── pedro-valerio.md            ⚙️ Optimization
+│   │       └── thiago-finch.md             📊 Business Strategy
+│   │
+│   ├── 📦 dashboard-central/              [AIOX CONFORME]
+│   │   ├── squad.yaml                      ✅
+│   │   ├── README.md                       ✅
+│   │   └── (Orchestration dashboard)
+│   │       └── MVP: 13 points ready
+│   │
+│   └── backups-squads/                    (Arquivos compactados)
+│       ├── 12 .zip files
+│       └── DOCUMENTOS PDF/
+│
+├── ⚙️ FRAMEWORK CORE (.aiox-core/)
+│   ├── constitution.md                     📜 AIOX Constitution
+│   ├── core/
+│   │   ├── agents/                        (Agent definitions)
+│   │   ├── tasks/                         (Task system)
+│   │   ├── workflows/                     (Workflow engine)
+│   │   └── code-intel/                    (Code intelligence)
+│   ├── development/
+│   │   ├── agents/                        (Agent templates)
+│   │   ├── tasks/                         (Task templates)
+│   │   ├── templates/                     (Document templates)
+│   │   ├── checklists/                    (Quality checklists)
+│   │   └── workflows/                     (Workflow templates)
+│   ├── extensions/
+│   │   └── squad-creator-pro/             (Pro Pack v3.1.0)
+│   │       ├── agents/                    (3 pro agents)
+│   │       ├── tasks/                     (34 pro tasks)
+│   │       └── workflows/                 (18 workflows)
+│   ├── version.json                       (v4.31.1 - LATEST)
+│   └── install-manifest.yaml              (v5.0.1)
+│
+├── 🎛️ CLAUDE CODE CONFIGURATION (.claude/)
+│   ├── settings.json                      (Claude Code config)
+│   │   ├── model: "haiku"
+│   │   ├── language: "portuguese"
+│   │   └── statusLine: configured
+│   │
+│   ├── CLAUDE.md                          (AIOX rules & instructions)
+│   │   ├── Core Framework Understanding
+│   │   ├── Constitution (6 articles)
+│   │   ├── Agent System (10 agents listed)
+│   │   ├── Development Methodology
+│   │   └── Environment Setup
+│   │
+│   ├── rules/                             (Contexual rules)
+│   │   ├── agent-authority.md             🚨 Delegation matrix
+│   │   ├── agent-handoff.md               🤝 Agent switching protocol
+│   │   ├── workflow-execution.md          🔄 4 primary workflows
+│   │   ├── story-lifecycle.md             📖 Story workflow
+│   │   └── tool-examples.md               🛠️ Tool guidance
+│   │
+│   ├── token-tracker.md                   💰 TOKEN CONSUMPTION
+│   │   ├── Orçamento:      200.000 tokens
+│   │   ├── Consumido:      162.000 tokens (81%)
+│   │   ├── Restante:       38.000 tokens (19%)
+│   │   └── Status:         ⚠️ PRÓXIMO DO LIMITE
+│   │
+│   ├── projects/
+│   │   └── C--Users-User/
+│   │       └── memory/
+│   │           ├── MEMORY.md               (Índice persistente)
+│   │           ├── user-preferences.md     (User profile)
+│   │           └── token-consumption-analysis.md
+│   │
+│   └── hooks/                             (Custom hooks)
+│       ├── pre-commit/
+│       ├── post-merge/
+│       └── (5 custom hooks)
+│
+├── 📊 PROJECT DIRECTORIES
+│   ├── squad-vendas/                      (Landing page)
+│   │   ├── index.html                     (490 linhas HTML+CSS)
+│   │   ├── package.json
+│   │   └── .git                           (Git initialized)
+│   │
+│   ├── prospect-hunter/                   (Backend project)
+│   │   ├── database schema                (12 tabelas + RLS)
+│   │   ├── migrations/                    (001-core-schema.sql)
+│   │   └── (Story 4.1 DRAFT)
+│   │
+│   └── other-projects/
+│
+└── 📝 GIT & VERSION CONTROL
+    ├── .git/                              (Repository)
+    ├── .gitignore
+    ├── Recent commits:
+    │   ├── 256cc66 - chore: Session checkpoint
+    │   ├── fba2d27 - refactor: Migrate José Amorim Mind Clone
+    │   ├── e650735 - chore: Disable status bar
+    │   └── (50+ more commits)
+    └── Branch: master
+        └── Main branch: main
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+                            SUMMARY STATISTICS
+
+Squads:                11 total
+├─ L4 Conforme:       1 (design)
+├─ Conforme (need MEMORY.md):  8
+└─ Non-conforme:      2 (config.yaml → squad.yaml)
+
+Agents:                49+
+├─ Active:            45+
+├─ Pro Agents:        3 (oalanicolas, pedro-valerio, thiago-finch)
+├─ Orchestrators:     7
+└─ Specialists:       20+
+
+Tasks/Features:        150+
+├─ Design Tasks:      67
+├─ Pro Pack Tasks:    34
+└─ Squad Templates:   13+
+
+Files:                 500+
+├─ Markdown:          250+
+├─ YAML:              50+
+├─ Code:              50+
+└─ Data:              150+
+
+Storage:               ~15 GB total
+├─ AIOX Core:         51 MB
+├─ Squads:            2.2 GB
+├─ Projects:          5 GB
+└─ Config/Docs:       100 MB
+
+Token Budget:          200.000 per session
+├─ Current Consumed:   162.000 (81%)
+├─ Remaining:          38.000 (19%)
+└─ Status:             ⚠️ PRÓXIMO DO LIMITE CRÍTICO
+
+═══════════════════════════════════════════════════════════════════════════════
+
+                             KEY RESOURCES
+
+Token Tracking:        .claude/token-tracker.md
+AIOX Rules:            .claude/CLAUDE.md
+Master Index:          SQUADS-FRAMEWORK-MASTER.md
+Agent Index:           AGENTS-COMPLETE-INDEX.md
+Quick Guide:           QUICK-ACCESS-GUIDE.md
+This Map:              AIOX-WORKSPACE-TREE.txt
+
+═══════════════════════════════════════════════════════════════════════════════
+
+                        NEXT ACTIONS (PRIORITY)
+
+1. ✅ Read documentation:
+   - SQUADS-FRAMEWORK-MASTER.md
+   - AGENTS-COMPLETE-INDEX.md
+   - QUICK-ACCESS-GUIDE.md
+
+2. ✅ Activate Design Squad:
+   @design-chief
+   *agents
+
+3. ⏳ Deploy Squad-Vendas:
+   - GitHub push
+   - Vercel deployment
+
+4. ⏸️ Continue Zona Genialidade:
+   - Bloco 3/7 in progress
+   - 10 frameworks total
+
+5. 🔄 Migrate 2 squads:
+   - direct-response-marketing
+   - squad-creator-pro
+   (config.yaml → squad.yaml)
+
+6. 📝 Add MEMORY.md to 8 squads:
+   - content-distillery
+   - desafio-aiox
+   - hormozi
+   - zona-genialidade
+   - automacao-profissional
+   - jose-amorim
+   - marketing-arm-mentoria
+   - dashboard-central
+
+═══════════════════════════════════════════════════════════════════════════════
+
+Status:                🟢 OPERACIONAL
+Framework:             AIOX v4.31.1
+Last Updated:          2026-03-14 05:10 UTC
+Conformance:           9/11 L4 (82%)
+
+═══════════════════════════════════════════════════════════════════════════════
