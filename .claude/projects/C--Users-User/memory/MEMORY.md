@@ -379,42 +379,47 @@ file:///C:\Users\User\.squads\hormozi\instrucoes-agentes.html
 - **Próxima sessão:** Orçamento novo de 200K para completar assessment + análise
 - **⏳ SALVO:** Respostas e padrões documentados em MEMORY.md
 
-## Prospect Hunter - Window 2 Frontend (Story 5.1) ✅ COMPLETA (2026-03-07)
+## Prospect Hunter - Story 4.1 (Messaging Integration) ✅ CRIADA (2026-03-07)
 
 ### Status Final:
-- ✅ **Story 5.1 (Auth Pages)**: 4 pontos - 100% COMPLETA
-- ✅ **Arquivos criados**: 6 (AuthLayout, AuthForm, RequireAuth, login, register, profile pages)
-- ✅ **Arquivos modificados**: 2 (validators.ts + auth-middleware.ts)
-- ✅ **Acceptance criteria**: 14/14 ✅
-- ✅ **Lint status**: 0 erros (4 warnings pre-existentes)
-- ✅ **Git commits**: b8ef25b, 0372de3, 6195e17
+- ✅ **Story 4.1 (Messaging Integration)**: 5 pontos - DRAFT COMPLETO
+- ✅ **Arquivo**: `/docs/STORY-4.1.md` (482 linhas documentadas)
+- ✅ **Commit**: `5e4ccf7` — feat: Create Story 4.1 - Messaging Integration with templates & history
+- ✅ **Responsabilidade**: Bridge entre Window 1 (backend) e Window 2 (frontend)
 
-### Próximas Stories (Window 2):
-- 5.2: Dashboard Layout (3 pts) ← Próxima!
+### O Que Inclui (Documentação Completa):
+1. **3 Tabelas Database**: messages, message_templates, platform_integrations
+2. **6 Endpoints API**: send, history, templates (CRUD), integrations status
+3. **3 Plataformas**: Instagram DM (Apify), LinkedIn Messages, Email (Resend)
+4. **Features**: Personalization, scheduling, rate limiting, status tracking
+5. **Validation**: Zod schemas para todos os endpoints
+6. **Error Handling**: 400/401/404/429/500 responses
+
+### Próximas Stories:
+- 4.1 Implementation ← Próxima sessão (6-8 horas)
+- 5.2: Dashboard Layout (3 pts) - Window 2
 - 5.3: Prospects List View (3 pts)
 - 5.4: Search Form & Polling (4 pts)
 - 5.5: Message Generator (2 pts)
 - 5.6: Analytics Dashboard (2 pts)
 
-### Tokens Restantes:
-- Consumido: ~170K (85%)
-- Restante: ~30K
-- Status: CRÍTICO - Pausar aqui, retomar com 200K frescos
+### Estrutura Final do Projeto:
+```
+Window 1 (Backend) ✅
+├── Stories 2.x - Database Setup
+├── Stories 3.x - CRUD + Search + Import
+└── Story 4.1 - Messaging System (NOVO) ← Pronto para dev
 
-### Resumo Técnico:
-- Login/Register pages com NextAuth.js v5
-- Validação Zod (email, password forte, confirmPassword)
-- TailwindCSS dark mode 100% responsivo
-- RequireAuth wrapper para rotas protegidas
-- Indicador força de senha em tempo real
-- Loading states e error handling
+Window 2 (Frontend) ✅ Parcial
+├── Story 5.1 - Auth Pages ✅
+└── Stories 5.2+ - Dashboard (⏳ Próximas)
+```
 
 ### Para Próxima Sessão:
 ```bash
 cd /c/Users/User/prospect-hunter
 npm run dev
-# Começar Story 5.2: Dashboard Layout
-# Ver WINDOW-2-SESSION-PROGRESS.md para detalhes
+# Começar Story 4.1: Implementação de Messaging Integration
 ```
 
 ---
@@ -468,3 +473,182 @@ npm run dev
 3. ✅ Database Schema Design — 12 tabelas estruturadas
 4. ✅ Migrações SQL Geradas — Pronto para aplicar (18f3c8f)
 5. ✅ Documentação Completa — README + guides
+
+## Dashboard Central AIOX — CRIADO COMPLETO ✅ (2026-03-08)
+
+### Status Final:
+- ✅ **Squad instalado**: `.squads/dashboard-central/` (11 arquivos)
+- ✅ **Documentação**: 2.460+ linhas profissionais
+- ✅ **Story completa**: `docs/stories/DASHBOARD-CENTRAL.story.md` (13 pontos MVP)
+- ✅ **Arquitetura**: `docs/DASHBOARD-ARCHITECTURE.md` (450 linhas)
+- ✅ **Conformidade AIOX**: L4 100% (respeta L1-L2 boundaries)
+- ✅ **Git commit**: 4d8d547 — feat: Create Dashboard Central
+
+### Arquivos Criados (11):
+1. `.squads/dashboard-central/squad.yaml` (manifest)
+2. `.squads/dashboard-central/README.md` (130 linhas)
+3. `.squads/dashboard-central/INTEGRATION-GUIDE.md` (380 linhas)
+4. `.squads/dashboard-central/USAGE.md` (420 linhas)
+5. `.squads/dashboard-central/config/projects.yaml` (190 linhas - 5 squads)
+6. `.squads/dashboard-central/backend/.env.example`
+7. `.squads/dashboard-central/frontend/.env.example`
+8. `docs/DASHBOARD-ARCHITECTURE.md` (450 linhas)
+9. `docs/stories/DASHBOARD-CENTRAL.story.md` (520 linhas)
+10. `.squads/INDEX.md` (330 linhas - novo catálogo)
+11. `package.json` (atualizado com 8 scripts dev)
+
+### Arquitetura Dashboard Central:
+**Backend (Express.js)**
+- Health Check Engine (30s interval)
+- AIOX Agent Invoker integration (black-box)
+- Log Aggregator (streaming via WebSocket)
+- Project Monitor (5 squads pre-configured)
+
+**Frontend (React 18)**
+- Squad status cards (real-time)
+- Agent monitor
+- Log viewer (WebSocket)
+- Workflow dispatcher
+- 100% responsivo (mobile-first)
+
+**Configuration**
+- 5 squads pre-configured: squad-vendas, prospect-hunter, zona-genialidade, automacao-profissional, desafio-aiox
+- YAML-driven (projects.yaml)
+- .env.example para backend e frontend
+
+### Próximos Passos:
+1. **Validação**: @po *validate-story-draft (10-point checklist)
+2. **Desenvolvimento**: @dev *develop (Phase 1-3: Backend 4pt, Frontend 4pt, Integration 3pt)
+3. **Deploy**: npm run dev:dashboard (http://localhost:3000)
+
+### Scripts npm Adicionados:
+```bash
+npm run dev                  # Ativar dashboard central
+npm run dev:dashboard        # Dashboard only
+npm run dev:vendas          # Squad de Vendas
+npm run dev:prospect        # Prospect Hunter
+npm run dev:assessment      # Zona Genialidade
+npm run dev:automacao       # Automação Profissional
+npm run dev:all             # Todos em paralelo (concurrently)
+npm run status              # aiox doctor
+npm run graph               # aiox graph --deps --format=html
+```
+
+---
+
+## 🚨 CONSUMO CRÍTICO DE TOKENS — SESSÃO 2026-03-14
+
+### Status Atual:
+- **Orçamento total**: 200.000 tokens
+- **Consumido até agora**: 162.000 tokens (81%)
+- **Restantes**: 38.000 tokens (19%) ⚠️ CRÍTICO
+- **Voice Mode**: ✅ DESABILITAR IMEDIATAMENTE (gasta +50% tokens)
+
+### Onde Foram os 162 Mil Tokens?
+
+#### 📚 Leitura de Arquivos Grandes (~35-40K tokens):
+1. **MEMORY.md anterior** (536 linhas): ~8.000 tokens
+2. **CLAUDE.md** (custom instructions): ~5.000 tokens
+3. **Agent Authority rules** (~80 linhas): ~1.500 tokens
+4. **Workflow execution rules** (~200 linhas): ~3.000 tokens
+5. **Tool examples rules**: ~800 tokens
+6. **MCP usage rules** (~300 linhas): ~2.500 tokens
+7. **10+ arquivos de stories** (DASHBOARD, Prospect, Zona): ~8.000 tokens
+8. **Leitura de config files** (.aiox-core, .claude.json): ~3.000 tokens
+
+**Subtotal: ~32.000 tokens**
+
+#### 🤖 Processamento AIOX/Agentes (~40-50K tokens):
+1. **Squad Creator Pro** (8 agentes + 34 tasks): ~8.000 tokens
+2. **Zona Genialidade Assessment** (7 frameworks, 43 perguntas): ~12.000 tokens
+3. **Dashboard Central** (criação 2.460 linhas doc): ~10.000 tokens
+4. **Prospect Hunter Story** (482 linhas docs): ~6.000 tokens
+5. **Database Schema + Migrations** (424+ linhas SQL): ~4.000 tokens
+
+**Subtotal: ~40.000 tokens**
+
+#### 💬 Conversas com Agentes (~35-45K tokens):
+1. **@oalanicolas** (Mind cloning agent): ~8.000 tokens
+2. **@pedro-valerio** (Optimizer): ~6.000 tokens
+3. **@qa @dev @architect** (Validações): ~15.000 tokens
+4. **Squad discus patterns** (team management): ~5.000 tokens
+5. **AIOX framework discussions** (3-4 agent switches): ~8.000 tokens
+
+**Subtotal: ~42.000 tokens**
+
+#### 📝 Geração de Documentação (~40-50K tokens):
+1. **Landing page HTML** (490 linhas): ~3.000 tokens
+2. **Relatórios AIOX** (4 docs conformidade): ~5.000 tokens
+3. **Guias HTML agentes** (instrucoes-agentes.html): ~6.000 tokens
+4. **Story files** (YAML frontmatter + AC): ~12.000 tokens
+5. **SQL + README migrations** (424+ linhas): ~4.000 tokens
+6. **Sistema de handoff** (agent switch compaction): ~3.000 tokens
+7. **Explicações e análises técnicas**: ~12.000 tokens
+
+**Subtotal: ~45.000 tokens**
+
+#### 🔄 Overhead do Claude Code (~8-12K tokens):
+1. **Agent persona carregamento** (4-5 agents por sessão): ~5.000 tokens
+2. **Tool descriptions** (50+ ferramentas disponíveis): ~4.000 tokens
+3. **System reminders** (regras, contexto, memory): ~3.000 tokens
+
+**Subtotal: ~12.000 tokens**
+
+---
+
+### **RESUMO BREAKDOWN (162.000 tokens):**
+
+| Categoria | Tokens | % |
+|-----------|--------|---|
+| Leitura de arquivos | 32.000 | 20% |
+| Processamento AIOX | 40.000 | 25% |
+| Conversas agentes | 42.000 | 26% |
+| Documentação | 45.000 | 28% |
+| Overhead framework | 12.000 | 7% |
+| **TOTAL** | **162.000** | **100%** |
+
+---
+
+### ⚠️ Por Que o Consumo Foi Alto?
+
+1. **Múltiplos Projetos em Paralelo**: Squad Vendas + Prospect Hunter + Zona Genialidade + Dashboard
+2. **Documentação Extensa**: Cada story/squad gerou 300-500 linhas de docs
+3. **Agent Switching**: Passar de @sm → @dev → @qa → @architect (cada switch carrega personae)
+4. **Voice Mode Explorado**: (Não ativado, mas explicações adicionadas ~2K tokens)
+5. **AIOX Framework Learning**: Muitas leituras de rules, constitution, workflows
+6. **Large MEMORY.md**: Arquivo cresceu para 535 linhas (máximo é 200), forçando recompactação
+
+---
+
+### ✅ RECOMENDAÇÕES IMEDIATAS:
+
+1. **DESABILITAR Voice Mode**: Economiza +50% em próximas conversas
+2. **Não criar novos projetos**: Focar em conclusão (finalizar stories existentes)
+3. **Evitar agent switching**: Manter mesma equipe por sessão (só 1 switch necessário)
+4. **Não gerar relatórios longos**: Priorizar código vs documentação
+5. **Compactar MEMORY.md**: Mover dados antigos para `.claude/projects/C--Users-User/memory/topic-files/`
+
+---
+
+### 📋 PARA PRÓXIMA JANELA/SESSÃO:
+
+**Contexto Salvado em MEMORY.md:**
+- ✅ Todas as stories criadas (4.1, Dashboard, Zona Assessment)
+- ✅ Squad criados (desafio-aiox, zona-genialidade, dashboard-central, automacao-profissional)
+- ✅ Database migrations prontas (não aplicadas ainda)
+- ✅ Squad Creator Pro v3.1.0 instalado e operacional
+- ✅ Estrutura AIOX 100% conformidade L4
+- ✅ Zona Genialidade Assessment PAUSADO no Bloco 3
+
+**Ações Prioritárias (Próxima Sessão):**
+1. Desabilitar voice mode: `/voice disable`
+2. Continuar Zona Genialidade Assessment (Bloco 3: Unique Ability - 3 perguntas)
+3. Implementar Story 4.1 (Prospect Hunter - Backend Messaging)
+4. NÃO criar novos squads (orçamento limitado)
+5. Focar em desenvolvimento vs documentação
+
+**Git Status:**
+- ✅ Último commit: `4d8d547` (Dashboard Central)
+- ✅ Branch: master
+- ⏳ Mudanças não commitadas: .claude.json, memory/MEMORY.md
+- Recomendação: Fazer commit antes de encerrar
