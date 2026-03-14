@@ -26,16 +26,40 @@ Propriedade removida completamente.
 
 ## Resultado
 
-A barra de status que exibia estas informações foi eliminada:
+A barra de status que exibia estas informações foi **completamente eliminada de todos os terminais**:
 - 🤖 Modelo: Claude Haiku 4.5
 - ⚡ Consumo: X tokens
 - 💰 Gastos: R$ X
 - 📁 Pasta: /c/Users/User
 - 👤 Usuário: Mariana
 
+## Arquivos removidos
+
+| Arquivo | Tipo | Status |
+|---------|------|--------|
+| `C:\Users\User\Show-StatusBar.ps1` | PowerShell | 🗑️ Deletado |
+| `C:\Users\User\show-statusbar.sh` | Bash/Shell | 🗑️ Deletado |
+
+## Arquivos modificados
+
+| Arquivo | Modificação | Status |
+|---------|------------|--------|
+| `.claude/settings.json` | Removida prop. statusLine | ✅ Commitado |
+| `Documents/PowerShell/profile.ps1` | Removida referência Show-StatusBar.ps1 | ✅ Commitado |
+| `.bashrc` | Removida referência show-statusbar.sh | ✅ Commitado |
+
+## Commits
+
+- `15616e0` — Remove statusLine from Claude Code settings
+- `34c73ca` — Remove statusLine reference from PowerShell profile
+- `c775836` — Remove statusLine reference from .bashrc
+
 ## Como aplicar
 
-Essa configuração está permanentemente removida. A statusLine não reaparecerá em futuras sessões do Claude Code.
+Essas configurações estão **permanentemente removidas**:
+- ✅ Claude Code: Sem statusLine
+- ✅ PowerShell: Sem carregamento de Show-StatusBar.ps1
+- ✅ Git Bash: Sem carregamento de show-statusbar.sh
+- ✅ Todos os terminais: A barra NÃO reaparecerá
 
-**Arquivo modificado:** `.claude/settings.json`
-**Status:** ✅ Finalizado e commitado
+**Status:** ✅ FINALIZADO — Completamente removido de todos os terminais
