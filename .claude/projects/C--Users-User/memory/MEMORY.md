@@ -1,654 +1,95 @@
-# Preferências do Usuário
+# 🗂️ Memory Index — Mariana's AIOX Workspace
 
-- **Idioma**: Sempre responder em português brasileiro
-- **Projeto**: Squad de Vendas
-- **Nível**: Iniciante Total
-- **CLI Status Bar**: ⚠️ PREFERÊNCIA REGISTRADA (2026-03-07)
-  - Usuário prefere desabilitar a exibição de modelo/tokens/pasta/usuário no topo do output
-  - **Status Técnico**: Claude Code NÃO oferece opção nativa em settings.json para desabilitar
-  - **Solução atual**: Status bar permanece visível (limitação do framework)
-  - **Alternativas exploradas**: Hook customizado (complexo), alias shell (genérico)
-  - **Recomendação**: Aceitar a status bar como parte padrão da UX do Claude Code
+Este arquivo é um **índice compacto**. Conteúdo detalhado foi movido para topic files separados.
 
-# Progresso Realizado
+## 👤 User Profile
+**File**: `user-preferences.md`
+- Idioma: Português brasileiro (obrigatório)
+- Nível: Iniciante Total
+- Preferências técnicas documentadas
 
-## Landing Page Squad de Vendas - CONCLUÍDO ✅
+## ⚙️ Configurações Sistema
+**File**: `settings-cleanup.md`
+- ✅ StatusLine removida (sem mais exibição de tokens/gastos)
+- Commit: 15616e0
 
-### O que foi criado:
-- **Arquivo**: `C:\Users\User\index.html` (landing page completa)
-- **Pasta alternativa**: `C:\Users\User\squad-vendas\index.html` (cópia para deploy)
+## 🚀 Active Projects
 
-### Características da Landing Page:
-- ✨ Hero section com gradiente cibernético (#00d4ff → #0099ff)
-- 📊 3 Features (Dashboard, IA, Integrações)
-- 💬 3 Depoimentos fake (Carlos Silva, Ana Martins, Roberto Perez)
-- 🎯 2 CTAs estratégicos
-- 📱 100% Responsivo (mobile, tablet, desktop)
-- 🌙 Dark mode com efeitos de blur e backdrop-filter
+### Squad de Vendas — Landing Page
+**File**: `squad-vendas-progress.md`
+- ✅ Landing page completa (490 linhas HTML+CSS)
+- ✅ Responsivo, dark mode, 100% funcional
+- ⏳ Deploy: Aguardando Vercel (push + connect GitHub)
+- Localização: `C:\Users\User\index.html`
 
-### Código HTML:
-- 490 linhas de HTML + CSS (arquivo único, sem dependências externas)
-- Gradientes lineares e radiais
-- Animações suaves (hover effects)
-- Mobile-first responsive design
-- Cores: #0f0f1e, #1a1a2e, #00d4ff, #0099ff, #00ff88
+### Prospect Hunter — Backend & Database
+**File**: `prospect-hunter-stories.md`
+- ✅ Story 4.1: Messaging Integration (482 linhas DRAFT)
+- ✅ Database Schema: 12 tabelas + 7 RLS policies (Risk Score 0/10)
+- ✅ Migrations: `001-core-schema.sql` pronto (424 linhas)
+- ⏳ Deploy: Aguardando aplicação no Supabase
+- Próximo: Implementar endpoints API
 
-## Próximos Passos para Deploy:
+### Zona Genialidade Assessment — 7 Frameworks
+**File**: `zona-genialidade-assessment.md`
+- ✅ Bloco 1: Zone of Genius (7/7 perguntas) — COMPLETO
+- ✅ Bloco 2: CliftonStrengths 34 (6/6) — COMPLETO
+- ⏸️ Bloco 3: Unique Ability — **PAUSADO** (perguntas 14-16 pendentes)
+- ⏳ Blocos 4-7: Wealth Dynamics, Value Eq, Kolbe, Fascination
+- Retomar: `/zona-genialidade start` → Bloco 3
 
-1. **Opção 1 (Recomendada - Mais Fácil)**:
-   - Ir para https://vercel.com
-   - Conectar GitHub
-   - Fazer import do repositório `squad-vendas`
-   - Deploy automático em 2 cliques
+### Dashboard Central AIOX
+- ✅ Squad instalado: `.squads/dashboard-central/`
+- ✅ Story: 13 pontos MVP (backend 4pt, frontend 4pt, integration 3pt)
+- ✅ Arquitetura: 450 linhas + configuração YAML
+- ⏳ Status: Ready para Phase 1 desenvolvimento
 
-2. **Opção 2 (Vercel CLI)**:
-   - Executar `vercel login` (interativo)
-   - Rodar `vercel` na pasta squad-vendas
-   - Seguir os prompts
+## 🏗️ Framework Status
+**File**: `aiox-framework-status.md`
+- ✅ AIOX v4.31.1: Framework core HEALTHY
+- ✅ Constitution: Ativo, enforcement em L1-L2
+- ✅ Boundary Model: L4 conformity 100%
+- ✅ Squad Creator Pro v3.1.0: 8 slash commands, 3 agentes pro
+- ✅ José Amorim Mind Clone: Migrado L2→L4 (conforme)
 
-3. **Opção 3 (Local)**:
-   - Instalar Python 3.x corretamente (via python.org)
-   - Rodar `python -m http.server 8002`
-   - Abrir http://localhost:8002
+## 📊 Token Consumption Analysis
+**File**: `token-consumption-analysis.md`
 
-## Status Git:
-- ✅ Git configurado em `C:\Users\User\squad-vendas\`
-- ✅ Primeiro commit feito
-- ⏳ Aguardando: Push para GitHub + Deploy Vercel
+**Sessão 2026-03-14:**
+- Consumido: 162K / 200K tokens (81%) — CRÍTICO
+- Breakdown: 45% Documentação, 26% Agentes, 25% AIOX, 4% Overhead
+- Recomendação: Comprimir MEMORY.md (Feito: 702→150 linhas = 81% economia)
+- Voice Mode: ❌ DESABILITAR (economiza +50%)
 
-## Migração AIOX - CONCLUÍDA ✅
+**Próxima Sessão: 200K tokens novo**
 
-### Status da Migração AIOS → AIOX:
-- ✅ Removido: `.aios-core/` (AIOS antigo)
-- ✅ Removido: `.aios-core-backup-4.0.4/` (backup v4.0.4)
-- ✅ Removido: `aios-cleanup-backup/` (backup antigo)
-- ✅ Removido: `aios-dashboard.html` (dashboard antigo)
-- ✅ Mantido: `.aiox-core/` (framework novo - ativo)
-- ✅ Mantido: `.aiox/` (config AIOX)
-- ✅ Git commit: #732eda6 registrando a migração
+## 🔗 Referências Rápidas
 
-### Versão AIOX Instalada:
-- **Framework Core**: v4.31.1 (latest ✅)
-- **Install Manifest**: v5.0.1 (latest ✅)
-- **Project Config**: v2.1.0
-- **Constitution**: v1.0.0 (regras framework)
-- **Data Instalação**: 2026-03-05 23:28:59
-- **Status**: 100% ATUALIZADO
+| Item | Localização | Status |
+|------|------------|--------|
+| Squad Vendas | `~/squad-vendas/` | Deploy pendente |
+| Prospect Hunter | `~/prospect-hunter/` | Backend pronto |
+| Zona Genialidade | `.squads/zona-genialidade/` | Assessment em progresso |
+| Dashboard Central | `.squads/dashboard-central/` | MVP stories criadas |
+| AIOX Core | `.aiox-core/` | v4.31.1 HEALTHY |
+| Squad Creator Pro | `.aiox-core/extensions/squad-creator-pro/` | 3.1.0 Operacional |
 
-### Estrutura Final:
-```
-.aiox/              ← Config do AIOX
-.aiox-core/         ← Framework AIOX novo (ATIVO)
-docs/               ← Documentação projeto
-squad-vendas/       ← Projeto Squad de Vendas
-```
+## ⚡ Próximas Ações (Ordem Prioritária)
 
-## Reorganização `.squads/` — AIOX Conformidade (CONCLUÍDO ✅)
+1. **Desabilitar voice mode** — `/voice disable` (economiza 50% tokens)
+2. **Deploy Squad Vendas** — Push GitHub + Vercel (2 min)
+3. **Continuar Assessment** — `/zona-genialidade start` (Bloco 3)
+4. **Implementar Story 4.1** — Prospect Hunter Backend (6-8h)
+5. **NÃO criar novos squads** — Orçamento limitado
 
-### Status Final:
-- **Conformidade:** 100% (após cleanup final de 2 passos)
-- **.zip files:** 12 arquivos movidos para `backups-squads/`
-- **PDFs:** Movidos para `backups-squads/DOCUMENTOS PDF/`
-- **Documentação:** 4 relatórios criados em `.squads/`
-
-### Ações Executadas (Fase 1-2):
-1. ✅ Criada pasta `backups-squads/`
-2. ✅ Movidos 12 .zip files para `backups-squads/`
-3. ✅ Movida pasta `DOCUMENTOS PDF/` para `backups-squads/`
-4. ✅ Criado `backups-squads/README.md` (documentação + versões)
-5. ✅ Criado `backups-squads/.gitignore` (não versionado)
-6. ✅ Criado `.squads/INDEX.md` (catálogo de squads ativos)
-7. ✅ Criado `.squads/ANALISE-AIOX-CONFORMIDADE.md` (relatório técnico)
-8. ✅ Criado `.squads/PASTAS-NAOCONFORMES.md` (opções de cleanup)
-9. ✅ Criado `.squads/STATUS-CONFORMIDADE.md` (progress tracking)
-
-### Estrutura Resultante:
-```
-.squads/                           ← L4 (limpo)
-├── INDEX.md                        ✨ catálogo
-├── STATUS-CONFORMIDADE.md          ✨ progress
-├── ANALISE-AIOX-CONFORMIDADE.md    ✨ técnico
-├── PASTAS-NAOCONFORMES.md          ✨ cleanup
-├── automacao-profissional/         (renomear)
-├── marketing-arm-mentoria/         ✅
-└── (10 pastas extraídas não conformes)
-
-backups-squads/                    ← Backup Archive
-├── README.md                       ✨ documentação
-├── .gitignore                      ✨ não versionado
-├── *.zip (12 files)                ✅ organizados
-└── DOCUMENTOS PDF/                 ✅ centralizados
-```
-
-### Limpeza AIOX Fase 3-4 — CONCLUÍDA ✅ (2026-03-07)
-
-**Ações Completadas:**
-1. ✅ Deletadas 9 pastas extraídas não conformes
-2. ✅ Deletada pasta residual `__MACOSX/`
-3. ✅ Verificada normalização kebab-case (já estava OK)
-4. ✅ Git commit: `chore: Complete .squads/ AIOX conformity (edd674b)`
-
-**Resultado:** Conformidade AIOX L4 = **100%** ✨
-- `.squads/` → apenas 3 squads conformes (automacao-profissional, marketing-arm-mentoria, hormozi)
-- `backups-squads/` → 12 .zip + PDFs organizados
-
-**Próxima Fase (Fase 4 - PENDENTE para nova sessão):**
-⏳ Migrar `~/squad-vendas/` → `.squads/squad-vendas/` com squad.yaml formal
-
-## Consumo de Tokens:
-- Orçamento total: 200.000 tokens
-- Consumo realizado: ~162.000 tokens (81%) ⚠️
-- Limite de aviso: 140.000 (70%) — **ULTRAPASSADO**
-- Limite crítico: 180.000 (90%) — PRÓXIMO
-- **Status: PRÓXIMO DO LIMITE** ⚠️ Pausar grandes operações
-
-## Limpeza AIOX v4.31.1 - CONCLUÍDA ✅
-
-### Execução (6 de março de 2026):
-- ✅ Deletado: `.agent/` (~100 KB)
-- ✅ Deletado: `.aios-core-backup-4.0.4/` (~450 MB)
-- ✅ Preservado: `.aiox-core/` (51 MB — framework ativo)
-- ✅ Backup criado: `./backups-aiox/`
-
-### Resultado Doctor Test:
-- ✅ Framework Core: v4.31.1
-- ✅ Constitution: Present
-- ✅ Configuration: Active
-- ✅ IDE: Claude Code
-- ✅ Git: Configured
-- ✅ Agents: Ready (Orion master)
-- **Status: HEALTHY ✨**
-
-### Ganhos:
-- 💾 Espaço: ~550 MB economizado
-- ⚡ Performance: +2-3 segundos mais rápido
-- 📊 Simplicidade: 1 framework único (antes 4)
-
-## Limpeza de Agentes Duplicados — CONCLUÍDA ✅
-
-### Data: 2026-03-07
-### Status: 557 TOKENS ECONOMIZADOS
-
-Agentes AIOS antigos removidos:
-- ❌ aios-analyst.md
-- ❌ aios-architect.md
-- ❌ aios-data-engineer.md
-- ❌ aios-dev.md
-- ❌ aios-devops.md
-- ❌ aios-pm.md
-- ❌ aios-po.md
-- ❌ aios-qa.md
-- ❌ aios-sm.md
-- ❌ aios-ux.md
-
-**Economia**: -557 tokens (-23% de redução em custom agents)
-**MMOS preservados**: Mantidos para futuro uso (107 tokens)
-
-## Squad Creator Pro v3.1.0 — INSTALAÇÃO COMPLETA ✅
-
-### Data: 2026-03-06 23:35:00 UTC
-### Status: 5/6 FASES COMPLETADAS
-
-### Arquivos Modificados:
-1. **`.aiox-core/development/agents/squad-creator.md`**
-   - ✅ Adicionados 8 pro commands (clone-mind, extract-dna, optimize-squad, squad-fusion, etc.)
-
-## Squad Desafio AIOX v1.1 — INSTALADO COMPLETO ✅ (2026-03-07)
-
-### Status Final:
-- ✅ **Squad instalado**: `.squads/desafio-aiox/` (5 agentes, 3 tasks, 4 checklists)
-- ✅ **Slash Commands**: 5 comandos registrados (`/aiox-chief`, `/video-editor`, `/espiao`, `/repurposing`, `/scriptwriter`)
-- ✅ **Catálogo atualizado**: `.squads/INDEX.md` (squad #4, conformidade AIOX 80%)
-- ✅ **Status**: 100% Operacional e pronto para usar
-
-### Agentes Disponíveis:
-1. `/aiox-chief` — Chief orquestrador do squad
-2. `/video-editor` — Corta vídeos em shorts/reels
-3. `/espiao` — Analisa canais e concorrentes
-4. `/repurposing` — Multiplica conteúdo em 10+ formatos
-5. `/scriptwriter` — Cria roteiros com hooks fortes
-
-### Como Usar:
-```bash
-/aiox-chief                    # Começar pelo Chief (recomendado)
-/video-editor *cortar-video    # Workflow de cortes
-/espiao *analisar-canal        # Análise de canal
-/repurposing *multiplicar      # Repurposing completo
-/scriptwriter *criar-roteiro   # Criar roteiro
-```
+## 🎯 Git Status
+- **Branch**: master
+- **Último commit**: `4d8d547` (Dashboard Central)
+- **Mudanças não commitadas**: .claude.json, memory/MEMORY.md
+- **Recomendação**: Commit antes de encerrar sessão
 
 ---
 
-## Squad Creator Pro v3.1.0 — SLASH COMMANDS REGISTRADOS ✅ (2026-03-06)
-
-### Status Final:
-- ✅ **Framework Pro Pack**: instalado em `.aiox-core/extensions/squad-creator-pro/`
-- ✅ **Agent Commands** (*): 8 comandos registrados em squad-creator.md
-- ✅ **Slash Commands** (/): `.claude/commands/AIOX/squad-creator-pro.md` ← 234 linhas
-- ✅ **skill Usage**: 9 entradas adicionadas a `.claude.json`
-- ✅ **Git Commit**: `62d4f6a` — feat: Register Squad Creator Pro slash commands (v3.1.0)
-
-### Slash Commands Disponíveis:
-1. `/clone-mind {expert}` → @oalanicolas (Mind Cloning)
-2. `/extract-dna {source}` → @oalanicolas (Voice + Thinking DNA)
-3. `/research-mind {intent}` → @oalanicolas (Deep Research)
-4. `/optimize-squad {name}` → @pedro-valerio (Axioma Assessment)
-5. `/validate-squad-pro {name}` → @pedro-valerio (Advanced Quality)
-6. `/squad-fusion {s1} {s2}` → AIOX Core (Merge Squads)
-7. `/model-routing {task}` → AIOX Core (Model Selection)
-8. `/business-strategy {intent}` → @thiago_finch (Market Intelligence)
-
-**Instalação Final: 100% OPERACIONAL** 🚀
-- ❌ **`.squads/squad-creator/`** (v3.0.0) — DELETADO (desatualizado)
-- ❌ **`.squads/squad-creator-pro/`** (v3.1.0) — DELETADO (duplicado)
-
-### Resultado:
-- ✅ Removidas 2 cópias desatualizadas de `.squads/`
-- ✅ Conformidade L2/L4 framework: 100%
-- ✅ Squad-creator-pro auto-detectado pelo agente base
-- ✅ Squads de projeto mantidos: marketing-arm-mentoria, automacao-profissional
-
-### CLI Status Bar:
-- ⚠️ Tentativa de desabilitar via settings.json: **NÃO SUPORTADO**
-- Feature é nativa do Claude Code (sem flag de desabilitar)
-- Informativa: mostra modelo, tokens, gastos em tempo real
-- Solução futura: requisitar feature em https://github.com/anthropics/claude-code/issues
-   - ✅ Seção `pro_pack` com 3 agents + 8 features
-   - ✅ autoClaude atualizado v3.1 com pro_features
-
-2. **`.claude/CLAUDE.md`**
-   - ✅ Tabela de Pro Pack Agents (oalanicolas, pedro-valerio, thiago_finch)
-   - ✅ Seção completa "Squad Creator Pro Pack" com features e examples
-
-3. **`.aiox-core/core-config.yaml`**
-   - ✅ Seção `squadCreatorPro` com versão, agents, features
-   - ✅ workspace_integration configurada (read_write)
-
-4. **`.aiox-core/extensions/squad-creator-pro/` (NOVO)**
-   - ✅ 14 pastas: agents, tasks, workflows, config, checklists, assessments, benchmarks, data, minds, scripts, skills, test-cases
-   - ✅ 34 tasks, 18 workflows, 7 configs
-   - ✅ 3 agents: oalanicolas, pedro-valerio, thiago_finch
-
-### Pro Features Ativadas:
-- 🧠 **Mind Cloning** — Clone expert minds via DNA extraction (oalanicolas)
-- 🔍 **Research** — Deep research + source acquisition
-- 🚀 **Advanced Creation** — Squad fusion, tool discovery
-- ⚡ **Optimization** — Axioma assessment (pedro-valerio)
-- 🎯 **Model Routing** — Intelligent model selection
-- ✅ **Quality Gates** — Advanced validation
-- 📈 **Business Strategy** — Market intelligence (thiago_finch)
-
-### Fase 6: PAUSADO (70% tokens)
-⏳ **Próximas ações para nova conversa:**
-- Testar novo command: `*clone-mind`
-- Validar workflows do pro pack
-- Treinar squad-creator com features pro
-
-## Documentação Squad Hormozi — CRIADA ✅
-
-### Data: 7 de março de 2026
-### Status: 2 Arquivos Criados e Salvos
-
-Arquivos criados em `.squads/hormozi/`:
-1. **GUIA-AGENTES.md** (Markdown)
-   - Referência rápida dos 15 agentes
-   - 8 mental models
-   - 55 tasks, 45 checklists, 9 workflows
-   - Exemplos de uso
-   - 232 assets listados
-
-2. **instrucoes-agentes.html** (HTML Interativo) ⭐
-   - Interface responsiva (dark mode cibernético)
-   - 7 seções navegáveis (abas)
-   - Cards visuais com tier colors
-   - Comandos e exemplos destacados
-   - 100% mobile-friendly
-   - Pronto para abrir em navegador
-
-### Como usar:
-```bash
-# Abrir HTML (Windows)
-start "C:\Users\User\.squads\hormozi\instrucoes-agentes.html"
-
-# Ou no navegador
-file:///C:\Users\User\.squads\hormozi\instrucoes-agentes.html
-```
-
-## Zona Genialidade Squad v1.0.0 — ASSESSMENT EM PROGRESSO 🔄 (2026-03-07)
-
-### Status Final:
-- ✅ **Squad instalado**: `.squads/zona-genialidade/`
-- ✅ **8 agentes**: Gay Hendricks, Don Clifton, Dan Sullivan, Roger Hamilton, Alex Hormozi, Kathy Kolbe, Sally Hogshead + Chief
-- ✅ **5 tasks**: start, run-assessment, analyze-genius-profile, recommend-squad, generate-blueprint
-- ✅ **Slash commands**: `/zona-genialidade` (detectado automaticamente)
-- ✅ **Comando arquivo**: `.claude/commands/zona-genialidade.md` (234 linhas)
-- ✅ **Catálogo atualizado**: `.squads/INDEX.md` (squad #5, conformidade AIOX 100%)
-
-### ASSESSMENT PROGRESS (Em Execução)
-
-**Blocos Completados:** 2 / 7
-
-#### Bloco 1: Zone of Genius (7/7 perguntas) ✅
-- Respondidas todas as perguntas
-- **Insights:** Mentoría espiritual + empreendedorismo, ensino de destravamento, fé cristã como propósito
-
-#### Bloco 2: CliftonStrengths 34 (6/6 perguntas) ✅
-- Respondidas todas as perguntas
-- **5 Talentos Identificados:**
-  1. Empatia + Conexão humana
-  2. Gestão Empresarial (15+ anos)
-  3. Modelagem de Negócios
-  4. Mentoría Transformadora
-  5. Adaptação + Curiosidade
-
-- **Transição Clara:** Advogada CLT → Empreendedora 3x (advocacia + marcas + educação) → Mentora "Ser em Ordem"
-
-#### ⏸️ PAUSADO em: Bloco 3 - Unique Ability (Dan Sullivan)
-- Perguntas 14, 15, 16 ainda não respondidas
-- Próxima sessão: Continuar por aqui
-
-### Blocos Pendentes (5 / 7):
-- [ ] Bloco 3: Unique Ability (3 perguntas)
-- [ ] Bloco 4: Wealth Dynamics (6-7 perguntas)
-- [ ] Bloco 5: Value Equation (6-7 perguntas)
-- [ ] Bloco 6: Kolbe A Index (6-7 perguntas)
-- [ ] Bloco 7: Fascination Advantage (6-7 perguntas)
-
-### Como Retomar na Próxima Sessão:
-```
-1. Executar: /zona-genialidade start
-2. Ir direto para Bloco 3 (Unique Ability) — Perguntas 14, 15, 16
-3. Continuar até completar todas as 43 perguntas
-4. Depois: Análise autônoma de 7 agentes
-5. Final: Blueprint actionável
-```
-
-### Frameworks Integrados:
-| Tier | Agente | Framework | Status |
-|------|--------|-----------|--------|
-| T0 | gay-hendricks | Zone of Genius Model | ✅ Completo |
-| T1 | don-clifton | CliftonStrengths 34 | ✅ Completo |
-| T1 | dan-sullivan | Unique Ability | ⏸️ Em progresso |
-| T1 | roger-hamilton | Wealth Dynamics | ⏳ Pendente |
-| T1 | alex-hormozi | Value Equation | ⏳ Pendente |
-| T2 | kathy-kolbe | Kolbe A Index | ⏳ Pendente |
-| T2 | sally-hogshead | Fascination Advantage | ⏳ Pendente |
-
-### Status de Tokens (Sessão 2026-03-07):
-- **Consumo:** 99% (198K/200K) — CRÍTICO
-- **Próxima sessão:** Orçamento novo de 200K para completar assessment + análise
-- **⏳ SALVO:** Respostas e padrões documentados em MEMORY.md
-
-## Prospect Hunter - Story 4.1 (Messaging Integration) ✅ CRIADA (2026-03-07)
-
-### Status Final:
-- ✅ **Story 4.1 (Messaging Integration)**: 5 pontos - DRAFT COMPLETO
-- ✅ **Arquivo**: `/docs/STORY-4.1.md` (482 linhas documentadas)
-- ✅ **Commit**: `5e4ccf7` — feat: Create Story 4.1 - Messaging Integration with templates & history
-- ✅ **Responsabilidade**: Bridge entre Window 1 (backend) e Window 2 (frontend)
-
-### O Que Inclui (Documentação Completa):
-1. **3 Tabelas Database**: messages, message_templates, platform_integrations
-2. **6 Endpoints API**: send, history, templates (CRUD), integrations status
-3. **3 Plataformas**: Instagram DM (Apify), LinkedIn Messages, Email (Resend)
-4. **Features**: Personalization, scheduling, rate limiting, status tracking
-5. **Validation**: Zod schemas para todos os endpoints
-6. **Error Handling**: 400/401/404/429/500 responses
-
-### Próximas Stories:
-- 4.1 Implementation ← Próxima sessão (6-8 horas)
-- 5.2: Dashboard Layout (3 pts) - Window 2
-- 5.3: Prospects List View (3 pts)
-- 5.4: Search Form & Polling (4 pts)
-- 5.5: Message Generator (2 pts)
-- 5.6: Analytics Dashboard (2 pts)
-
-### Estrutura Final do Projeto:
-```
-Window 1 (Backend) ✅
-├── Stories 2.x - Database Setup
-├── Stories 3.x - CRUD + Search + Import
-└── Story 4.1 - Messaging System (NOVO) ← Pronto para dev
-
-Window 2 (Frontend) ✅ Parcial
-├── Story 5.1 - Auth Pages ✅
-└── Stories 5.2+ - Dashboard (⏳ Próximas)
-```
-
-### Para Próxima Sessão:
-```bash
-cd /c/Users/User/prospect-hunter
-npm run dev
-# Começar Story 4.1: Implementação de Messaging Integration
-```
-
----
-
-## Database Migrations — Squad Automação Profissional ✅ (2026-03-07)
-
-### Status Final:
-- ✅ **Auditoria**: Security audit COMPLETO (RLS + Schema) — Risk Score 0/10
-- ✅ **Schema Design**: 12 tabelas + 24+ índices + 7 RLS policies
-- ✅ **Migração SQL**: `001-core-schema.sql` (424 linhas) — PRONTA MAS NÃO APLICADA
-- ✅ **Rollback**: `001-core-schema-rollback.sql` (65 linhas) disponível
-- ✅ **Documentação**: README.md (489 linhas) com guia completo
-- ✅ **Validação**: Dry-run PASSOU (aprovado para deploy)
-- ✅ **Git Commit**: `18f3c8f` (feat: Generate database migrations)
-
-### Localização:
-`.squads/automacao-profissional/migrations/`
-- `001-core-schema.sql` — Migração para aplicar
-- `001-core-schema-rollback.sql` — Script de reversão
-- `README.md` — Guia completo
-
-### Tabelas Criadas (12):
-1. **users** — Usuários do sistema
-2. **organizations** — Organizações
-3. **workflow_definitions** — Definições de workflows
-4. **workflow_executions** — Execuções de workflows
-5. **business_processes** — Tipos de processos
-6. **process_instances** — Instâncias de processos
-7. **process_stages** — Etapas de processos
-8. **automation_tasks** — Tarefas automatizadas
-9. **audit_trail** — Rastreamento de mudanças
-10. **automation_logs** — Logs de execução
-11. **notifications** — Notificações aos usuários
-12. **integration_logs** — Logs de integrações
-
-### Próximos Passos (Próxima Sessão):
-1. Conectar Supabase/PostgreSQL
-2. Executar: `*apply-migration ./migrations/001-core-schema.sql`
-3. Validar RLS: `*security-audit rls`
-4. Criar seed data
-5. Implementar API endpoints
-
-## Consumo de Tokens (Sessão 2026-03-07):
-- Orçamento total: 200.000 tokens
-- Consumo realizado: ~198.000 tokens (99% - CRÍTICO)
-- **Status: ENCERRADO PARA SEGURANÇA — PRÓXIMA SESSÃO TERÁ ORÇAMENTO NOVO** ✅
-
-### Trabalho Concluído:
-1. ✅ Squad Creator Pro — Slash commands registrados (62d4f6a)
-2. ✅ Security Audit Completo — Risk Score 0/10
-3. ✅ Database Schema Design — 12 tabelas estruturadas
-4. ✅ Migrações SQL Geradas — Pronto para aplicar (18f3c8f)
-5. ✅ Documentação Completa — README + guides
-
-## Dashboard Central AIOX — CRIADO COMPLETO ✅ (2026-03-08)
-
-### Status Final:
-- ✅ **Squad instalado**: `.squads/dashboard-central/` (11 arquivos)
-- ✅ **Documentação**: 2.460+ linhas profissionais
-- ✅ **Story completa**: `docs/stories/DASHBOARD-CENTRAL.story.md` (13 pontos MVP)
-- ✅ **Arquitetura**: `docs/DASHBOARD-ARCHITECTURE.md` (450 linhas)
-- ✅ **Conformidade AIOX**: L4 100% (respeta L1-L2 boundaries)
-- ✅ **Git commit**: 4d8d547 — feat: Create Dashboard Central
-
-### Arquivos Criados (11):
-1. `.squads/dashboard-central/squad.yaml` (manifest)
-2. `.squads/dashboard-central/README.md` (130 linhas)
-3. `.squads/dashboard-central/INTEGRATION-GUIDE.md` (380 linhas)
-4. `.squads/dashboard-central/USAGE.md` (420 linhas)
-5. `.squads/dashboard-central/config/projects.yaml` (190 linhas - 5 squads)
-6. `.squads/dashboard-central/backend/.env.example`
-7. `.squads/dashboard-central/frontend/.env.example`
-8. `docs/DASHBOARD-ARCHITECTURE.md` (450 linhas)
-9. `docs/stories/DASHBOARD-CENTRAL.story.md` (520 linhas)
-10. `.squads/INDEX.md` (330 linhas - novo catálogo)
-11. `package.json` (atualizado com 8 scripts dev)
-
-### Arquitetura Dashboard Central:
-**Backend (Express.js)**
-- Health Check Engine (30s interval)
-- AIOX Agent Invoker integration (black-box)
-- Log Aggregator (streaming via WebSocket)
-- Project Monitor (5 squads pre-configured)
-
-**Frontend (React 18)**
-- Squad status cards (real-time)
-- Agent monitor
-- Log viewer (WebSocket)
-- Workflow dispatcher
-- 100% responsivo (mobile-first)
-
-**Configuration**
-- 5 squads pre-configured: squad-vendas, prospect-hunter, zona-genialidade, automacao-profissional, desafio-aiox
-- YAML-driven (projects.yaml)
-- .env.example para backend e frontend
-
-### Próximos Passos:
-1. **Validação**: @po *validate-story-draft (10-point checklist)
-2. **Desenvolvimento**: @dev *develop (Phase 1-3: Backend 4pt, Frontend 4pt, Integration 3pt)
-3. **Deploy**: npm run dev:dashboard (http://localhost:3000)
-
-### Scripts npm Adicionados:
-```bash
-npm run dev                  # Ativar dashboard central
-npm run dev:dashboard        # Dashboard only
-npm run dev:vendas          # Squad de Vendas
-npm run dev:prospect        # Prospect Hunter
-npm run dev:assessment      # Zona Genialidade
-npm run dev:automacao       # Automação Profissional
-npm run dev:all             # Todos em paralelo (concurrently)
-npm run status              # aiox doctor
-npm run graph               # aiox graph --deps --format=html
-```
-
----
-
-## 🚨 CONSUMO CRÍTICO DE TOKENS — SESSÃO 2026-03-14
-
-### Status Atual:
-- **Orçamento total**: 200.000 tokens
-- **Consumido até agora**: 162.000 tokens (81%)
-- **Restantes**: 38.000 tokens (19%) ⚠️ CRÍTICO
-- **Voice Mode**: ✅ DESABILITAR IMEDIATAMENTE (gasta +50% tokens)
-
-### Onde Foram os 162 Mil Tokens?
-
-#### 📚 Leitura de Arquivos Grandes (~35-40K tokens):
-1. **MEMORY.md anterior** (536 linhas): ~8.000 tokens
-2. **CLAUDE.md** (custom instructions): ~5.000 tokens
-3. **Agent Authority rules** (~80 linhas): ~1.500 tokens
-4. **Workflow execution rules** (~200 linhas): ~3.000 tokens
-5. **Tool examples rules**: ~800 tokens
-6. **MCP usage rules** (~300 linhas): ~2.500 tokens
-7. **10+ arquivos de stories** (DASHBOARD, Prospect, Zona): ~8.000 tokens
-8. **Leitura de config files** (.aiox-core, .claude.json): ~3.000 tokens
-
-**Subtotal: ~32.000 tokens**
-
-#### 🤖 Processamento AIOX/Agentes (~40-50K tokens):
-1. **Squad Creator Pro** (8 agentes + 34 tasks): ~8.000 tokens
-2. **Zona Genialidade Assessment** (7 frameworks, 43 perguntas): ~12.000 tokens
-3. **Dashboard Central** (criação 2.460 linhas doc): ~10.000 tokens
-4. **Prospect Hunter Story** (482 linhas docs): ~6.000 tokens
-5. **Database Schema + Migrations** (424+ linhas SQL): ~4.000 tokens
-
-**Subtotal: ~40.000 tokens**
-
-#### 💬 Conversas com Agentes (~35-45K tokens):
-1. **@oalanicolas** (Mind cloning agent): ~8.000 tokens
-2. **@pedro-valerio** (Optimizer): ~6.000 tokens
-3. **@qa @dev @architect** (Validações): ~15.000 tokens
-4. **Squad discus patterns** (team management): ~5.000 tokens
-5. **AIOX framework discussions** (3-4 agent switches): ~8.000 tokens
-
-**Subtotal: ~42.000 tokens**
-
-#### 📝 Geração de Documentação (~40-50K tokens):
-1. **Landing page HTML** (490 linhas): ~3.000 tokens
-2. **Relatórios AIOX** (4 docs conformidade): ~5.000 tokens
-3. **Guias HTML agentes** (instrucoes-agentes.html): ~6.000 tokens
-4. **Story files** (YAML frontmatter + AC): ~12.000 tokens
-5. **SQL + README migrations** (424+ linhas): ~4.000 tokens
-6. **Sistema de handoff** (agent switch compaction): ~3.000 tokens
-7. **Explicações e análises técnicas**: ~12.000 tokens
-
-**Subtotal: ~45.000 tokens**
-
-#### 🔄 Overhead do Claude Code (~8-12K tokens):
-1. **Agent persona carregamento** (4-5 agents por sessão): ~5.000 tokens
-2. **Tool descriptions** (50+ ferramentas disponíveis): ~4.000 tokens
-3. **System reminders** (regras, contexto, memory): ~3.000 tokens
-
-**Subtotal: ~12.000 tokens**
-
----
-
-### **RESUMO BREAKDOWN (162.000 tokens):**
-
-| Categoria | Tokens | % |
-|-----------|--------|---|
-| Leitura de arquivos | 32.000 | 20% |
-| Processamento AIOX | 40.000 | 25% |
-| Conversas agentes | 42.000 | 26% |
-| Documentação | 45.000 | 28% |
-| Overhead framework | 12.000 | 7% |
-| **TOTAL** | **162.000** | **100%** |
-
----
-
-### ⚠️ Por Que o Consumo Foi Alto?
-
-1. **Múltiplos Projetos em Paralelo**: Squad Vendas + Prospect Hunter + Zona Genialidade + Dashboard
-2. **Documentação Extensa**: Cada story/squad gerou 300-500 linhas de docs
-3. **Agent Switching**: Passar de @sm → @dev → @qa → @architect (cada switch carrega personae)
-4. **Voice Mode Explorado**: (Não ativado, mas explicações adicionadas ~2K tokens)
-5. **AIOX Framework Learning**: Muitas leituras de rules, constitution, workflows
-6. **Large MEMORY.md**: Arquivo cresceu para 535 linhas (máximo é 200), forçando recompactação
-
----
-
-### ✅ RECOMENDAÇÕES IMEDIATAS:
-
-1. **DESABILITAR Voice Mode**: Economiza +50% em próximas conversas
-2. **Não criar novos projetos**: Focar em conclusão (finalizar stories existentes)
-3. **Evitar agent switching**: Manter mesma equipe por sessão (só 1 switch necessário)
-4. **Não gerar relatórios longos**: Priorizar código vs documentação
-5. **Compactar MEMORY.md**: Mover dados antigos para `.claude/projects/C--Users-User/memory/topic-files/`
-
----
-
-### 📋 PARA PRÓXIMA JANELA/SESSÃO:
-
-**Contexto Salvado em MEMORY.md:**
-- ✅ Todas as stories criadas (4.1, Dashboard, Zona Assessment)
-- ✅ Squad criados (desafio-aiox, zona-genialidade, dashboard-central, automacao-profissional)
-- ✅ Database migrations prontas (não aplicadas ainda)
-- ✅ Squad Creator Pro v3.1.0 instalado e operacional
-- ✅ Estrutura AIOX 100% conformidade L4
-- ✅ Zona Genialidade Assessment PAUSADO no Bloco 3
-
-**Ações Prioritárias (Próxima Sessão):**
-1. Desabilitar voice mode: `/voice disable`
-2. Continuar Zona Genialidade Assessment (Bloco 3: Unique Ability - 3 perguntas)
-3. Implementar Story 4.1 (Prospect Hunter - Backend Messaging)
-4. NÃO criar novos squads (orçamento limitado)
-5. Focar em desenvolvimento vs documentação
-
-**Git Status:**
-- ✅ Último commit: `4d8d547` (Dashboard Central)
-- ✅ Branch: master
-- ⏳ Mudanças não commitadas: .claude.json, memory/MEMORY.md
-- Recomendação: Fazer commit antes de encerrar
+**Última atualização**: 2026-03-14 (MEMORY.md recompactado por @aiox-master)
+**Padrão**: Manter MEMORY.md < 200 linhas (índice apenas)
+**Tokens economizados**: ~6.5K por conversa (81% redução vs anterior)
