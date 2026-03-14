@@ -1,0 +1,121 @@
+persistence:
+  squad-id: automacao-profissional
+  squad-name: Automação Profissional
+  version: 1.0.0
+  created: 2026-02-13
+
+  # Opção 1: Usar agora em um projeto
+  use-now:
+    mode: project-execution
+    command: |
+      @aios-master *workflow squad-kickoff \
+        --squad Automacao_Profissional \
+        --project-name {seu-projeto-name} \
+        --start-phase 1 \
+        --execute-now
+
+    steps:
+      1: "Defina o nome do seu projeto em {seu-projeto-name}"
+      2: "Execute o comando acima"
+      3: "Squad iniciará Phase 1 (Discovery & Analysis)"
+      4: "Siga o workflow até completion"
+
+  # Opção 2: Salvar para reutilização futura
+  save-for-reuse:
+    mode: global-library
+    command: |
+      @aios-master *ids register ./squads/Automacao_Profissional/squad.yaml \
+        --type squad \
+        --category automation \
+        --persist global \
+        --make-template true
+
+    steps:
+      1: "Registra squad no Entity Registry (IDS)"
+      2: "Marca como template reutilizável"
+      3: "Disponível para future projects"
+      4: "Persistido globalmente"
+
+  # Opção 3: Ambos (RECOMENDADO)
+  both:
+    sequence:
+      step-1: "Validar"
+      step-2: "Registrar globalmente"
+      step-3: "Usar agora no projeto"
+
+    commands:
+      validate: |
+        @squad-creator *validate-squad Automacao_Profissional
+
+      register: |
+        @aios-master *ids register ./squads/Automacao_Profissional/squad.yaml \
+          --type squad \
+          --category automation \
+          --persist global
+
+      execute: |
+        @aios-master *workflow squad-kickoff \
+          --squad Automacao_Profissional \
+          --project-name {seu-projeto} \
+          --execute-phase 1
+
+  # Git persistence (versionamento)
+  git-persistence:
+    enabled: true
+    commands:
+      add: git add ./squads/Automacao_Profissional
+      commit: |
+        git commit -m "feat: add Automacao_Profissional squad - Task-First Architecture"
+      push: git push origin main
+
+    message: |
+      ✅ Squad saved to repository
+      ✅ Available for team usage
+      ✅ Versionable and auditable
+
+  # Registry entries
+  registry:
+    entity-type: squad
+    category: automation
+    tags:
+      - automation
+      - orchestration
+      - professional
+      - task-first
+      - multi-agent
+
+    usable-by:
+      - any-project
+      - automation-projects
+      - workflow-projects
+
+    reusability:
+      level: high
+      adaptability: 0.85
+      maturity: production-ready
+
+  # Storage locations
+  storage:
+    local:
+      path: ./squads/Automacao_Profissional
+      scope: current-project
+      accessible: true
+
+    global:
+      path: ~/.aios/squads/Automacao_Profissional
+      scope: all-projects
+      accessible: true
+      requires: persistence-registry
+
+  # Quick reference
+  quick-start:
+    if-using-now: |
+      @aios-master *workflow squad-kickoff --squad Automacao_Profissional --execute-now
+
+    if-saving-for-later: |
+      @aios-master *ids register ./squads/Automacao_Profissional/squad.yaml --persist global
+
+    if-doing-both: |
+      1. @squad-creator *validate-squad Automacao_Profissional
+      2. @aios-master *ids register ./squads/Automacao_Profissional/squad.yaml --persist global
+      3. @aios-master *workflow squad-kickoff --squad Automacao_Profissional --execute-phase 1

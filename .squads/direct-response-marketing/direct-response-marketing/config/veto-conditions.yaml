@@ -1,0 +1,146 @@
+# DRM Squad — Centralized Veto Conditions v2.0
+# These conditions BLOCK execution when triggered. No exceptions.
+
+veto_conditions:
+
+  # ═══════════════════════════════════════════════════════════
+  # TIER 0: UNIVERSAL — Apply to ALL agents before ANY output
+  # ═══════════════════════════════════════════════════════════
+  universal:
+    - id: VC_U_001
+      name: "No Awareness Stage Defined"
+      condition: "Copy or campaign produced WITHOUT identifying prospect awareness stage"
+      action: BLOCK
+      message: "VETO: Cannot write effective copy without knowing awareness stage. Run awareness-stage-checklist.md first."
+      responsible: drm-chief
+
+    - id: VC_U_002
+      name: "No Target Market Identified"
+      condition: "Output produced without defining WHO the starving crowd is"
+      action: BLOCK
+      message: "VETO: Market > Offer > Copy. Define the market first. No copy without a crowd."
+      responsible: drm-chief
+
+    - id: VC_U_003
+      name: "Feature-First Copy"
+      condition: "Output leads with features instead of transformation/desire"
+      action: BLOCK
+      message: "VETO: Copy cannot lead with features. Lead with the dream outcome, then prove it."
+      responsible: all
+
+    - id: VC_U_004
+      name: "Invented Claims"
+      condition: "Copy makes claims not supported by research, proof, or documented case"
+      action: BLOCK
+      message: "VETO: All claims must be traceable to research, testimonials, or documented results."
+      responsible: all
+
+    - id: VC_U_005
+      name: "Wrong Specialist Called"
+      condition: "Task assigned to specialist outside their documented domain"
+      action: REDIRECT
+      message: "VETO: Wrong specialist. Route through drm-chief for correct assignment."
+      responsible: drm-chief
+
+  # ═══════════════════════════════════════════════════════════
+  # TIER 1: COPY QUALITY — Apply to all copy-producing agents
+  # ═══════════════════════════════════════════════════════════
+  copy_quality:
+    - id: VC_CQ_001
+      name: "Missing Big Idea"
+      condition: "VSL or sales letter produced without a single, clear Big Idea / Unique Mechanism"
+      action: BLOCK
+      message: "VETO: Every piece of copy needs ONE Big Idea. What makes this undeniable? Define it."
+      responsible: [stefan-georgi, gary-halbert, eugene-schwartz]
+
+    - id: VC_CQ_002
+      name: "No Proof Elements"
+      condition: "Sales copy finalized without testimonials, case studies, or proof structure"
+      action: BLOCK
+      message: "VETO: Claims without proof are just claims. Add social proof before finalizing."
+      responsible: [stefan-georgi, gary-halbert, robert-cialdini]
+
+    - id: VC_CQ_003
+      name: "Awareness-Copy Mismatch"
+      condition: "Copy written at wrong awareness level for target audience"
+      action: BLOCK
+      message: "VETO: Copy doesn't match awareness stage. Stage 1-2 needs education; Stage 4-5 needs urgency."
+      responsible: eugene-schwartz
+
+    - id: VC_CQ_004
+      name: "Missing CTA"
+      condition: "Any piece of direct response copy without a clear, specific call-to-action"
+      action: BLOCK
+      message: "VETO: Direct response ALWAYS has a response mechanism. Define the CTA."
+      responsible: all
+
+    - id: VC_CQ_005
+      name: "Generic Headline"
+      condition: "Headline doesn't stop, intrigue, and promise a specific benefit"
+      action: REVISE
+      message: "VETO: Headline is generic. It must STOP the prospect, INTRIGUE them, and PROMISE a result."
+      responsible: [gary-halbert, stefan-georgi, eugene-schwartz]
+
+    - id: VC_CQ_006
+      name: "No Scarcity or Urgency"
+      condition: "Offer presented without any reason to act NOW"
+      action: WARN
+      message: "WARNING: No urgency mechanism. Why should they act today vs. tomorrow?"
+      responsible: [robert-cialdini, gary-halbert]
+
+  # ═══════════════════════════════════════════════════════════
+  # TIER 2: FUNNEL LOGIC — Apply to funnel/CVO work
+  # ═══════════════════════════════════════════════════════════
+  funnel_logic:
+    - id: VC_FL_001
+      name: "Missing Tripwire"
+      condition: "Funnel jumps from Lead Magnet directly to Core Offer"
+      action: BLOCK
+      message: "VETO: Missing Tripwire offer. Convert leads to buyers BEFORE pitching the core offer."
+      responsible: ryan-deiss
+
+    - id: VC_FL_002
+      name: "No Return Path"
+      condition: "Funnel has no mechanism to bring customers back after first purchase"
+      action: BLOCK
+      message: "VETO: Funnel without return path leaves money on the table. Add email nurture or continuity."
+      responsible: ryan-deiss
+
+    - id: VC_FL_003
+      name: "No Profit Maximizer"
+      condition: "Funnel has no upsell, cross-sell, or profit maximizer after core offer"
+      action: WARN
+      message: "WARNING: No profit maximizer defined. LTV is being capped unnecessarily."
+      responsible: ryan-deiss
+
+    - id: VC_FL_004
+      name: "Traffic-Offer Mismatch"
+      condition: "Traffic source (cold/warm/hot) doesn't match offer temperature"
+      action: BLOCK
+      message: "VETO: Cold traffic cannot receive core offer directly. Build the trust ladder first."
+      responsible: [ryan-deiss, frank-kern]
+
+  # ═══════════════════════════════════════════════════════════
+  # TIER 3: RESEARCH GATES — Apply before writing
+  # ═══════════════════════════════════════════════════════════
+  research:
+    - id: VC_R_001
+      name: "No Prospect Research"
+      condition: "Copy brief created without research on prospect's language, fears, desires"
+      action: BLOCK
+      message: "VETO: No research = generic copy. Complete RMBC Research phase before Brief."
+      responsible: stefan-georgi
+
+    - id: VC_R_002
+      name: "No Competitor Analysis"
+      condition: "Market sophistication level unknown — no competitor landscape reviewed"
+      action: WARN
+      message: "WARNING: Unknown market sophistication. Review competitor claims before writing."
+      responsible: eugene-schwartz
+
+    - id: VC_R_003
+      name: "No Mechanism Identified"
+      condition: "VSL or sales letter copy started without a Unique Mechanism defined"
+      action: BLOCK
+      message: "VETO: No mechanism = no differentiation. What makes this work differently from everything else?"
+      responsible: stefan-georgi

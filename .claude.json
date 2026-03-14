@@ -1,5 +1,5 @@
 {
-  "numStartups": 131,
+  "numStartups": 145,
   "installMethod": "native",
   "autoUpdates": false,
   "autoCompactEnabled": false,
@@ -34,7 +34,7 @@
     "frontend-design-plugin": 64,
     "feedback-command": 112
   },
-  "promptQueueUseCount": 175,
+  "promptQueueUseCount": 183,
   "cachedGrowthBookFeatures": {
     "tengu_1p_event_batch_config": {
       "scheduledDelayMillis": 10000,
@@ -127,7 +127,7 @@
     "tengu_ccr_bridge": true,
     "tengu_summarize_tool_results": true,
     "tengu_coral_whistle": false,
-    "tengu_amber_prism": false,
+    "tengu_amber_prism": true,
     "tengu_amber_quartz": true,
     "tengu_auto_background_agents": false,
     "tengu_turtle_carbon": true,
@@ -164,7 +164,12 @@
     "tengu_marble_whisper2": true,
     "tengu_hawthorn_steeple": false,
     "tengu_passport_quail": false,
-    "tengu_chair_sermon": false
+    "tengu_chair_sermon": false,
+    "tengu_pewter_gull": false,
+    "tengu_vscode_review_upsell": false,
+    "tengu_vscode_onboarding": false,
+    "tengu_quiet_fern": true,
+    "tengu_slate_ridge": true
   },
   "firstStartTime": "2025-10-13T23:27:01.726Z",
   "userID": "5d1c18c62d52213bad33d7e8c5a38f29beb02a45d31e7334d8872c811b736ffc",
@@ -367,8 +372,8 @@
       "lastUsedAt": 1771702756196
     },
     "AIOX:agents:aiox-master": {
-      "usageCount": 6,
-      "lastUsedAt": 1772964945602
+      "usageCount": 7,
+      "lastUsedAt": 1773470543623
     },
     "AIOX:agents:squad-creator": {
       "usageCount": 4,
@@ -445,8 +450,8 @@
       "lastUsedAt": 1772876601804
     },
     "zona-genialidade": {
-      "usageCount": 7,
-      "lastUsedAt": 1772966324064
+      "usageCount": 10,
+      "lastUsedAt": 1773476278581
     },
     "AIOX:agents:pm": {
       "usageCount": 2,
@@ -463,6 +468,18 @@
     "AIOX:agents:qa": {
       "usageCount": 1,
       "lastUsedAt": 1772969127906
+    },
+    "mmos-squad:system-prompt-architect": {
+      "usageCount": 1,
+      "lastUsedAt": 1773473433305
+    },
+    "mmos-squad:mind-pm": {
+      "usageCount": 1,
+      "lastUsedAt": 1773473716482
+    },
+    "mmosMapper:mind-pm": {
+      "usageCount": 1,
+      "lastUsedAt": 1773479208174
     }
   },
   "lastPlanModeUse": 1772906097909,
@@ -526,5 +543,5 @@
       ]
     }
   },
-  "voiceNoticeSeenCount": 2
+  "voiceNoticeSeenCount": 3
 }

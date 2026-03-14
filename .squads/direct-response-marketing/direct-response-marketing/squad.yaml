@@ -1,0 +1,150 @@
+name: direct-response-marketing
+version: 2.0.0
+description: "6 elite direct response minds, each mastering one discipline of persuasion, conversion, and response-driven marketing"
+author: Gabriel Assis Rodrigues
+license: UNLICENSED
+slashPrefix: direct-response-marketing
+icon: "\U0001F3AF"
+entry_agent: drm-chief
+
+aios:
+  minVersion: "2.1.0"
+  type: squad
+
+components:
+  agents:
+    - drm-chief.md
+    - eugene-schwartz.md
+    - robert-cialdini.md
+    - stefan-georgi.md
+    - gary-halbert.md
+    - frank-kern.md
+    - ryan-deiss.md
+  tasks:
+    - research-target-market.md
+    - create-customer-avatar.md
+    - mine-voice-of-customer.md
+    - analyze-competitor-ads.md
+    - map-market-sophistication.md
+    - diagnose-awareness-stage.md
+    - audit-existing-copy.md
+    - diagnose-funnel-leak.md
+    - build-rmbc-brief.md
+    - develop-unique-mechanism.md
+    - structure-irresistible-offer.md
+    - create-lead-magnet.md
+    - design-upsell-sequence.md
+    - craft-guarantee.md
+    - craft-price-anchoring.md
+    - craft-urgency-scarcity.md
+    - build-proof-stack.md
+    - write-objection-handlers.md
+    - write-fascination-bullets.md
+    - write-headlines.md
+    - write-testimonial-request.md
+    - write-vsl-script.md
+    - write-sales-letter.md
+    - write-email-sequence.md
+    - write-cold-email-sequence.md
+    - write-webinar-script.md
+    - write-advertorial.md
+    - write-facebook-ad-copy.md
+    - write-youtube-ad-script.md
+    - write-google-search-ads.md
+    - write-native-ad.md
+    - write-ad-variations.md
+    - create-split-test-plan.md
+    - write-direct-mail-letter.md
+    - write-landing-page-copy.md
+    - write-squeeze-page.md
+    - write-order-bump-copy.md
+    - write-upsell-script.md
+    - create-follow-up-sequence.md
+    - write-print-ad.md
+  workflows:
+    - launch-new-product.md
+    - optimize-existing-funnel.md
+    - ab-test-campaign.md
+    - wf-avatar-research.yaml
+    - wf-complete-funnel-build.yaml
+    - wf-email-campaign.yaml
+    - wf-paid-traffic-campaign.yaml
+  checklists:
+    - avatar-research-checklist.md
+    - awareness-diagnosis-checklist.md
+    - market-sophistication-checklist.md
+    - competitor-analysis-checklist.md
+    - copy-review-checklist.md
+    - copy-testing-protocol-checklist.md
+    - pre-write-research-checklist.md
+    - headline-swipe-checklist.md
+    - advertorial-checklist.md
+    - guarantee-checklist.md
+    - proof-stack-checklist.md
+    - vsl-review-checklist.md
+    - sales-letter-checklist.md
+    - landing-page-checklist.md
+    - squeeze-page-checklist.md
+    - email-sequence-checklist.md
+    - cold-email-checklist.md
+    - webinar-script-checklist.md
+    - upsell-script-checklist.md
+    - print-ad-checklist.md
+    - direct-mail-checklist.md
+    - facebook-ads-checklist.md
+    - youtube-ads-checklist.md
+    - split-test-checklist.md
+    - conversion-rate-audit-checklist.md
+    - funnel-review-checklist.md
+    - offer-structure-checklist.md
+    - behavioral-sequence-checklist.md
+    - email-subject-line-checklist.md
+    - high-ticket-offer-checklist.md
+    - retargeting-campaign-checklist.md
+    - drm-orchestration-checklist.md
+    - cialdini-principles-checklist.md
+    - rmbc-brief-checklist.md
+    - pre-launch-master-checklist.md
+    - ad-creative-checklist.md
+    - fascination-bullets-checklist.md
+    - lead-magnet-checklist.md
+    - mechanism-development-checklist.md
+    - social-proof-checklist.md
+    - tripwire-page-checklist.md
+  templates:
+    - vsl-script-template.md
+    - sales-letter-template.md
+    - ad-creative-brief-template.md
+    - funnel-map-template.md
+    - email-sequence-template.md
+    - analytics-report-template.md
+  scripts:
+    - validate-copy-quality.py
+    - score-awareness-stage.py
+    - drm-cohesion-validator.py
+    - validate-rmbc-brief.py
+    - validate-cialdini-audit.py
+  tools: []
+
+config:
+  extends: none
+  coding-standards: config/coding-standards.md
+  tech-stack: config/tech-stack.md
+  source-tree: config/source-tree.md
+
+dependencies:
+  node: []
+  python: []
+  squads: []
+
+tags:
+  - direct-response
+  - copywriting
+  - vsl
+  - sales-letters
+  - funnels
+  - conversion-optimization
+  - persuasion
+  - customer-value-optimization
+  - behavioral-marketing
+  - email-marketing

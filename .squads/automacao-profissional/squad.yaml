@@ -1,0 +1,138 @@
+squad:
+  id: automacao-profissional
+  name: Automação Profissional
+  version: 1.0.0
+  created: 2026-02-13
+  updated: 2026-02-13
+
+  metadata:
+    description: "Squad especializado em criação profissional de sistemas de automação de tarefas com qualidade"
+    domain: "automation, orchestration, workflow"
+    tier: "professional"
+    status: "active"
+
+  purpose:
+    statement: "Criar e manter sistemas de automação de tarefas com qualidade profissional, reduzindo necessidade humana através de orquestração inteligente"
+    objectives:
+      - Desenhar arquitetura de automação escalável
+      - Implementar workflows com qualidade profissional
+      - Otimizar processos através de análise aprofundada
+      - Garantir consistência e confiabilidade
+      - Reduzir overhead operacional
+
+  members:
+    - agent: aios-master
+      role: "Orchestrator & Leader"
+      icon: "👑"
+      responsibility: "Orquestração central, decisões estratégicas, coordenação do squad"
+
+    - agent: alan
+      alias: cognitive-analyst
+      role: "Cognitive Analysis & Research"
+      icon: "🧠"
+      responsibility: "Análise profunda de processos, identificação de padrões, otimização de fluxos"
+
+    - agent: pedro-valerio
+      role: "Quality & Customization Specialist"
+      icon: "👨‍💼"
+      responsibility: "Garantia de qualidade, customizações profissionais, padrões de código"
+
+    - agent: architect
+      role: "System Architecture & Design"
+      icon: "🏗️"
+      responsibility: "Design de arquitetura, decisões tecnológicas, padrões de sistema"
+
+    - agent: dev
+      role: "Implementation & Development"
+      icon: "💻"
+      responsibility: "Implementação das automações, desenvolvimento iterativo, execução"
+
+  workflows:
+    primary:
+      - discovery: "Análise de processos e requisitos"
+      - design: "Desenho de arquitetura e workflows"
+      - implement: "Desenvolvimento das automações"
+      - validate: "Testes e garantia de qualidade"
+      - optimize: "Otimização e refinamento"
+      - deploy: "Implantação e documentação"
+
+  structure:
+    agents: "./agents"
+    tasks: "./tasks"
+    workflows: "./workflows"
+    templates: "./templates"
+    checklists: "./checklists"
+    docs: "./docs"
+    config: "./config"
+
+  standards:
+    architecture: "AIOS Task-First"
+    code-style: "Professional Grade"
+    quality-gate: "Professional Standard"
+    review-process: "Multi-agent validation"
+    documentation: "Comprehensive"
+
+  phases:
+    phase_1:
+      name: "Discovery & Analysis"
+      lead: alan
+      tasks:
+        - analyze-current-processes
+        - identify-automation-opportunities
+        - document-requirements
+        - create-process-map
+
+    phase_2:
+      name: "Architecture & Design"
+      lead: architect
+      tasks:
+        - design-system-architecture
+        - define-task-structure
+        - plan-workflows
+        - create-tech-decisions
+
+    phase_3:
+      name: "Implementation"
+      lead: dev
+      tasks:
+        - implement-core-automations
+        - build-task-executors
+        - integrate-workflows
+        - create-monitoring
+
+    phase_4:
+      name: "Quality & Optimization"
+      lead: pedro-valerio
+      tasks:
+        - validate-implementation
+        - performance-testing
+        - optimize-workflows
+        - prepare-documentation
+
+    phase_5:
+      name: "Deployment & Handoff"
+      lead: aios-master
+      tasks:
+        - final-validation
+        - deploy-to-production
+        - train-operators
+        - document-handoff
+
+  success-metrics:
+    - Process automation rate >= 80%
+    - Task execution time reduced by >= 50%
+    - Human intervention < 20%
+    - System uptime >= 99.5%
+    - Code quality score >= 8/10
+
+  dependencies:
+    - aios-core >= 3.0
+    - node >= 18.0
+    - git >= 2.0
+
+tags:
+  - automation
+  - orchestration
+  - professional
+  - quality-focused
+  - task-first

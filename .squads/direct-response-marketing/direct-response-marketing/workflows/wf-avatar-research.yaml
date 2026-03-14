@@ -1,0 +1,202 @@
+id: wf-avatar-research
+name: Avatar Research Workflow
+description: >
+  Full workflow to research, profile, and validate a customer avatar —
+  from raw market data to a deployable Avatar Card ready for all copy tasks.
+  Output feeds every other DRM workflow as the foundation document.
+
+version: "1.0"
+author: drm-chief
+agents:
+  - drm-chief
+  - ryan-deiss
+  - eugene-schwartz
+  - gary-halbert
+
+triggers:
+  - "New product/market — no avatar exists"
+  - "Pivot to new audience segment"
+  - "Existing avatar feels generic — copy not converting"
+  - "Launching new offer to a sub-segment"
+
+phases:
+  - id: phase-1
+    name: Research Briefing
+    agent: drm-chief
+    duration_estimate: "30 minutes"
+    description: >
+      Define the scope of avatar research. What market, what product,
+      what specific question is this avatar research designed to answer?
+
+    inputs:
+      - product_or_offer_summary
+      - existing_knowledge_about_market
+
+    tasks:
+      - id: P1-T1
+        action: "Define research scope — market, sub-segment, specific question"
+        output: research_brief.yaml
+
+      - id: P1-T2
+        action: "Identify primary research sources (Amazon/Reddit/Forums/YouTube/Customer calls)"
+        output: source_list.yaml
+
+    veto_conditions:
+      - "VETO if research scope is too broad ('everyone who wants to lose weight')"
+      - "VETO if research sources are fewer than 3 distinct categories"
+
+    checkpoint:
+      question: "Is the research brief specific enough to find ONE type of person?"
+      pass: "Proceed to Phase 2"
+      fail: "Return to P1-T1 and narrow the scope"
+
+  - id: phase-2
+    name: Market Research & VOC Mining
+    agent: eugene-schwartz
+    duration_estimate: "2-4 hours"
+    description: >
+      Execute deep research across all sources. Extract verbatim language,
+      specific frustrations, desires, vocabulary, and emotional patterns.
+
+    inputs:
+      - research_brief.yaml (from Phase 1)
+      - source_list.yaml (from Phase 1)
+
+    tasks:
+      - id: P2-T1
+        action: "Execute research-target-market.md"
+        output: market_dossier.yaml
+
+      - id: P2-T2
+        action: "Execute mine-voice-of-customer.md — verbatim language extraction"
+        output: golden_phrases_top20.yaml
+
+    veto_conditions:
+      - "VETO if fewer than 50 verbatim phrases collected before filtering"
+      - "VETO if research is paraphrased (must be verbatim — their exact words)"
+      - "VETO if fewer than 3 source types used (no single-source research)"
+
+    checkpoint:
+      question: "Do we have at least 20 golden phrases in their exact words?"
+      pass: "Proceed to Phase 3"
+      fail: "Continue mining Phase 2 sources"
+
+  - id: phase-3
+    name: Avatar Profiling
+    agent: ryan-deiss
+    duration_estimate: "2 hours"
+    description: >
+      Build the complete Avatar Card from research data. This is ONE specific
+      person — not a demographic profile.
+
+    inputs:
+      - market_dossier.yaml (from Phase 2)
+      - golden_phrases_top20.yaml (from Phase 2)
+
+    tasks:
+      - id: P3-T1
+        action: "Execute create-customer-avatar.md"
+        output: avatar_card.yaml
+
+      - id: P3-T2
+        action: "Validate avatar with 5-question specificity test"
+        questions:
+          - "Can you picture a specific person?"
+          - "Can you describe their day-of-week frustration in 1 sentence?"
+          - "Do you know where they go for information?"
+          - "Can you name the last solution they tried?"
+          - "Can you predict their first objection?"
+        output: avatar_validation_report.md
+
+    veto_conditions:
+      - "VETO if avatar is described as a demographic range (25-45 year old women)"
+      - "VETO if avatar lacks specific vocabulary from VOC research"
+      - "VETO if 5-question validation has fewer than 4 clear 'Yes' answers"
+
+    checkpoint:
+      question: "Is this avatar specific enough that the copy will feel personal to ONE person?"
+      pass: "Proceed to Phase 4"
+      fail: "Return to P3-T1 and add specificity"
+
+  - id: phase-4
+    name: Awareness Stage Mapping
+    agent: eugene-schwartz
+    duration_estimate: "1 hour"
+    description: >
+      Determine which Eugene Schwartz awareness stage this avatar is at,
+      and what that means for copy strategy.
+
+    inputs:
+      - avatar_card.yaml (from Phase 3)
+      - market_dossier.yaml (from Phase 2)
+
+    tasks:
+      - id: P4-T1
+        action: "Execute map-market-sophistication.md — determine Stage 1-5"
+        output: awareness_stage_report.yaml
+
+      - id: P4-T2
+        action: "Define copy implications — what lead type, what headline approach, what proof hierarchy"
+        output: copy_strategy_brief.yaml
+
+    veto_conditions:
+      - "VETO if awareness stage is not supported by evidence (must be justified)"
+      - "VETO if copy strategy brief is missing"
+
+    checkpoint:
+      question: "Does the copy strategy brief match the awareness stage diagnosis?"
+      pass: "Proceed to Phase 5"
+      fail: "Reconcile stage diagnosis and strategy"
+
+  - id: phase-5
+    name: Avatar Validation & Sign-Off
+    agent: drm-chief
+    duration_estimate: "30 minutes"
+    description: >
+      Final review and sign-off on the complete avatar package.
+      Ensure all downstream tasks will have what they need.
+
+    inputs:
+      - avatar_card.yaml
+      - golden_phrases_top20.yaml
+      - awareness_stage_report.yaml
+      - copy_strategy_brief.yaml
+
+    tasks:
+      - id: P5-T1
+        action: "Review complete avatar package against completeness checklist"
+        checklist: "checklists/avatar-research-checklist.md"
+        output: avatar_package_review.md
+
+      - id: P5-T2
+        action: "Compile final Avatar Master File for downstream tasks"
+        output: AVATAR-MASTER.yaml
+
+    veto_conditions:
+      - "VETO if any required section of Avatar Card is empty or generic"
+      - "VETO if golden phrases don't appear in the avatar card language"
+
+    deliverables:
+      - AVATAR-MASTER.yaml
+      - golden_phrases_top20.yaml
+      - awareness_stage_report.yaml
+      - copy_strategy_brief.yaml
+
+handoffs:
+  - to: "write-sales-letter.md"
+    delivers: "AVATAR-MASTER.yaml + awareness stage + copy strategy brief"
+  - to: "write-email-sequence.md"
+    delivers: "AVATAR-MASTER.yaml + golden phrases"
+  - to: "write-facebook-ad-copy.md"
+    delivers: "AVATAR-MASTER.yaml + traffic temperature diagnosis"
+  - to: "build-rmbc-brief.md"
+    delivers: "Full avatar package"
+
+quality_standards:
+  - "Avatar is ONE specific person, not a demographic"
+  - "Golden phrases are verbatim (not paraphrased)"
+  - "Awareness stage is evidence-based"
+  - "Copy strategy brief flows logically from awareness stage"
+  - "All 4 deliverables present before handoff"
+
+estimated_total_duration: "6-8 hours"

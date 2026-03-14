@@ -1,0 +1,240 @@
+# DRM Squad — Case Library
+# Real-world case studies demonstrating each agent's methodology in action
+
+squad: direct-response-marketing
+version: "2.0.0"
+created: 2026-02-19
+
+cases:
+  # ═══════════════════════════════════════════════════════════
+  # STEFAN GEORGI — VSL / RMBC Cases
+  # ═══════════════════════════════════════════════════════════
+
+  - id: CASE_SG_001
+    title: "Blood Sugar VSL — Stage 3 Market Win"
+    specialist: stefan-georgi
+    market: "Health supplements — blood sugar"
+    awareness_stage: 3
+    sophistication_level: 4
+    situation: |
+      Crowded blood sugar supplement market. Generic 'manage your blood sugar' claims everywhere.
+      Client's previous VSL (benefit-led) was converting at 0.6% on cold traffic.
+    mechanism_used: "The Pancreatic Beta Cell Sensitivity Reset — targeting upstream insulin signaling, not downstream glucose symptoms"
+    result: "Conversion lifted from 0.6% to 3.2% cold traffic — 5x improvement"
+    key_learnings:
+      - "Stage 3 market requires mechanism, not benefit claim — switching mechanism from benefit saved the campaign"
+      - "Blame removal section ('it's not your fault — beta cells degrade silently') increased engagement 40%"
+      - "Single mechanism focus — removing secondary ingredients from the story increased conversion"
+
+  - id: CASE_SG_002
+    title: "Weight Loss VSL for Women 45+"
+    specialist: stefan-georgi
+    market: "Health — weight loss, female-specific"
+    awareness_stage: 3
+    situation: |
+      Client wanted 'general weight loss' VSL. RMBC research revealed avatar was specifically
+      women post-menopause who had tried 3+ programs and felt shame about repeated failures.
+    mechanism_used: "The Hormone-Cortisol Lock — cortisol elevation from chronic dieting blocks fat metabolism"
+    avatar_specificity: "Women 47-62, post-menopause, previous Weight Watchers + keto attempts, fear of being stuck"
+    hook_used: "Discovery hook — 'A metabolic researcher accidentally discovered why women over 45 gain weight when they diet harder'"
+    result: "2.8% cold traffic conversion on Meta (industry average 0.8-1.2%)"
+    key_learnings:
+      - "Avatar specificity was critical — broad 'women weight loss' vs. 'post-menopausal cortisol failure' are different VSLs"
+      - "Blame removal performed especially well in shame-heavy market (repeated failures)"
+
+  # ═══════════════════════════════════════════════════════════
+  # GARY HALBERT — Sales Letter / Headline Cases
+  # ═══════════════════════════════════════════════════════════
+
+  - id: CASE_GH_001
+    title: "The Coat of Arms Letter — Most Mailed Sales Letter in History"
+    specialist: gary-halbert
+    market: "Family genealogy / heritage"
+    awareness_stage: 2
+    situation: |
+      1971. Halbert identified genealogy as a starving crowd — Americans fascinated with
+      family heritage. Wrote a personalized letter to each household about their specific
+      family coat of arms.
+    starving_crowd: "Americans with European surnames who had received ZERO personalization in mail before"
+    key_techniques:
+      - "Personalized with recipient's surname throughout"
+      - "Made each person feel uniquely addressed (you specifically)"
+      - "Created fascination around 'your family's history'"
+    estimated_mailings: "600+ million copies"
+    result: "Multi-million dollar direct mail business from a single letter"
+    key_learnings:
+      - "Personalization was the product — the coat of arms was secondary"
+      - "Starving crowd (underserved desire) + specific personalization = explosive response"
+
+  - id: CASE_GH_002
+    title: "Fascination Bullets Rescue — Low-Converting Supplement Letter"
+    specialist: gary-halbert
+    market: "Supplement — energy"
+    situation: |
+      Client had well-written sales letter converting at 0.4%. Halbert's diagnosis:
+      no fascination bullets — just feature bullets. No curiosity gaps.
+    fix_applied: |
+      Replaced 12 feature bullets:
+      Before: '• Contains B12 for energy support'
+      After: '• The one vitamin that 94% of Americans are deficient in — and why your doctor
+               isn't testing for it (even though it's the most common cause of unexplained fatigue)'
+    result: "Conversion went from 0.4% to 1.8% — same headline, same offer, only bullets changed"
+    key_learnings:
+      - "Feature bullets vs. fascination bullets is not a small distinction — it's the difference between describe and demand attention"
+      - "Every bullet should create a knowledge gap the reader MUST close"
+
+  # ═══════════════════════════════════════════════════════════
+  # FRANK KERN — Behavioral / Launch Cases
+  # ═══════════════════════════════════════════════════════════
+
+  - id: CASE_FK_001
+    title: "Mass Control Product Launch — $1M+ in 24 Hours"
+    specialist: frank-kern
+    market: "Information product — internet marketing"
+    situation: |
+      2008. Kern wanted to launch an internet marketing course. Instead of traditional
+      sales page launch, engineered a 3-week content sequence that built massive anticipation.
+    content_sequence:
+      week_1: "3 free teaching videos — genuine, deep, no pitch"
+      week_2: "Story video — behind-the-scenes of building the system"
+      week_3: "Open cart — with social proof from beta testers"
+    result: "Over $1M in sales in first 24 hours of cart open"
+    key_learnings:
+      - "The launch sequence IS the marketing — the sales page is just the order form"
+      - "Generous free content that could stand alone as a product creates overwhelming reciprocity"
+      - "Social proof from beta testers at launch > testimonials from unknowns"
+
+  - id: CASE_FK_002
+    title: "4 Day Cash Machine — Existing List Revenue Spike"
+    specialist: frank-kern
+    market: "Coaching — business growth"
+    situation: |
+      Client had 8,000 subscribers who hadn't received a promotion in 3 months.
+      Revenue had slowed. Needed quick cash without burning the list.
+    execution:
+      incentive: "50% off annual coaching program — genuine reason: end of fiscal quarter"
+      sequence: "4 emails over 4 days with real deadline"
+      deadline: "Held exactly — no extension"
+    result: "42 sales at $2,000 = $84,000 in 4 days from dormant list"
+    key_learnings:
+      - "Dormant list + genuine incentive + real deadline = significant revenue"
+      - "Day 4 shortest email generated highest per-email conversion rate"
+      - "Holding the deadline maintained list trust for future campaigns"
+
+  # ═══════════════════════════════════════════════════════════
+  # RYAN DEISS — CVO / Funnel Cases
+  # ═══════════════════════════════════════════════════════════
+
+  - id: CASE_RD_001
+    title: "Tripwire Implementation — 3x Revenue From Same Traffic"
+    specialist: ryan-deiss
+    market: "Online education — digital marketing"
+    situation: |
+      Client had free lead magnet → $997 course funnel converting at 0.8%.
+      Traffic was $5 CPL, $1.25 CPC. Economics barely worked.
+    tripwire_added:
+      product: "5-Day Quick Start Guide — the most common mistakes and fixes"
+      price: "$37"
+      conversion_rate: "4.2% of leads"
+    result:
+      before: "$997 × 0.8% = $8 revenue per lead. CAC $40. Margin: negative."
+      after: "$37 × 4.2% + $997 × 12% (tripwire buyers) = $1.55 + $119.64 = $121 per lead. CAC still $40. Margin: $81."
+    key_learnings:
+      - "Tripwire didn't just add revenue — it changed the unit economics of the entire funnel"
+      - "12% of tripwire buyers converted to core offer vs 0.8% of cold leads — 15x improvement"
+
+  - id: CASE_RD_002
+    title: "Order Bump Addition — Instant Profitability"
+    specialist: ryan-deiss
+    market: "Physical product — supplements"
+    situation: |
+      Supplement company selling $47 tripwire with 3% conversion. No order bump.
+      CAC $38. Net: $9 margin. Not scalable.
+    order_bump_added:
+      product: "2-Month Supply upgrade (from 1-month)"
+      price: "$27 additional"
+      conversion_rate: "31% of buyers"
+    result:
+      revenue_increase: "+$8.37 per transaction (31% × $27)"
+      before_margin: "$9"
+      after_margin: "$17.37"
+      scalability: "Now 2x the margin → doubled ad budget immediately"
+    key_learnings:
+      - "Order bump is the highest ROI optimization in any funnel — lowest effort, highest impact"
+      - "31% take rate with relevant, well-positioned order bump is achievable and common"
+
+  # ═══════════════════════════════════════════════════════════
+  # ROBERT CIALDINI — Persuasion Audit Cases
+  # ═══════════════════════════════════════════════════════════
+
+  - id: CASE_RC_001
+    title: "Social Proof Specificity Fix — +40% Conversion"
+    specialist: robert-cialdini
+    market: "Online coaching — fitness"
+    situation: |
+      Landing page converting at 2.1%. Testimonials present but all generic:
+      'This program changed my life!' 'Amazing results!' — no names, no numbers.
+    principle_applied: Social Proof — Specificity dimension
+    fix_applied: |
+      Replaced 8 generic testimonials with 4 specific ones:
+      'I lost 31 lbs in 11 weeks. My resting heart rate dropped from 88 to 62.
+       I fit into my wedding dress from 9 years ago. — Jennifer M., 44, Austin TX'
+    result: "Conversion from 2.1% to 2.94% — 40% improvement, no other changes"
+    key_learnings:
+      - "Fewer but specific testimonials outperform many generic ones"
+      - "Demographics of testimonial provider must match avatar for maximum impact"
+
+  - id: CASE_RC_002
+    title: "Pre-Suasion Landing Page Redesign"
+    specialist: robert-cialdini
+    market: "SaaS — project management"
+    situation: |
+      Landing page opened with product screenshot. Conversion 3.2%.
+      Visitors immediately evaluated features before emotional context was set.
+    pre_suasion_applied: |
+      Replaced product screenshot with team-collaboration photo (human connection, achievement).
+      Added: 'Join 12,000 teams who meet every deadline' (social proof + unity) as opening.
+    result: "Conversion from 3.2% to 4.7% — same copy, same offer, only opening image and social proof line changed"
+    key_learnings:
+      - "First image sets emotional context for entire page — product images activate evaluation mode, not aspiration mode"
+      - "Pre-suasion effect is immediate — the first 5 seconds determine how the rest is interpreted"
+
+  # ═══════════════════════════════════════════════════════════
+  # EUGENE SCHWARTZ — Awareness / Mechanism Cases
+  # ═══════════════════════════════════════════════════════════
+
+  - id: CASE_ES_001
+    title: "Stage 5 Market Recovery — Identity Marketing Pivot"
+    specialist: eugene-schwartz
+    market: "Financial newsletter — investment advice"
+    situation: |
+      Investment newsletter market in late 2010s — completely saturated.
+      'Beat the market' claims everywhere. Market at Sophistication Level 5.
+      Client's benefit-led copy performing at historic lows.
+    diagnosis: "Sophistication Level 5 — mechanisms were gimmicks, claims were noise"
+    pivot_applied: |
+      Shifted from: 'My system returns 22% annually'
+      To: 'For the investor who refuses to delegate their financial future to a Wall Street machine that doesn't know their name'
+      Identity marketing — who they ARE, not what they GET.
+    result: "Response rate doubled. Refund rate fell 60% (identity-buyers are more committed)."
+    key_learnings:
+      - "Level 5 markets cannot be won with better mechanisms — only with stronger identity"
+      - "Identity buyers have lower refund rates — they bought for who they become, not what they get"
+
+  - id: CASE_ES_002
+    title: "Awareness Stage Mismatch Diagnosis and Fix"
+    specialist: eugene-schwartz
+    market: "Health — sleep supplements"
+    situation: |
+      Sleep supplement ad running to cold traffic (Stage 1-2 audience).
+      Ad opened with product features and ingredient benefits.
+      CTR 0.4%, conversion 0.3%.
+    diagnosis: "Stage 1-2 audience receiving Stage 4 copy (product-aware copy for product-unaware audience)"
+    fix: |
+      New ad: Stage 2 approach — problem agitation first.
+      'The real reason you can't fall asleep — and why counting sheep makes it worse'
+      (educates on problem, no product mention in ad)
+    result: "CTR went from 0.4% to 2.1%. Landing page conversion from 0.3% to 1.4% (7-day test)"
+    key_learnings:
+      - "Awareness stage mismatch is the most expensive mistake in direct response — more expensive than bad copy"
+      - "Stage 1-2 audience wants problem education, not solution pitching"

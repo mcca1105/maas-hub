@@ -1,0 +1,504 @@
+{
+  "paid_advertising_benchmarks_2026": {
+    "metadata": {
+      "last_updated": "2026-01-15",
+      "source": "Platform aggregated data + industry reports",
+      "note": "These are industry averages. Your results will vary based on targeting, creative, offer, and market sophistication.",
+      "currency": "USD"
+    },
+    "facebook_instagram_meta": {
+      "by_industry": {
+        "ecommerce": {
+          "cpc": {
+            "poor": "> $2.50",
+            "average": "$1.20-1.80",
+            "good": "$0.80-1.20",
+            "excellent": "< $0.80"
+          },
+          "cpm": {
+            "poor": "> $18",
+            "average": "$10-14",
+            "good": "$6-10",
+            "excellent": "< $6"
+          },
+          "ctr": {
+            "poor": "< 0.8%",
+            "average": "1-1.5%",
+            "good": "1.8-2.5%",
+            "excellent": "> 3%"
+          },
+          "conversion_rate": {
+            "poor": "< 1%",
+            "average": "1.5-2.5%",
+            "good": "3-4%",
+            "excellent": "> 5%"
+          },
+          "roas": {
+            "break_even": "< 2x",
+            "acceptable": "2-3x",
+            "good": "3-5x",
+            "excellent": "> 5x"
+          },
+          "aov_impact_on_roas": "Higher AOV ($100+) = easier to achieve 3-5x ROAS"
+        },
+        "info_products": {
+          "cpc": {
+            "poor": "> $3.50",
+            "average": "$1.80-2.50",
+            "good": "$1.20-1.80",
+            "excellent": "< $1.20"
+          },
+          "ctr": {
+            "poor": "< 1.2%",
+            "average": "1.5-2%",
+            "good": "2.5-3.5%",
+            "excellent": "> 4%"
+          },
+          "cost_per_lead": {
+            "poor": "> $15",
+            "average": "$8-12",
+            "good": "$4-8",
+            "excellent": "< $4"
+          },
+          "lead_to_sale_conversion": {
+            "poor": "< 2%",
+            "average": "3-5%",
+            "good": "6-10%",
+            "excellent": "> 12%"
+          },
+          "acceptable_cpa": "< 30% of product price"
+        },
+        "saas_b2b": {
+          "cpc": {
+            "poor": "> $5",
+            "average": "$2.50-4",
+            "good": "$1.50-2.50",
+            "excellent": "< $1.50"
+          },
+          "cost_per_trial": {
+            "poor": "> $100",
+            "average": "$40-80",
+            "good": "$20-40",
+            "excellent": "< $20"
+          },
+          "trial_to_paid": {
+            "poor": "< 10%",
+            "average": "15-25%",
+            "good": "30-40%",
+            "excellent": "> 45%"
+          },
+          "ltv_cac_ratio": {
+            "unsustainable": "< 2:1",
+            "acceptable": "3:1",
+            "good": "4-5:1",
+            "excellent": "> 6:1"
+          }
+        },
+        "coaching_high_ticket": {
+          "cost_per_application": {
+            "poor": "> $150",
+            "average": "$60-120",
+            "good": "$30-60",
+            "excellent": "< $30"
+          },
+          "application_to_call": {
+            "poor": "< 50%",
+            "average": "60-70%",
+            "good": "75-85%",
+            "excellent": "> 90%"
+          },
+          "call_to_sale": {
+            "poor": "< 15%",
+            "average": "20-30%",
+            "good": "35-45%",
+            "excellent": "> 50%"
+          },
+          "acceptable_cpa": "< 10% of package price (for $5k+ offers)"
+        }
+      },
+      "by_campaign_objective": {
+        "awareness": {
+          "cpm": "$8-15",
+          "typical_reach": "60-80% of target audience",
+          "use_case": "Brand building, retargeting seed",
+          "note": "Hardest to measure ROI directly"
+        },
+        "traffic": {
+          "cpc": "$0.50-2",
+          "typical_ctr": "1-3%",
+          "use_case": "Blog traffic, content engagement",
+          "note": "Cheap clicks but lower intent"
+        },
+        "engagement": {
+          "cost_per_engagement": "$0.10-0.50",
+          "typical_engagement_rate": "5-10%",
+          "use_case": "Social proof, algorithm boost",
+          "note": "Good for building retargeting audiences"
+        },
+        "lead_generation": {
+          "cost_per_lead": "$3-15",
+          "typical_form_completion": "15-30%",
+          "use_case": "Email list building",
+          "note": "Varies wildly by offer value"
+        },
+        "conversions": {
+          "cpa": "$20-150",
+          "typical_purchase_rate": "1-5%",
+          "use_case": "Direct sales, trials",
+          "note": "Most expensive but highest intent"
+        }
+      },
+      "creative_performance": {
+        "image_ads": {
+          "typical_ctr": "0.8-1.5%",
+          "engagement_rate": "3-6%",
+          "best_for": "Simple offers, direct response"
+        },
+        "video_ads": {
+          "typical_ctr": "1.2-2.5%",
+          "engagement_rate": "5-10%",
+          "video_completion_rate": "25-40% (to 75%)",
+          "best_for": "Storytelling, complex offers, brand building"
+        },
+        "carousel_ads": {
+          "typical_ctr": "1.5-2.8%",
+          "engagement_rate": "4-8%",
+          "best_for": "Multiple products, features showcase"
+        },
+        "ugc_style_ads": {
+          "typical_ctr": "2-4%",
+          "cpc_reduction": "-30 to -50% vs polished ads",
+          "best_for": "Authentic testimonials, social proof"
+        }
+      },
+      "audience_performance": {
+        "cold_audiences": {
+          "interest_targeting": {
+            "cpc": "$1.50-3",
+            "ctr": "0.8-1.5%",
+            "conversion_rate": "1-2%",
+            "note": "Broad reach, lower intent"
+          },
+          "lookalike_1_percent": {
+            "cpc": "$1-2",
+            "ctr": "1.2-2%",
+            "conversion_rate": "2-3.5%",
+            "note": "Best cold audience option"
+          },
+          "lookalike_3_5_percent": {
+            "cpc": "$0.80-1.50",
+            "ctr": "1-1.8%",
+            "conversion_rate": "1.5-2.5%",
+            "note": "Broader but still decent quality"
+          }
+        },
+        "warm_audiences": {
+          "website_visitors_30_days": {
+            "cpc": "$0.50-1.20",
+            "ctr": "2-4%",
+            "conversion_rate": "3-6%",
+            "note": "High intent, already familiar"
+          },
+          "engagers_90_days": {
+            "cpc": "$0.40-1",
+            "ctr": "2.5-5%",
+            "conversion_rate": "2.5-5%",
+            "note": "Interested but haven't visited site"
+          },
+          "video_viewers_75_percent": {
+            "cpc": "$0.30-0.80",
+            "ctr": "3-6%",
+            "conversion_rate": "4-7%",
+            "note": "Extremely qualified if video is good"
+          }
+        },
+        "hot_audiences": {
+          "cart_abandoners": {
+            "cpc": "$0.20-0.60",
+            "conversion_rate": "8-15%",
+            "note": "Highest intent cold traffic"
+          },
+          "email_list_custom_audience": {
+            "cpc": "$0.30-0.80",
+            "conversion_rate": "5-10%",
+            "note": "Already trust you"
+          },
+          "past_purchasers": {
+            "cpc": "$0.40-1",
+            "conversion_rate": "6-12%",
+            "note": "Perfect for upsells, cross-sells"
+          }
+        }
+      },
+      "placement_performance": {
+        "facebook_feed": {
+          "cpc": "Baseline",
+          "ctr": "1.5-2.5%",
+          "note": "Highest intent placement"
+        },
+        "instagram_feed": {
+          "cpc": "-10 to +10% vs FB feed",
+          "ctr": "1.8-3%",
+          "note": "Visual products perform better"
+        },
+        "instagram_stories": {
+          "cpc": "-20 to -30% vs feed",
+          "ctr": "1-2%",
+          "note": "Cheaper but lower intent"
+        },
+        "facebook_right_column": {
+          "cpc": "-40 to -50% vs feed",
+          "ctr": "0.5-1%",
+          "note": "Desktop only, low engagement"
+        },
+        "audience_network": {
+          "cpc": "-50 to -60% vs feed",
+          "ctr": "0.8-1.5%",
+          "note": "Cheaper but lower quality traffic"
+        },
+        "messenger": {
+          "cpc": "-15 to -25% vs feed",
+          "ctr": "1.2-2%",
+          "note": "Good for lead gen"
+        },
+        "automatic_placements": {
+          "recommendation": "Start here",
+          "note": "Meta optimizes to best performing placements"
+        }
+      },
+      "budget_recommendations": {
+        "testing_phase": {
+          "minimum_daily_budget": "$20-50 per ad set",
+          "testing_duration": "3-7 days",
+          "minimum_spend_for_results": "$150-300 total",
+          "note": "Need ~50 conversions for algorithm to optimize"
+        },
+        "scaling_phase": {
+          "safe_daily_increase": "20% per day",
+          "aggressive_daily_increase": "50% per day (watch for CPA spikes)",
+          "budget_multiplier": "3-5x your target CPA per ad set"
+        }
+      }
+    },
+    "google_ads": {
+      "search_campaigns": {
+        "by_industry": {
+          "ecommerce": {
+            "cpc": "$0.80-2.50",
+            "ctr": "3-6%",
+            "conversion_rate": "2-5%",
+            "note": "High intent but competitive"
+          },
+          "info_products": {
+            "cpc": "$1.50-4",
+            "ctr": "2-5%",
+            "conversion_rate": "1.5-4%"
+          },
+          "saas": {
+            "cpc": "$3-8",
+            "ctr": "2-4%",
+            "conversion_rate": "2-6%",
+            "note": "Higher CPC but higher LTV"
+          },
+          "legal_insurance": {
+            "cpc": "$6-15",
+            "ctr": "1.5-3%",
+            "note": "Most expensive CPCs"
+          }
+        },
+        "match_types": {
+          "exact_match": {
+            "cpc_premium": "+20 to +50% vs broad",
+            "ctr": "5-8%",
+            "conversion_rate": "4-8%",
+            "note": "Highest intent, lowest volume"
+          },
+          "phrase_match": {
+            "cpc": "Baseline",
+            "ctr": "3-5%",
+            "conversion_rate": "2.5-5%",
+            "note": "Balance of reach and relevance"
+          },
+          "broad_match": {
+            "cpc_discount": "-20 to -40% vs exact",
+            "ctr": "1.5-3%",
+            "conversion_rate": "1-3%",
+            "note": "Discovery mode, need negatives"
+          }
+        }
+      },
+      "display_network": {
+        "cpc": "$0.30-1.20",
+        "ctr": "0.3-0.8%",
+        "conversion_rate": "0.5-1.5%",
+        "use_case": "Retargeting, awareness",
+        "note": "Cheap but low intent"
+      },
+      "youtube_ads": {
+        "trueview_skippable": {
+          "cpv": "$0.10-0.30",
+          "view_rate": "15-40%",
+          "ctr": "0.5-2%",
+          "note": "Pay only if watched 30s+"
+        },
+        "non_skippable": {
+          "cpm": "$8-20",
+          "completion_rate": "95%+",
+          "note": "Expensive but guaranteed views"
+        },
+        "bumper_ads": {
+          "cpm": "$5-15",
+          "reach": "High",
+          "note": "6 seconds, good for retargeting"
+        }
+      },
+      "shopping_campaigns": {
+        "cpc": "$0.50-1.50",
+        "ctr": "1-3%",
+        "conversion_rate": "2-5%",
+        "roas": "4-8x typical",
+        "note": "Best for ecommerce with product feed"
+      }
+    },
+    "tiktok_ads": {
+      "cpc": "$0.50-2",
+      "cpm": "$4-10",
+      "ctr": "1.5-3%",
+      "conversion_rate": "1-3%",
+      "note": "Younger audience (18-34), native UGC style performs best",
+      "sweet_spot_industries": [
+        "Fashion/Beauty",
+        "Gaming",
+        "Food/Beverage",
+        "Entertainment"
+      ]
+    },
+    "linkedin_ads": {
+      "cpc": "$5-12",
+      "cpm": "$30-80",
+      "ctr": "0.4-0.8%",
+      "cost_per_lead": "$50-150",
+      "note": "Most expensive but B2B goldmine",
+      "best_for": "High-ticket B2B, enterprise, professional services"
+    },
+    "pinterest_ads": {
+      "cpc": "$0.10-1.50",
+      "ctr": "0.5-1.5%",
+      "conversion_rate": "1-3%",
+      "note": "83% female audience, great for visual products",
+      "best_categories": [
+        "Home decor",
+        "Fashion",
+        "Food/recipes",
+        "DIY/crafts"
+      ]
+    },
+    "twitter_x_ads": {
+      "cpc": "$0.50-2",
+      "cpm": "$6-10",
+      "ctr": "1-3%",
+      "note": "News-focused audience, good for B2B and tech"
+    },
+    "testing_framework": {
+      "minimum_budget_per_test": {
+        "facebook": "$150-300",
+        "google_search": "$200-500",
+        "google_display": "$100-200",
+        "tiktok": "$100-200",
+        "linkedin": "$300-500"
+      },
+      "statistical_significance": {
+        "minimum_clicks": "100 per variant",
+        "minimum_conversions": "30 per variant",
+        "confidence_level": "95%",
+        "testing_duration": "7-14 days (to account for weekly variance)"
+      },
+      "what_to_test": {
+        "priority_1": [
+          "Headline",
+          "Offer",
+          "Image/Video",
+          "CTA"
+        ],
+        "priority_2": [
+          "Ad copy",
+          "Audience",
+          "Placement"
+        ],
+        "priority_3": [
+          "Colors",
+          "Button text",
+          "Minor copy tweaks"
+        ]
+      },
+      "expected_lift": {
+        "headline_test": "10-50%",
+        "image_test": "20-100%",
+        "offer_test": "30-200%",
+        "audience_test": "15-80%",
+        "note": "Biggest wins come from testing offer and creative, not minor tweaks"
+      }
+    },
+    "scaling_best_practices": {
+      "when_to_scale": {
+        "minimum_roas": "3x (to have margin for variance)",
+        "minimum_conversions": "50+ in testing phase",
+        "consistency": "Profitable for 5+ days straight"
+      },
+      "how_to_scale": {
+        "vertical_scaling": {
+          "method": "Increase budget on winning ad sets",
+          "safe_increase": "20% per day",
+          "aggressive_increase": "50% per day",
+          "watch_for": "CPA spikes above 20% = slow down"
+        },
+        "horizontal_scaling": {
+          "method": "Duplicate winning campaigns to new audiences",
+          "recommendation": "2-3 new ad sets at a time",
+          "starting_budget": "Match proven ad set budget"
+        },
+        "creative_scaling": {
+          "method": "Create variations of winning ads",
+          "recommendation": "2-3 variations per winning ad",
+          "keep": "Core message and offer same, change visuals/opening"
+        }
+      }
+    },
+    "common_mistakes": {
+      "starting_budget_too_low": {
+        "mistake": "< $20/day per ad set",
+        "impact": "Algorithm can't optimize (needs ~50 conversions)",
+        "fix": "$30-50/day minimum per ad set"
+      },
+      "too_many_ad_sets": {
+        "mistake": "> 5 ad sets with small budget",
+        "impact": "Budget spread too thin, no ad set gets enough data",
+        "fix": "3-5 ad sets max for testing"
+      },
+      "killing_ads_too_early": {
+        "mistake": "Stopping after 1-2 days",
+        "impact": "Miss potential winners (algorithm needs time)",
+        "fix": "Test minimum 5-7 days, 50+ conversions"
+      },
+      "scaling_too_fast": {
+        "mistake": "Doubling budget overnight",
+        "impact": "CPA spikes, campaigns destabilize",
+        "fix": "20-50% daily increases max"
+      },
+      "ignoring_creative_fatigue": {
+        "mistake": "Running same ad for months",
+        "impact": "CTR drops, CPC rises, audience sees ad too many times",
+        "fix": "Refresh creative every 2-4 weeks"
+      }
+    },
+    "pro_tips": {
+      "creative_is_king": "80% of performance comes from creative, 20% from targeting",
+      "test_offers_not_buttons": "Changing 'Buy Now' to 'Shop Now' won't 10x your results. Changing your offer will.",
+      "audience_overlap": "Check audience overlap in Meta. >30% overlap = wasting budget",
+      "retargeting_is_essential": "30-50% of revenue typically comes from retargeting",
+      "ugc_outperforms_polished": "User-generated content style ads often get 2-4x better performance than polished brand ads",
+      "mobile_first": "70%+ of traffic is mobile. Design for mobile, test on mobile.",
+      "landing_page_matters": "10x better ad won't fix a bad landing page. Fix the page first."
+    }
+  }
+}

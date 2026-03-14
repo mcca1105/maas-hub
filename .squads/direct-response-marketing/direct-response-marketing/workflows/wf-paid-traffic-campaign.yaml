@@ -1,0 +1,334 @@
+id: wf-paid-traffic-campaign
+name: Paid Traffic Campaign Workflow
+description: >
+  Workflow for planning, creating, launching, and optimizing a paid traffic campaign
+  across Facebook, YouTube, Google, or Native platforms.
+  Ryan Deiss's principle: The media is just a distribution mechanism.
+  What you're really testing is: does the message match the market?
+
+version: "1.0"
+author: drm-chief
+agents:
+  - drm-chief
+  - ryan-deiss
+  - frank-kern
+  - eugene-schwartz
+  - stefan-georgi
+
+triggers:
+  - "New paid campaign launch"
+  - "Existing campaign underperforming — needs rebuild"
+  - "New product launch requiring paid acquisition"
+  - "Scaling a campaign that's working organically"
+
+phases:
+  - id: phase-1
+    name: Campaign Intelligence
+    agent: ryan-deiss
+    duration_estimate: "2 hours"
+    description: >
+      Before spending a dollar, build the intelligence foundation.
+      Know the market, the competition, the benchmarks, and the baseline.
+
+    inputs:
+      - campaign_objective
+      - platform_selection
+      - budget
+      - AVATAR-MASTER.yaml
+
+    tasks:
+      - id: P1-T1
+        action: "Execute diagnose-funnel-leak.md — establish baseline metrics if funnel exists"
+        note: "Skip if this is a brand new funnel with no data"
+        output: baseline_metrics.yaml
+
+      - id: P1-T2
+        action: "Execute analyze-competitor-ads.md — research competitor ad landscape"
+        output: competitive_ad_analysis.yaml
+
+      - id: P1-T3
+        action: "Define campaign parameters"
+        output: campaign_brief.yaml
+        required_fields:
+          - platform: "[Facebook/YouTube/Google/Native/TikTok]"
+          - objective: "[Traffic/Leads/Sales/Retargeting]"
+          - daily_budget: "$[amount]"
+          - target_cpl_or_roas: "[Goal metric]"
+          - audience_type: "[Cold/Warm/Lookalike/Retargeting]"
+          - destination: "[Squeeze page/VSL/Sales page/Advertorial]"
+          - campaign_duration: "[Days or ongoing]"
+
+    veto_conditions:
+      - "VETO if target CPA/ROAS is not defined before launching"
+      - "VETO if competitor research is skipped (cannot differentiate without knowing competition)"
+      - "VETO if budget is set below minimum test threshold ($50/day minimum)"
+
+    checkpoint:
+      question: "Do we have enough intelligence to know what to say and how to differentiate?"
+      pass: "Proceed to Phase 2"
+      fail: "Complete competitive analysis before writing any copy"
+
+  - id: phase-2
+    name: Audience Architecture
+    agent: ryan-deiss
+    duration_estimate: "1 hour"
+    description: >
+      Map the audience structure — who to target, in what order,
+      with what traffic temperature calibration.
+
+    inputs:
+      - AVATAR-MASTER.yaml
+      - campaign_brief.yaml
+
+    tasks:
+      - id: P2-T1
+        action: "Map traffic temperature by audience segment"
+        output: audience_map.yaml
+        structure:
+          cold_audiences:
+            - interest_targeting: "[Relevant interests]"
+            - lookalike_audiences: "[1-3% lookalike of buyers/LTV]"
+            - broad_targeting: "[Age range + behavior signals only]"
+          warm_audiences:
+            - website_visitors: "[All / specific pages / time-based]"
+            - video_viewers: "[25%/50%/75% viewers]"
+            - email_list: "[Uploaded custom audience]"
+          hot_audiences:
+            - buyers: "[Purchase event custom audience]"
+            - high_value: "[Top 25% by LTV]"
+            - cart_abandoners: "[Initiated checkout, no purchase]"
+
+      - id: P2-T2
+        action: "Define message-to-market match per temperature"
+        output: message_match_map.yaml
+        rules:
+          cold: "Lead with problem or curiosity — no direct sell"
+          warm: "Lead with mechanism or social proof"
+          hot: "Lead with offer, urgency, guarantee"
+
+    veto_conditions:
+      - "VETO if cold traffic sent to direct sales page"
+      - "VETO if message doesn't match traffic temperature"
+      - "VETO if retargeting audience is smaller than 1,000 people"
+
+    checkpoint:
+      question: "Is each audience getting the right message for their temperature?"
+      pass: "Proceed to Phase 3"
+      fail: "Revise message-to-market match for misaligned segments"
+
+  - id: phase-3
+    name: Creative Development
+    agent: stefan-georgi
+    duration_estimate: "4-6 hours"
+    description: >
+      Write all ad copy across formats and variations.
+      Start with the platform primary, then adapt to all placements.
+
+    inputs:
+      - campaign_brief.yaml
+      - audience_map.yaml
+      - message_match_map.yaml
+      - AVATAR-MASTER.yaml
+      - competitive_ad_analysis.yaml
+
+    tasks:
+      - id: P3-T1
+        action: "Execute primary platform ad copy task"
+        platform_routing:
+          facebook: "write-facebook-ad-copy.md"
+          youtube: "write-youtube-ad-script.md"
+          google: "write-google-search-ads.md"
+          native: "write-native-ad.md"
+        output: primary_ad_copy.yaml
+
+      - id: P3-T2
+        action: "Execute write-ad-variations.md — hook, angle, and avatar variations"
+        output: ad_variations.yaml
+        minimum_variations:
+          hooks: "5 variations"
+          angles: "3 variations"
+          avatar_segments: "2-3 variations"
+
+      - id: P3-T3
+        action: "Write platform-specific adaptations (if multi-platform)"
+        note: "If running only one platform, skip"
+        output: platform_adaptations.yaml
+
+    veto_conditions:
+      - "VETO if all variations use the same hook type"
+      - "VETO if no creative brief provided (visual team needs direction)"
+      - "VETO if primary ad copy not written before variations"
+
+    checkpoint:
+      question: "Do we have at least 3 distinct angles and 5 hook variations ready to test?"
+      pass: "Proceed to Phase 4"
+      fail: "Complete minimum variation set before launching"
+
+  - id: phase-4
+    name: Landing Page Copy Alignment
+    agent: ryan-deiss
+    duration_estimate: "1-2 hours"
+    description: >
+      Ensure all ad copy has a corresponding landing page that matches the message.
+      Message match is the #1 cause of high CTR / low conversion campaigns.
+
+    inputs:
+      - primary_ad_copy.yaml
+      - ad_variations.yaml
+      - AVATAR-MASTER.yaml
+
+    tasks:
+      - id: P4-T1
+        action: "Audit message match between ad headlines and landing page headlines"
+        output: message_match_audit.yaml
+        rule: "The landing page headline must mirror or directly extend the ad headline"
+
+      - id: P4-T2
+        action: "Execute write-landing-page-copy.md if landing page needs creation"
+        note: "If landing page exists, only update to match ad angles"
+        output: landing_page_copy.md
+
+      - id: P4-T3
+        action: "Create tracking parameter structure for all ad variants"
+        output: utm_tracking_sheet.yaml
+
+    veto_conditions:
+      - "VETO if ad promotes X but landing page starts with Y (mismatch)"
+      - "VETO if no tracking parameters on landing page links"
+
+    checkpoint:
+      question: "If I clicked every ad variation, would the landing page feel like a natural continuation?"
+      pass: "Proceed to Phase 5"
+      fail: "Align landing page copy to all major ad angles"
+
+  - id: phase-5
+    name: Test Structure & Launch Plan
+    agent: ryan-deiss
+    duration_estimate: "1 hour"
+    description: >
+      Structure the testing sequence before launch. Never launch without a test plan.
+
+    inputs:
+      - ad_variations.yaml
+      - campaign_brief.yaml
+
+    tasks:
+      - id: P5-T1
+        action: "Execute create-split-test-plan.md"
+        output: split_test_plan.yaml
+
+      - id: P5-T2
+        action: "Define budget allocation per test phase"
+        output: budget_allocation.yaml
+        structure:
+          phase_1_creative_testing: "40% of budget — find winning hook"
+          phase_2_scaling: "40% of budget — scale winner"
+          phase_3_optimization: "20% of budget — optimize winner"
+
+      - id: P5-T3
+        action: "Set campaign kill conditions"
+        output: kill_conditions.yaml
+        required_rules:
+          - "Pause any ad with CTR < X% after $Y spend"
+          - "Pause any ad set with CPL > $Y after Z leads"
+          - "Scale any ad with ROAS > X after Y days"
+          - "Alert if daily spend exceeds budget by >20%"
+
+    veto_conditions:
+      - "VETO if launching without defined kill conditions"
+      - "VETO if all budget goes to one ad (must test multiple)"
+
+    checkpoint:
+      question: "Is there a clear decision framework for what to scale, pause, and optimize?"
+      pass: "Proceed to Phase 6"
+      fail: "Define kill conditions and budget allocation before launching"
+
+  - id: phase-6
+    name: Campaign Launch
+    agent: ryan-deiss
+    duration_estimate: "2 hours"
+    description: >
+      Execute the campaign launch according to plan.
+
+    inputs: "All previous phase outputs"
+
+    tasks:
+      - id: P6-T1
+        action: "Pre-launch checklist"
+        checklist:
+          - "All ads approved by platform?"
+          - "Tracking pixels firing correctly?"
+          - "Landing page loads in <3 seconds?"
+          - "Conversion event tracking confirmed?"
+          - "Budget caps set correctly?"
+          - "UTM parameters on all links?"
+          - "Creative assets uploaded and previewed?"
+
+      - id: P6-T2
+        action: "Launch campaign at optimal time"
+        timing_rules:
+          facebook: "Tuesday-Thursday, 10am-2pm local time for B2C"
+          google: "Whenever — intent-based, time matters less"
+          email: "Tuesday-Thursday, 8-10am or 12-2pm"
+
+      - id: P6-T3
+        action: "Day 1-3 monitoring — log initial metrics"
+        output: launch_monitoring_report.md
+        check_frequency: "Every 6 hours for first 48 hours"
+
+    veto_conditions:
+      - "VETO if launching Friday afternoon (can't monitor weekend effectively)"
+      - "VETO if pixel isn't confirmed before spending money"
+
+  - id: phase-7
+    name: Optimization Loop
+    agent: ryan-deiss
+    duration_estimate: "Ongoing"
+    description: >
+      Regular optimization cycle based on incoming data.
+      Week 1: Let it breathe. Week 2: First optimization. Week 3+: Scale.
+
+    tasks:
+      - id: P7-T1
+        action: "Week 1: Data collection only — no optimization"
+        note: "Facebook algorithm needs 50+ optimization events before results stabilize"
+        output: week_1_data.yaml
+
+      - id: P7-T2
+        action: "Week 2: First optimization pass"
+        actions:
+          - "Pause underperforming ad sets (CTR/CPL below threshold)"
+          - "Increase budget 20-30% on winning sets"
+          - "Write 3 new hook variations based on winning angle"
+
+      - id: P7-T3
+        action: "Week 3+: Scale and re-test"
+        actions:
+          - "Scale winning ads 20-50% every 2-3 days"
+          - "Introduce new audience segments"
+          - "Test new angles against current winner"
+          - "Diagnose any conversion rate drops: diagnose-funnel-leak.md"
+
+    deliverables:
+      - primary_ad_copy.yaml
+      - ad_variations.yaml
+      - split_test_plan.yaml
+      - kill_conditions.yaml
+      - launch_monitoring_report.md
+
+handoffs:
+  - to: "diagnose-funnel-leak.md"
+    when: "CTR is high but conversions are low — message mismatch or page issue"
+  - to: "write-email-sequence.md"
+    when: "Leads are captured — need follow-up sequence"
+  - to: "write-ad-variations.md"
+    when: "Scaling phase — need more creative variations"
+
+quality_standards:
+  - "Every ad has a corresponding landing page with message match"
+  - "Kill conditions defined before any dollar is spent"
+  - "Minimum 3 creative variants per audience segment"
+  - "All traffic tracked with UTM parameters"
+  - "Optimization decisions based on data, not gut feel"
+
+estimated_total_duration: "Phase 1-6: 10-15 hours | Phase 7: Ongoing"

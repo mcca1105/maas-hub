@@ -1,0 +1,1069 @@
+id: wf-complete-funnel-build
+name: Complete Funnel Build Workflow
+description: >
+  End-to-end workflow for building a complete direct response funnel from scratch —
+  avatar research through copy, offer structure, and all funnel pages.
+  This is the master workflow that orchestrates all other DRM tasks.
+
+version: "2.0"
+author: drm-chief
+changelog:
+  - version: "2.0"
+    date: "2026-02-22"
+    change: >
+      Adicionado protocolo HITL (Human-in-the-Loop) em todos os checkpoints.
+      Cada fase agora exige revisão humana explícita antes de avançar.
+      Checkpoint expandido: outputs_to_review + agent_presents + validation_questions + approval_gate.
+
+agents:
+  - drm-chief
+  - ryan-deiss
+  - gary-halbert
+  - stefan-georgi
+  - frank-kern
+  - robert-cialdini
+  - eugene-schwartz
+
+triggers:
+  - "New product launch — need full funnel"
+  - "Existing offer needs complete funnel rebuild"
+  - "New market entry with existing product"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PROTOCOLO HITL — COMO ESTE WORKFLOW DEVE SER EXECUTADO
+# ═══════════════════════════════════════════════════════════════════════════════
+
+hitl_protocol:
+  name: "Human-in-the-Loop Review Protocol"
+  version: "1.0"
+
+  model: "Produzir → Apresentar → Revisar → Refinar → Aprovar → Avançar"
+
+  critical_rule: >
+    NENHUMA FASE AVANÇA SEM APROVAÇÃO HUMANA EXPLÍCITA.
+    O agente NÃO interpreta "ok", "sim" ou "continua" como aprovação de fase.
+    Aprovação exige resposta às validation_questions E uso do approval_command.
+
+  agent_responsibilities:
+    - "Produzir todos os outputs da fase"
+    - "Apresentar o RESUMO das decisões-chave tomadas (não os arquivos inteiros)"
+    - "Indicar exatamente quais arquivos o humano deve revisar e o que procurar"
+    - "Fazer as validation_questions de forma direta e sequencial"
+    - "Aguardar respostas antes de avançar — nunca assumir aprovação"
+    - "Se o humano pedir refinamento: editar, mostrar as mudanças, voltar ao checkpoint"
+
+  human_responsibilities:
+    - "Revisar os arquivos indicados (pelo menos as seções em destaque)"
+    - "Responder as validation_questions com sim/não + contexto quando necessário"
+    - "Usar o approval_command explicitamente para aprovar ou solicitar refinamento"
+    - "Fornecer feedback específico (não só 'está errado' — dizer o que está errado)"
+
+  approval_commands:
+    approve: "APROVADO"
+    refine: "REFINAR: [descrever exatamente o que mudar]"
+    block: "BLOQUEADO: [razão — impede avançar qualquer fase]"
+
+  refinement_loop:
+    max_iterations: 3
+    on_refine: "Agente edita os outputs afetados, apresenta o diff das mudanças, retorna ao checkpoint"
+    on_block: "Workflow para completamente. Resolver o bloqueio antes de qualquer avanço."
+    on_max_iterations: "Escalar para revisão manual completa da fase"
+
+  what_not_to_do:
+    - "NÃO perguntar 'continuar?' e interpretar 'sim' como aprovação de conteúdo"
+    - "NÃO avançar para a próxima fase enquanto há validation_questions não respondidas"
+    - "NÃO produzir a próxima fase enquanto há refinamentos pendentes na fase atual"
+    - "NÃO apresentar o arquivo inteiro para revisão — destacar as seções críticas"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PHASES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+phases:
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  - id: phase-0
+    name: Strategic Foundation
+    agent: drm-chief
+    duration_estimate: "2 hours"
+    description: >
+      Before a single word of copy is written, the strategic foundation must be solid.
+      Avatar, awareness stage, and offer structure define everything downstream.
+      ERRORS HERE CONTAMINATE ALL SUBSEQUENT PHASES.
+
+    tasks:
+      - id: P0-T1
+        action: "Execute wf-avatar-research.yaml workflow (complete)"
+        output: AVATAR-MASTER.yaml
+
+      - id: P0-T2
+        action: "Execute structure-irresistible-offer.md"
+        output: offer_architecture.yaml
+
+      - id: P0-T3
+        action: "Execute develop-unique-mechanism.md"
+        output: mechanism_statement.yaml
+
+      - id: P0-T4
+        action: "Execute build-proof-stack.md"
+        output: proof_inventory.yaml
+
+    veto_conditions:
+      - "VETO if avatar is not a specific person (demographic profile is not enough)"
+      - "VETO if offer doesn't pass no-brainer 4-question test"
+      - "VETO if unique mechanism doesn't clearly differentiate from competitors"
+      - "VETO if proof inventory has fewer than 3 testimonials with full name + specific result"
+
+    checkpoint:
+      human_review_required: true
+      estimated_review_time: "15-20 min"
+
+      agent_presents: |
+        Ao completar a Phase 0, o agente apresenta:
+
+        1. DECISÕES ESTRATÉGICAS TOMADAS (3-5 bullets):
+           - Awareness stage diagnosticado
+           - Avatar primário escolhido e por quê
+           - Mecanismo único selecionado e por quê
+           - Principal gap de prova identificado
+
+        2. HIPÓTESES QUE PRECISAM DE VALIDAÇÃO HUMANA:
+           - Quais citações verbatim do avatar foram inferidas vs. coletadas de dados reais
+           - Qual framing foi escolhido para o mecanismo (e as alternativas descartadas)
+           - Quais [PREENCHER] existem nos outputs (dados que o humano precisa fornecer)
+
+        3. RESUMO DOS OUTPUTS (não os arquivos — o essencial de cada um):
+           - AVATAR-MASTER: quem é o avatar, qual a dor principal, o que já tentou
+           - offer_architecture: estrutura CVO completa com preços
+           - mechanism_statement: mecanismo escolhido + evidência principal
+           - proof_inventory: o que existe de prova vs. o que está faltando
+
+      outputs_to_review:
+        - file: "AVATAR-MASTER.yaml"
+          sections_focus:
+            - "primary_avatar — nome, idade, situação, dor principal"
+            - "voc_quotes — as citações verbatim refletem linguagem real?"
+            - "failed_solutions — lista de soluções que já tentou"
+            - "awareness_diagnosis — stage identificado está correto?"
+          critical: true
+          time_to_read: "5-8 min"
+
+        - file: "mechanism_statement.yaml"
+          sections_focus:
+            - "selected_mechanism — o mecanismo vencedor e por quê"
+            - "mechanism_in_plain_english — essa é a forma que você explicaria?"
+            - "evidence — a evidência científica está correta?"
+          critical: true
+          time_to_read: "3-5 min"
+
+        - file: "offer_architecture.yaml"
+          sections_focus:
+            - "core_offer — preço, o que inclui, nome"
+            - "value_stack — os itens e valores percebidos estão corretos?"
+            - "cvo_sequence — a sequência de tripwire → core → upsell faz sentido?"
+          critical: true
+          time_to_read: "3-5 min"
+
+        - file: "proof_inventory.yaml"
+          sections_focus:
+            - "proof_gaps — o que está faltando é real?"
+            - "launch_recommendation — a recomendação de sequência de lançamento faz sentido?"
+          critical: false
+          time_to_read: "2-3 min"
+
+      validation_questions:
+        - id: VQ-0-1
+          question: "O avatar primário descrito reflete suas compradoras reais? (perfil, dores, linguagem)"
+          critical: true
+          what_happens_if_no: "Reconstruir avatar com dados reais antes de qualquer copy"
+
+        - id: VQ-0-2
+          question: "As citações verbatim do avatar soam como linguagem que você ouve das suas clientes de verdade?"
+          critical: true
+          what_happens_if_no: "Fornecer citações reais — preferência de dados primários sobre inferência"
+
+        - id: VQ-0-3
+          question: "O mecanismo único está posicionado da forma que você gostaria de explicar o produto?"
+          critical: true
+          what_happens_if_no: "Revisar mechanism_statement com o framing correto"
+
+        - id: VQ-0-4
+          question: "A estrutura de oferta (preços, nomes, o que está incluído) está correta?"
+          critical: true
+          what_happens_if_no: "Corrigir offer_architecture antes de qualquer copy — preço errado contamina toda a copy"
+
+        - id: VQ-0-5
+          question: "Há algum dado nos outputs marcado como [PREENCHER] que você pode fornecer agora?"
+          critical: false
+          what_happens_if_no: "Documentar como pendência — inserir antes de publicar"
+
+      approval_gate:
+        approve_command: "APROVADO — avançar para Phase 1"
+        refine_command: "REFINAR: [descrever exatamente o que mudar no avatar / oferta / mecanismo]"
+        block_command: "BLOQUEADO: [ex: preços incorretos / mecanismo errado]"
+        note: "Não avançar para Phase 1 enquanto este checkpoint não tiver APROVADO explícito"
+
+      on_approve: "Proceed to Phase 1"
+      on_refine: "Edit affected outputs, present a summary of changes made, return to this checkpoint"
+      on_block: "STOP. Resolve blocking issue before any forward progress."
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  - id: phase-1
+    name: RMBC Brief & Copy Direction
+    agent: stefan-georgi
+    duration_estimate: "3 hours"
+    description: >
+      Build the complete RMBC brief that will guide all copy creation.
+      Research → Mechanism → Brief → Copy.
+      The decisions made here define the voice and structure of the entire funnel.
+
+    inputs:
+      - AVATAR-MASTER.yaml
+      - offer_architecture.yaml
+      - mechanism_statement.yaml
+      - proof_inventory.yaml
+
+    tasks:
+      - id: P1-T1
+        action: "Execute build-rmbc-brief.md"
+        output: rmbc_brief.yaml
+
+      - id: P1-T2
+        action: "Write 25 headline options across 5 formula types (3 rounds)"
+        task: "write-headlines.md"
+        output: headline_options.yaml
+
+      - id: P1-T3
+        action: "Write 20 fascination bullets (50 raw → top 20 selected)"
+        task: "write-fascination-bullets.md"
+        output: fascination_bullets.yaml
+
+    veto_conditions:
+      - "VETO if RMBC brief is missing any of the 4 sections (R, M, B, C)"
+      - "VETO if fewer than 10 headline options written"
+      - "VETO if headline doesn't include the key mechanism or core desire"
+      - "VETO if fascination bullets don't include specifics (numbers, timeframes, named ingredients)"
+
+    checkpoint:
+      human_review_required: true
+      estimated_review_time: "20-30 min"
+
+      agent_presents: |
+        Ao completar a Phase 1, o agente apresenta:
+
+        1. TOP 3 HEADLINES FINALISTAS com explicação de por que cada uma funciona
+        2. TOP 10 BULLETS mais fortes (com justificativa)
+        3. ESTRUTURA NARRATIVA DO VSL: hero escolhido, arco da história, framing principal
+        4. COPY DIRECTION: as 3 decisões de framing mais importantes tomadas no RMBC Brief
+
+      outputs_to_review:
+        - file: "headline_options.yaml"
+          sections_focus:
+            - "top_3_candidates — as finalistas e por que foram escolhidas"
+            - "deployment_map — onde cada headline vai ser usada"
+          critical: true
+          time_to_read: "10-15 min"
+          instruction: >
+            Leia as 25 headlines e marque: (a) as que soam como você falaria, (b) as que
+            soam como marketing genérico. A diferença mostra o tom certo para avançar.
+
+        - file: "rmbc_brief.yaml"
+          sections_focus:
+            - "story_hero — quem conta a história e como"
+            - "primary_framing — o framing principal (ex: 'corpo travado')"
+            - "copy_direction — as instruções de tom e voz para o copywriter"
+            - "objection_map — as objeções principais identificadas"
+          critical: true
+          time_to_read: "8-10 min"
+
+        - file: "fascination_bullets.yaml"
+          sections_focus:
+            - "selected_20 — os 20 bullets selecionados para uso"
+          critical: false
+          time_to_read: "5 min"
+
+      validation_questions:
+        - id: VQ-1-1
+          question: "Das headlines apresentadas, alguma soa como você diria? Qual(is) você aprovaria para teste?"
+          critical: true
+          what_happens_if_no: "Identificar o que está errado no tom — reescrever a headline principal antes de avançar"
+
+        - id: VQ-1-2
+          question: "A história do 'hero' (quem narra o VSL) está correta? A narrativa de origem faz sentido?"
+          critical: true
+          what_happens_if_no: "Revisar story_hero no rmbc_brief com a narrativa correta"
+
+        - id: VQ-1-3
+          question: "O framing principal está correto? (ex: 'corpo travado' vs. outro conceito)"
+          critical: true
+          what_happens_if_no: "Corrigir framing — toda a copy downstream usa esse framing como base"
+
+        - id: VQ-1-4
+          question: "As objeções mapeadas são as objeções reais que você ouve de clientes?"
+          critical: false
+          what_happens_if_no: "Adicionar objeções reais — influencia os handlers da Phase 4"
+
+        - id: VQ-1-5
+          question: "Tem algo que NÃO pode aparecer na copy (promessas regulatórias, termos evitar, etc.)?"
+          critical: true
+          what_happens_if_no: "Documentar restrições no rmbc_brief antes de escrever o VSL"
+
+      approval_gate:
+        approve_command: "APROVADO — avançar para Phase 2"
+        refine_command: "REFINAR: [ex: headline #3 está certa mas #17 não / o framing da história está errado]"
+        block_command: "BLOQUEADO: [ex: o hero não pode ser X / não posso usar esse framing]"
+        note: "A headline aprovada aqui será a headline principal do VSL e da squeeze page"
+
+      on_approve: "Proceed to Phase 2"
+      on_refine: "Edit affected outputs, present diff, return to this checkpoint"
+      on_block: "STOP. Resolve blocking issue before any forward progress."
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  - id: phase-2
+    name: Lead Capture System
+    agent: ryan-deiss
+    duration_estimate: "2 hours"
+    description: >
+      Build the top of the funnel — lead magnet, squeeze page, and testimonial collection plan.
+      The squeeze page is the first thing cold traffic sees. It must earn the opt-in.
+
+    inputs:
+      - AVATAR-MASTER.yaml
+      - rmbc_brief.yaml
+      - headline_options.yaml
+
+    tasks:
+      - id: P2-T1
+        action: "Execute create-lead-magnet.md — define and structure lead magnet"
+        output: lead_magnet_brief.yaml
+
+      - id: P2-T2
+        action: "Execute write-squeeze-page.md"
+        output: squeeze_page_copy.md
+
+      - id: P2-T3
+        action: "Execute write-testimonial-request.md — collect social proof plan"
+        output: testimonial_brief.md
+        note: "Can run in parallel with P2-T2"
+
+    veto_conditions:
+      - "VETO if lead magnet delivers less than 15% of core offer result"
+      - "VETO if squeeze page headline doesn't match lead magnet headline"
+      - "VETO if squeeze page has more than one opt-in ask"
+      - "VETO if lead magnet requires more than 5 min to consume (too heavy for cold traffic)"
+
+    checkpoint:
+      human_review_required: true
+      estimated_review_time: "15-20 min"
+
+      agent_presents: |
+        Ao completar a Phase 2, o agente apresenta:
+
+        1. FORMATO DO LEAD MAGNET escolhido + razão (quiz vs PDF vs vídeo) e estrutura
+        2. HEADLINE DA SQUEEZE PAGE + as 3 variações A/B disponíveis
+        3. A LÓGICA DO FUNIL DE ENTRADA: o caminho do lead desde o anúncio até a primeira oferta
+        4. O GAP DE PROVA SOCIAL: o que está faltando para poder publicar a squeeze page
+
+      outputs_to_review:
+        - file: "squeeze_page_copy.md"
+          sections_focus:
+            - "above_the_fold — headline + subheadline + formulário + CTA"
+            - "cta_button_copy — o texto do botão"
+            - "headline_variations — as variações para A/B test"
+          critical: true
+          time_to_read: "5-8 min"
+          instruction: >
+            Leia o above-the-fold como se fosse a primeira vez que você vê o produto.
+            Em 10 segundos você entenderia o que vai ganhar ao se cadastrar?
+
+        - file: "lead_magnet_brief.yaml"
+          sections_focus:
+            - "format_selected — qual formato e por quê"
+            - "cvo_role — como o lead magnet se conecta com a primeira oferta paga"
+            - "quiz_structure (se quiz) — as perguntas e os perfis de resultado"
+          critical: true
+          time_to_read: "5-8 min"
+
+        - file: "testimonial_brief.md"
+          sections_focus:
+            - "collection_strategy — como coletar depoimentos"
+            - "minimum_to_launch — quantos depoimentos são necessários antes de ligar tráfego pago"
+          critical: false
+          time_to_read: "3-5 min"
+
+      validation_questions:
+        - id: VQ-2-1
+          question: "O formato do lead magnet faz sentido para sua audiência e sua operação? (você consegue entregar isso?)"
+          critical: true
+          what_happens_if_no: "Reconsiderar formato — operação precisa conseguir entregar"
+
+        - id: VQ-2-2
+          question: "A headline da squeeze page é a que você usaria? Das variações, alguma está mais próxima do que você comunicaria?"
+          critical: true
+          what_happens_if_no: "Reescrever headline com o tom correto"
+
+        - id: VQ-2-3
+          question: "A lógica do funil de entrada faz sentido? (anúncio → squeeze → resultado → oferta de entrada)"
+          critical: true
+          what_happens_if_no: "Revisar estrutura CVO — decisão feita aqui define toda a sequência"
+
+        - id: VQ-2-4
+          question: "Você tem depoimentos reais para a squeeze page agora, ou precisa coletar antes de lançar?"
+          critical: false
+          what_happens_if_no: "Documentar como pendência com prazo — ver testimonial_brief.md"
+
+      approval_gate:
+        approve_command: "APROVADO — avançar para Phase 3"
+        refine_command: "REFINAR: [ex: o formato do lead magnet não funciona / a headline está genérica]"
+        block_command: "BLOQUEADO: [ex: não tenho como entregar esse lead magnet / a sequência não faz sentido]"
+
+      on_approve: "Proceed to Phase 3"
+      on_refine: "Edit affected outputs, present diff, return to this checkpoint"
+      on_block: "STOP. Resolve blocking issue before any forward progress."
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  - id: phase-3
+    name: Core Conversion Asset
+    agent: stefan-georgi
+    duration_estimate: "4-6 hours"
+    description: >
+      Write the primary conversion asset — VSL script or long-form sales letter.
+      This is the largest and most critical copy asset in the funnel.
+      REVIEW THIS CAREFULLY — this is what converts or doesn't.
+
+    inputs:
+      - rmbc_brief.yaml
+      - headline_options.yaml
+      - fascination_bullets.yaml
+      - proof_inventory.yaml
+      - AVATAR-MASTER.yaml
+
+    tasks:
+      - id: P3-T1
+        action: "Determine primary conversion format — VSL or sales letter"
+        decision_criteria:
+          vsl_if: "Cold traffic, complex mechanism, emotional story, video-consuming audience"
+          letter_if: "Warm traffic, high sophistication, text-preferring audience, long-form detail"
+        output: format_decision (documented in checkpoint)
+
+      - id: P3-T2
+        action: "Execute write-vsl-script.md OR write-sales-letter.md based on decision"
+        output: primary_conversion_asset.md
+
+    veto_conditions:
+      - "VETO if VSL script is under 3,000 words (not enough depth)"
+      - "VETO if sales letter is under 5,000 words for a cold traffic offer"
+      - "VETO if hook doesn't create identification before revealing product"
+      - "VETO if mechanism reveal happens before problem agitation"
+      - "VETO if proof section is before the lead (Schwartz rule)"
+
+    checkpoint:
+      human_review_required: true
+      estimated_review_time: "30-45 min"
+      note: >
+        Esta é a revisão mais importante do workflow. O VSL é o ativo que converte —
+        cada palavra importa. Reserve tempo real para esta revisão.
+
+      agent_presents: |
+        Ao completar a Phase 3, o agente apresenta:
+
+        1. ESTRUTURA DAS 6 SEÇÕES: resumo de 2-3 linhas do que cada seção faz
+        2. O HOOK (primeiros ~200 palavras): para revisão de tom e identificação
+        3. A HISTÓRIA DE ORIGEM do hero: para validar que está correta
+        4. A REVELAÇÃO DO MECANISMO: para confirmar que a explicação está certa
+        5. LISTA DE [PLACEHOLDERS] que precisam ser preenchidos antes de gravar
+        6. PALAVRAS E FRASES que o agente inferiu e que precisam de validação
+
+      outputs_to_review:
+        - file: "primary_conversion_asset.md"
+          sections_focus:
+            - "SEÇÃO 1 (Hook) — os primeiros 200 palavras. Cria identificação imediata?"
+            - "SEÇÃO 2 (Agitação) — o ciclo vicioso está descrito com precisão?"
+            - "SEÇÃO 3 (Mecanismo) — a explicação do mecanismo está tecnicamente correta e no tom certo?"
+            - "SEÇÃO 4 (Prova) — a história de origem do hero está certa? Os estudos estão corretos?"
+            - "SEÇÃO 5 (Oferta) — o que está incluído e os preços estão corretos?"
+            - "SEÇÃO 6 (CTA) — o botão, a urgência e o resumo estão corretos?"
+          critical: true
+          time_to_read: "25-35 min"
+          instruction: >
+            Leia o script em voz alta, como se fosse gravar agora. Onde você travaria?
+            Onde a frase não é sua? Onde o dado está errado? Anote tudo — esse é o
+            momento de fazer as correções antes de gravar.
+
+      validation_questions:
+        - id: VQ-3-1
+          question: "O hook (abertura do VSL) cria identificação imediata com sua audiência?"
+          critical: true
+          what_happens_if_no: "Reescrever hook — a abertura determina se ficam ou saem"
+
+        - id: VQ-3-2
+          question: "A história de origem do hero está correta? Ela reflete o que você viveu/pode contar?"
+          critical: true
+          what_happens_if_no: "Corrigir história — hero é quem narra, história precisa ser verdadeira"
+
+        - id: VQ-3-3
+          question: "A explicação do mecanismo (como o produto funciona) está tecnicamente correta?"
+          critical: true
+          what_happens_if_no: "Corrigir mecanismo — claim técnico errado é problema regulatório e de credibilidade"
+
+        - id: VQ-3-4
+          question: "Existe alguma frase ou promessa que você não pode fazer (regulatório, ética, etc.)?"
+          critical: true
+          what_happens_if_no: "Identificar e remover antes de gravar — não pode aparecer no vídeo final"
+
+        - id: VQ-3-5
+          question: "Os preços, prazo de entrega, e detalhes do produto mencionados estão corretos?"
+          critical: true
+          what_happens_if_no: "Corrigir todos os dados concretos — erros aqui causam problemas pós-venda"
+
+        - id: VQ-3-6
+          question: "O tom geral soa como você? Ou soa como copy genérica de marketing?"
+          critical: false
+          what_happens_if_no: "Identificar as seções que não soam como sua voz — refinar tom"
+
+      approval_gate:
+        approve_command: "APROVADO — avançar para Phase 4"
+        refine_command: "REFINAR: [listar especificamente: seção X está errada porque Y / remover frase Z / corrigir dado W]"
+        block_command: "BLOQUEADO: [ex: a história de origem está completamente errada / dados do produto incorretos]"
+        note: >
+          Aprovação aqui significa: 'posso gravar este script com as correções indicadas'.
+          Não precisa estar 100% perfeito — os placeholders de depoimentos serão inseridos depois.
+          Mas o esqueleto do argumento e todos os dados concretos precisam estar corretos.
+
+      on_approve: "Proceed to Phase 4"
+      on_refine: "Edit affected sections, present a summary of changes, return to this checkpoint"
+      on_block: "STOP. Resolve blocking issue before any forward progress."
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  - id: phase-4
+    name: Persuasion Layer
+    agent: robert-cialdini
+    duration_estimate: "2-3 hours"
+    description: >
+      Layer in Cialdini persuasion elements — objection handlers, price anchoring,
+      guarantee, urgency. Then embed everything into the VSL as version 2.
+
+    inputs:
+      - primary_conversion_asset.md
+      - proof_inventory.yaml
+      - offer_architecture.yaml
+
+    tasks:
+      - id: P4-T1
+        action: "Execute write-objection-handlers.md — top 7 objections with polished handlers"
+        output: objection_handlers.yaml
+
+      - id: P4-T2
+        action: "Execute craft-price-anchoring.md — value stack + price presentation sequence"
+        output: price_section.md
+
+      - id: P4-T3
+        action: "Execute craft-guarantee.md — named guarantee with bold, specific terms"
+        output: guarantee_section.md
+
+      - id: P4-T4
+        action: "Execute craft-urgency-scarcity.md — genuine urgency mechanism only"
+        output: urgency_section.md
+
+      - id: P4-T5
+        action: "Embed all persuasion elements into VSL at correct positions"
+        output: primary_conversion_asset_v2.md
+
+    veto_conditions:
+      - "VETO if objection handlers are based on assumed objections (must be real/plausible)"
+      - "VETO if price is revealed before anchor"
+      - "VETO if urgency mechanism is fake (non-enforced deadline, resetable timer)"
+      - "VETO if guarantee is vague ('satisfaction guaranteed' without specific terms)"
+      - "VETO if guarantee terms are not operationally viable for the business"
+
+    checkpoint:
+      human_review_required: true
+      estimated_review_time: "20-25 min"
+
+      agent_presents: |
+        Ao completar a Phase 4, o agente apresenta:
+
+        1. AS 7 OBJEÇÕES identificadas + qual é a mais crítica para seu mercado
+        2. A SEQUÊNCIA DE PREÇO: como o preço é apresentado (âncora → valor → reveal → diário)
+        3. O NOME E OS TERMOS DA GARANTIA: o que o cliente pode esperar
+        4. O MECANISMO DE URGÊNCIA: qual é a razão real de escassez/urgência
+        5. AUDITORIA DOS 7 PRINCÍPIOS: quais princípios estão fortes, quais estão fracos
+
+      outputs_to_review:
+        - file: "objection_handlers.yaml"
+          sections_focus:
+            - "as 7 objeções — essas são as objeções reais da sua audiência?"
+            - "handler de preço (OBJ-04) — o copy de ancoragem está certo?"
+          critical: true
+          time_to_read: "8-10 min"
+
+        - file: "guarantee_section.md"
+          sections_focus:
+            - "nome da garantia — você consegue cumprir o que está prometendo?"
+            - "termos (duração, % de reembolso, processo) — são operacionalmente viáveis?"
+            - "posição 1 (VSL Seção 5) — o texto de inversão de risco está certo?"
+          critical: true
+          time_to_read: "5-8 min"
+
+        - file: "urgency_section.md"
+          sections_focus:
+            - "mecanismo de urgência — é genuíno e verificável?"
+            - "número de unidades no lote — tem um número real para preencher?"
+          critical: true
+          time_to_read: "3-5 min"
+
+        - file: "primary_conversion_asset_v2.md"
+          sections_focus:
+            - "Seção 5 (Oferta) — a sequência de preço está fluindo bem?"
+            - "Seção 6 (CTA) — a urgência e o resumo final estão corretos?"
+          critical: true
+          time_to_read: "10-15 min (focar só nas seções 5 e 6)"
+
+      validation_questions:
+        - id: VQ-4-1
+          question: "As 7 objeções listadas refletem as objeções reais que você ouve de prospects?"
+          critical: true
+          what_happens_if_no: "Identificar as objeções reais — as que não foram mapeadas precisam de handler"
+
+        - id: VQ-4-2
+          question: "Os termos da garantia são operacionalmente viáveis para o seu negócio?"
+          critical: true
+          what_happens_if_no: "Ajustar termos — garantia inviável operacionalmente não pode ser prometida"
+
+        - id: VQ-4-3
+          question: "O mecanismo de urgência é real? Você tem de fato lotes controlados com estoque limitado?"
+          critical: true
+          what_happens_if_no: "Ajustar mecanismo de urgência para o que é verdadeiro — urgência falsa destrói confiança"
+
+        - id: VQ-4-4
+          question: "O número de unidades disponíveis no lote atual — você tem esse número para preencher?"
+          critical: false
+          what_happens_if_no: "Documentar como pendência — preencher antes de publicar"
+
+        - id: VQ-4-5
+          question: "A sequência de apresentação do preço (âncora → valor → R$X) está convencendo para você?"
+          critical: false
+          what_happens_if_no: "Refinar sequência de ancoragem com os valores corretos"
+
+      approval_gate:
+        approve_command: "APROVADO — avançar para Phase 5"
+        refine_command: "REFINAR: [ex: a garantia precisa ser de 7 dias não 30 / a objeção de preço está genérica]"
+        block_command: "BLOQUEADO: [ex: não posso oferecer reembolso / a urgência é falsa e não posso usar]"
+
+      on_approve: "Proceed to Phase 5"
+      on_refine: "Edit affected outputs, present diff, return to this checkpoint"
+      on_block: "STOP. Resolve blocking issue before any forward progress."
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  - id: phase-5
+    name: Post-Purchase Sequence
+    agent: frank-kern
+    duration_estimate: "2 hours"
+    description: >
+      Build the post-purchase upsell sequence — order bump, OTO1, OTO2/downsell.
+      Every upsell must extend the buyer's journey, not interrupt it.
+
+    inputs:
+      - offer_architecture.yaml
+      - AVATAR-MASTER.yaml
+      - rmbc_brief.yaml
+
+    tasks:
+      - id: P5-T1
+        action: "Execute write-order-bump-copy.md"
+        output: order_bump_copy.md
+
+      - id: P5-T2
+        action: "Execute design-upsell-sequence.md — architecture + revenue model"
+        output: upsell_sequence_architecture.yaml
+
+      - id: P5-T3
+        action: "Execute write-upsell-script.md — OTO1 + OTO2 + downsell scripts"
+        output: upsell_scripts.md
+
+    veto_conditions:
+      - "VETO if order bump is priced above 30% of core offer"
+      - "VETO if OTO1 introduces a new problem (must be 'more of same journey')"
+      - "VETO if there's no downsell path"
+      - "VETO if revenue model is not calculated"
+      - "VETO if OTO products do not exist or cannot be delivered"
+
+    checkpoint:
+      human_review_required: true
+      estimated_review_time: "15-20 min"
+
+      agent_presents: |
+        Ao completar a Phase 5, o agente apresenta:
+
+        1. O ORDER BUMP: produto, preço, % do core, "próximo problema" que resolve
+        2. O FLUXO COMPLETO: Checkout → OTO1 → (SIM: OTO2 | NÃO: Downsell) → Obrigado
+        3. O REVENUE MODEL: AOV projetado com e sem upsells
+        4. OS PRODUTOS: cada OTO e downsell — existem? Podem ser entregues?
+
+      outputs_to_review:
+        - file: "upsell_sequence_architecture.yaml"
+          sections_focus:
+            - "sequence_architecture — o fluxo de páginas completo"
+            - "revenue_model — as projeções de AOV fazem sentido?"
+            - "todos os produtos na sequência existem e podem ser entregues?"
+          critical: true
+          time_to_read: "8-10 min"
+
+        - file: "order_bump_copy.md"
+          sections_focus:
+            - "O BOX completo — lê em menos de 30 segundos?"
+            - "next_problem_analysis — o 'próximo problema' está correto?"
+            - "pricing_check — o preço está dentro do range viável?"
+          critical: true
+          time_to_read: "3-5 min"
+
+        - file: "upsell_scripts.md"
+          sections_focus:
+            - "OTO1 — o framing de upgrade está certo? O preço faz sentido?"
+            - "Downsell — o tom não-pressionador está correto?"
+            - "Página de Obrigado — os próximos passos estão corretos?"
+          critical: true
+          time_to_read: "8-10 min"
+
+      validation_questions:
+        - id: VQ-5-1
+          question: "Todos os produtos na sequência (bump, OTO1, OTO2, downsell) existem ou podem ser criados antes do lançamento?"
+          critical: true
+          what_happens_if_no: "Remover ou ajustar produtos que não existem — não pode vender o que não pode entregar"
+
+        - id: VQ-5-2
+          question: "O order bump faz sentido para quem acabou de comprar? Resolve um problema real imediato?"
+          critical: true
+          what_happens_if_no: "Revisar o 'próximo problema' com a lógica real da jornada do comprador"
+
+        - id: VQ-5-3
+          question: "O preço do OTO1 faz sentido dado o que a pessoa acabou de pagar?"
+          critical: true
+          what_happens_if_no: "Ajustar preço — 'choque de preço' no OTO mata o relacionamento"
+
+        - id: VQ-5-4
+          question: "A página de obrigado tem todos os acessos e informações que o comprador vai precisar?"
+          critical: false
+          what_happens_if_no: "Adicionar o que falta — a página de obrigado é o primeiro momento de entrega de valor"
+
+      approval_gate:
+        approve_command: "APROVADO — avançar para Phase 6"
+        refine_command: "REFINAR: [ex: o OTO1 não existe ainda / o bump está caro demais / mudar a sequência]"
+        block_command: "BLOQUEADO: [ex: não tenho os produtos para os OTOs]"
+
+      on_approve: "Proceed to Phase 6"
+      on_refine: "Edit affected outputs, present diff, return to this checkpoint"
+      on_block: "STOP. Resolve blocking issue before any forward progress."
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  - id: phase-6
+    name: Email Follow-Up System
+    agent: frank-kern
+    duration_estimate: "3 hours"
+    description: >
+      Build the email sequences — subscriber welcome/nurture (pre-purchase)
+      and buyer onboarding (post-purchase).
+
+    inputs:
+      - AVATAR-MASTER.yaml
+      - proof_inventory.yaml
+      - objection_handlers.yaml
+      - offer_architecture.yaml
+
+    tasks:
+      - id: P6-T1
+        action: "Execute write-email-sequence.md — welcome/nurture sequence (5-7 emails)"
+        output: welcome_sequence.md
+
+      - id: P6-T2
+        action: "Execute create-follow-up-sequence.md — buyer onboarding (5 emails)"
+        output: buyer_onboarding_sequence.md
+
+      - id: P6-T3
+        action: "Execute write-cold-email-sequence.md if cold outreach needed (4 emails)"
+        output: cold_outreach_sequence.md
+        note: "Optional — only if outbound prospecting is part of strategy"
+
+    veto_conditions:
+      - "VETO if welcome email is longer than 400 words"
+      - "VETO if email sequence has no story emails (Kern rule: value + story, not just pitch)"
+      - "VETO if no re-engagement email written"
+      - "VETO if buyer onboarding email D+1 doesn't mention the guarantee"
+
+    checkpoint:
+      human_review_required: true
+      estimated_review_time: "20-25 min"
+
+      agent_presents: |
+        Ao completar a Phase 6, o agente apresenta:
+
+        1. MAPA DA SEQUÊNCIA: dia, assunto, objetivo de cada email (tabela resumida)
+        2. O EMAIL DE BOAS-VINDAS COMPLETO (email mais importante — tom define tudo)
+        3. O EMAIL D+1 DO COMPRADOR (ativa a garantia e o protocolo)
+        4. A LÓGICA DE NURTURE: como cada email move o lead em direção à compra
+
+      outputs_to_review:
+        - file: "welcome_sequence.md"
+          sections_focus:
+            - "Email 1 (Boas-vindas) — assunto + primeiras 3 linhas + tom geral"
+            - "Mapa da sequência — assuntos de todos os emails"
+            - "Email da oferta — em qual email a oferta aparece e com qual framing"
+          critical: true
+          time_to_read: "10-15 min"
+          instruction: >
+            Leia o Email 1 como se fosse um lead recém-cadastrado. Esse email faria você
+            querer abrir o próximo? O tom está certo para a sua marca?
+
+        - file: "buyer_onboarding_sequence.md"
+          sections_focus:
+            - "Email D+1 — confirma compra, ativa garantia, dá próximos passos"
+            - "Email D+7 — primeiro check-in de resultado"
+            - "Email de solicitação de depoimento — timing e framing"
+          critical: true
+          time_to_read: "8-10 min"
+
+      validation_questions:
+        - id: VQ-6-1
+          question: "O tom dos emails soa como a voz da sua marca? Ou soa genérico?"
+          critical: true
+          what_happens_if_no: "Identificar as seções com tom errado — ajustar antes de configurar no autoresponder"
+
+        - id: VQ-6-2
+          question: "O assunto do email de boas-vindas é um que você abriria?"
+          critical: true
+          what_happens_if_no: "Reescrever assunto — taxa de abertura define se a sequência funciona"
+
+        - id: VQ-6-3
+          question: "O email D+1 para compradores está correto? Ele entrega os acessos e ativa a garantia?"
+          critical: true
+          what_happens_if_no: "Corrigir informações de acesso e termos da garantia"
+
+        - id: VQ-6-4
+          question: "Há algum email que você não enviaria? Algum que não soa autêntico?"
+          critical: false
+          what_happens_if_no: "Identificar e ajustar — melhor menos emails certos do que sequência completa com tom errado"
+
+      approval_gate:
+        approve_command: "APROVADO — avançar para Phase 7"
+        refine_command: "REFINAR: [ex: o email 1 está muito vendedor / o D+1 não tem os links corretos]"
+        block_command: "BLOQUEADO: [ex: não tenho autoresponder configurado / a sequência não faz sentido para meu modelo]"
+
+      on_approve: "Proceed to Phase 7"
+      on_refine: "Edit affected outputs, present diff, return to this checkpoint"
+      on_block: "STOP. Resolve blocking issue before any forward progress."
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  - id: phase-7
+    name: Traffic Entry Points
+    agent: ryan-deiss
+    duration_estimate: "2 hours"
+    description: >
+      Write the paid traffic ads that drive cold traffic into the funnel.
+      Message match between ad → squeeze page is critical.
+
+    inputs:
+      - AVATAR-MASTER.yaml
+      - rmbc_brief.yaml
+      - squeeze_page_copy.md
+
+    tasks:
+      - id: P7-T1
+        action: "Execute write-facebook-ad-copy.md — 3 ad variations + 5 headlines"
+        output: facebook_ads.yaml
+
+      - id: P7-T2
+        action: "Execute write-ad-variations.md — hook and angle matrix for scaling"
+        output: ad_variations.yaml
+
+      - id: P7-T3
+        action: "Execute create-split-test-plan.md — structured testing sequence"
+        output: split_test_plan.yaml
+
+    veto_conditions:
+      - "VETO if ad angles are all the same (must have 3 distinct angles)"
+      - "VETO if no split test plan exists before launch"
+      - "VETO if ad headline doesn't match squeeze page headline (message mismatch)"
+
+    checkpoint:
+      human_review_required: true
+      estimated_review_time: "15-20 min"
+
+      agent_presents: |
+        Ao completar a Phase 7, o agente apresenta:
+
+        1. OS 3 ÂNGULOS DE ANÚNCIO: qual é o diferencial de cada um
+        2. O MAPA DE MESSAGE MATCH: anúncio X → leva para headline Y da squeeze page
+        3. O PLANO DE TESTE: qual anúncio testar primeiro e por quê
+        4. AS HEADLINE VARIAÇÕES: os 5 hooks para teste
+
+      outputs_to_review:
+        - file: "facebook_ads.yaml"
+          sections_focus:
+            - "ad_1, ad_2, ad_3 — texto principal de cada anúncio"
+            - "os 3 ângulos são realmente distintos?"
+            - "message match com a squeeze page está correto?"
+          critical: true
+          time_to_read: "8-10 min"
+          instruction: >
+            Leia cada anúncio como se fosse uma mulher no feed do Instagram.
+            Pararia o scroll? Clicaria? O que aparece depois (squeeze page) é coerente
+            com o que o anúncio prometeu?
+
+        - file: "split_test_plan.yaml"
+          sections_focus:
+            - "teste inicial recomendado — qual hipótese está testando primeiro?"
+            - "métricas de corte — quando parar um anúncio?"
+          critical: false
+          time_to_read: "5 min"
+
+      validation_questions:
+        - id: VQ-7-1
+          question: "Os 3 anúncios abordam ângulos realmente diferentes? (problema / mecanismo / prova social)"
+          critical: true
+          what_happens_if_no: "Diversificar ângulos — testar o mesmo ângulo 3 vezes não gera aprendizado"
+
+        - id: VQ-7-2
+          question: "O message match está correto? Quem clica no anúncio encontra a mesma promessa na squeeze page?"
+          critical: true
+          what_happens_if_no: "Alinhar headlines de anúncio com variações da squeeze page"
+
+        - id: VQ-7-3
+          question: "Algum dos anúncios tem uma promessa que você não pode fazer no meta ads (regulatório)?"
+          critical: true
+          what_happens_if_no: "Remover ou ajustar claims problemáticos — anúncio reprovado trava o lançamento"
+
+      approval_gate:
+        approve_command: "APROVADO — avançar para Phase 8 (Quality Review)"
+        refine_command: "REFINAR: [ex: anúncio 2 está genérico / a headline não bate com a squeeze page]"
+        block_command: "BLOQUEADO: [ex: nenhum dos ângulos está correto / claims regulatórios problemáticos]"
+
+      on_approve: "Proceed to Phase 8"
+      on_refine: "Edit affected outputs, present diff, return to this checkpoint"
+      on_block: "STOP. Resolve blocking issue before any forward progress."
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  - id: phase-8
+    name: Quality Review & Launch Readiness
+    agent: drm-chief
+    duration_estimate: "2 hours"
+    description: >
+      Final quality review of all funnel components before launch.
+      This is not a formality — it's a full audit.
+
+    inputs: "All outputs from Phases 0-7"
+
+    tasks:
+      - id: P8-T1
+        action: "Run audit-existing-copy.md on all copy assets"
+        output: copy_quality_audit.md
+
+      - id: P8-T2
+        action: "Complete DRM orchestration checklist"
+        checklist: "checklists/drm-orchestration-checklist.md"
+        output: launch_readiness_report.md
+
+      - id: P8-T3
+        action: "Identify top 3 highest-leverage improvements before launch"
+        output: pre_launch_optimization.md
+
+    veto_conditions:
+      - "VETO if any funnel page fails specificity test (generic copy found)"
+      - "VETO if message mismatch exists between ad → squeeze → VSL"
+      - "VETO if any [PREENCHER] placeholders remain in copy assets"
+      - "VETO if guarantee terms are not confirmed as operationally viable"
+
+    checkpoint:
+      human_review_required: true
+      estimated_review_time: "30-40 min"
+      note: >
+        Esta é a revisão final antes de ligar o tráfego. Reserve tempo real.
+        O custo de consertar depois de lançar é 10x maior do que agora.
+
+      agent_presents: |
+        O agente apresenta o LAUNCH READINESS REPORT completo:
+
+        1. STATUS DE CADA COMPONENTE: lista de todos os arquivos entregues com status
+        2. [PLACEHOLDERS] PENDENTES: lista de tudo que ainda precisa ser preenchido
+        3. MESSAGE MATCH AUDIT: ad → squeeze → VSL estão alinhados?
+        4. TOP 3 MELHORIAS DE MAIOR IMPACTO antes de lançar
+        5. RECOMENDAÇÃO: "Pronto para lançar" vs "Precisa de X antes"
+
+      outputs_to_review:
+        - file: "launch_readiness_report.md"
+          sections_focus:
+            - "status_checklist — todos os componentes entregues?"
+            - "pending_items — o que ainda precisa ser feito antes de lançar"
+            - "message_match — ad → squeeze → VSL estão coerentes?"
+          critical: true
+          time_to_read: "10-15 min"
+
+        - file: "pre_launch_optimization.md"
+          sections_focus:
+            - "top_3_improvements — as melhorias de maior impacto"
+            - "quick_wins — o que pode ser feito em menos de 2h antes de lançar"
+          critical: false
+          time_to_read: "5 min"
+
+      validation_questions:
+        - id: VQ-8-1
+          question: "Todos os [PREENCHER] foram substituídos por dados reais?"
+          critical: true
+          what_happens_if_no: "Listar o que ainda falta — nenhum placeholder pode ficar no VSL final ou emails"
+
+        - id: VQ-8-2
+          question: "O funil completo conta uma história coerente do anúncio até o email de boas-vindas?"
+          critical: true
+          what_happens_if_no: "Identificar onde a coerência quebra — corrigir antes de lançar"
+
+        - id: VQ-8-3
+          question: "Você está pronto para lançar? O que está faltando não está neste workflow?"
+          critical: false
+          what_happens_if_no: "Documentar o que falta fora do workflow (tech, design, landing page builder, etc.)"
+
+      approval_gate:
+        approve_command: "APROVADO — FUNIL COMPLETO. Pronto para lançar."
+        refine_command: "AJUSTE FINAL: [o que precisa ser corrigido antes do lançamento]"
+        block_command: "BLOQUEADO: [o que impede o lançamento]"
+
+      on_approve: "Funnel build complete. See handoffs for post-launch workflow."
+      on_refine: "Fix identified items, confirm fixes with human, then proceed to launch."
+      on_block: "Resolve blocking issue. Do not launch until resolved."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DELIVERABLES FINAIS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+deliverables:
+  funnel_components:
+    - squeeze_page_copy.md
+    - primary_conversion_asset_v2.md
+    - order_bump_copy.md
+    - upsell_scripts.md
+    - welcome_sequence.md
+    - buyer_onboarding_sequence.md
+    - facebook_ads.yaml
+  strategy_documents:
+    - AVATAR-MASTER.yaml
+    - rmbc_brief.yaml
+    - offer_architecture.yaml
+    - split_test_plan.yaml
+  quality_documents:
+    - copy_quality_audit.md
+    - launch_readiness_report.md
+    - pre_launch_optimization.md
+
+handoffs:
+  - to: "diagnose-funnel-leak.md"
+    when: "After funnel launches and baseline data exists (typically Day 7-14)"
+  - to: "create-split-test-plan.md"
+    when: "Before launch — already created in Phase 7"
+
+quality_standards:
+  - "All copy follows avatar language from VOC research"
+  - "Message match maintained from ad → squeeze → VSL → email"
+  - "Proof sequenced by credibility tier (scientific first)"
+  - "All urgency mechanisms are genuine and enforced"
+  - "Split test plan in place before launch"
+  - "Every phase has explicit human APPROVED before next phase starts"
+
+estimated_total_duration: "20-30 hours (execution) + 2-4 hours (human review across all checkpoints)"

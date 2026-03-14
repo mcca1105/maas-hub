@@ -1,0 +1,420 @@
+{
+  "email_performance_benchmarks_2026": {
+    "metadata": {
+      "last_updated": "2026-01-15",
+      "source": "Industry aggregated data",
+      "sample_size": "10M+ emails analyzed",
+      "note": "These are AVERAGES. Top performers exceed these significantly."
+    },
+    "by_industry": {
+      "ecommerce": {
+        "open_rate": {
+          "poor": "< 15%",
+          "average": "18-22%",
+          "good": "25-30%",
+          "excellent": "> 35%"
+        },
+        "click_rate": {
+          "poor": "< 1.5%",
+          "average": "2-3%",
+          "good": "3.5-5%",
+          "excellent": "> 6%"
+        },
+        "conversion_rate": {
+          "poor": "< 0.5%",
+          "average": "1-2%",
+          "good": "2.5-4%",
+          "excellent": "> 5%"
+        },
+        "revenue_per_email": {
+          "poor": "< $0.10",
+          "average": "$0.25-0.50",
+          "good": "$0.75-1.50",
+          "excellent": "> $2.00"
+        },
+        "unsubscribe_rate": {
+          "good": "< 0.2%",
+          "acceptable": "0.2-0.5%",
+          "concerning": "0.5-1%",
+          "poor": "> 1%"
+        }
+      },
+      "online_education": {
+        "open_rate": {
+          "poor": "< 20%",
+          "average": "25-30%",
+          "good": "35-42%",
+          "excellent": "> 45%"
+        },
+        "click_rate": {
+          "poor": "< 2%",
+          "average": "3-4.5%",
+          "good": "5-7%",
+          "excellent": "> 8%"
+        },
+        "conversion_rate": {
+          "poor": "< 0.8%",
+          "average": "1.5-3%",
+          "good": "3.5-5%",
+          "excellent": "> 6%"
+        },
+        "revenue_per_subscriber_per_month": {
+          "poor": "< $0.50",
+          "average": "$1-2",
+          "good": "$3-5",
+          "excellent": "> $6"
+        }
+      },
+      "saas_b2b": {
+        "open_rate": {
+          "poor": "< 18%",
+          "average": "22-28%",
+          "good": "30-38%",
+          "excellent": "> 40%"
+        },
+        "click_rate": {
+          "poor": "< 1.8%",
+          "average": "2.5-3.5%",
+          "good": "4-5.5%",
+          "excellent": "> 6%"
+        },
+        "trial_signup_rate": {
+          "poor": "< 0.5%",
+          "average": "0.8-1.5%",
+          "good": "2-3%",
+          "excellent": "> 4%"
+        },
+        "trial_to_paid_conversion": {
+          "poor": "< 10%",
+          "average": "15-25%",
+          "good": "30-40%",
+          "excellent": "> 45%"
+        }
+      },
+      "coaching_consulting": {
+        "open_rate": {
+          "poor": "< 25%",
+          "average": "30-38%",
+          "good": "40-50%",
+          "excellent": "> 55%"
+        },
+        "click_rate": {
+          "poor": "< 3%",
+          "average": "4-6%",
+          "good": "7-10%",
+          "excellent": "> 12%"
+        },
+        "reply_rate": {
+          "poor": "< 1%",
+          "average": "2-4%",
+          "good": "5-8%",
+          "excellent": "> 10%"
+        },
+        "booking_rate": {
+          "poor": "< 0.5%",
+          "average": "1-2%",
+          "good": "2.5-4%",
+          "excellent": "> 5%"
+        }
+      }
+    },
+    "by_email_type": {
+      "promotional": {
+        "open_rate": "18-22%",
+        "click_rate": "2-3%",
+        "conversion_rate": "1-2%",
+        "best_day": "Tuesday",
+        "best_time": "10am local",
+        "frequency": "2-3x per week max"
+      },
+      "newsletter": {
+        "open_rate": "25-30%",
+        "click_rate": "3-5%",
+        "conversion_rate": "0.5-1.5%",
+        "best_day": "Wednesday or Thursday",
+        "best_time": "8am local",
+        "frequency": "1x per week"
+      },
+      "daily_email": {
+        "open_rate": "35-45%",
+        "click_rate": "5-8%",
+        "conversion_rate": "2-4%",
+        "best_time": "6am local",
+        "frequency": "daily (consistent time)",
+        "note": "High performers only. Requires strong relationship."
+      },
+      "cart_abandonment": {
+        "open_rate": "40-50%",
+        "click_rate": "10-15%",
+        "recovery_rate": "8-12%",
+        "optimal_sequence": [
+          "1 hour after abandonment",
+          "24 hours after",
+          "72 hours after (final)"
+        ],
+        "avg_revenue_per_recovered_cart": "$87"
+      },
+      "welcome_sequence": {
+        "email_1": {
+          "open_rate": "60-70%",
+          "click_rate": "15-20%",
+          "send_time": "Immediately upon signup"
+        },
+        "email_2": {
+          "open_rate": "45-55%",
+          "click_rate": "10-15%",
+          "send_time": "24 hours after signup"
+        },
+        "email_3": {
+          "open_rate": "35-45%",
+          "click_rate": "8-12%",
+          "send_time": "72 hours after signup"
+        },
+        "avg_sequence_conversion": "5-12%",
+        "note": "Most important sequence. Sets tone for relationship."
+      },
+      "re_engagement": {
+        "open_rate": "15-25%",
+        "click_rate": "3-6%",
+        "reactivation_rate": "2-5%",
+        "optimal_timing": "60-90 days of inactivity",
+        "subject_line_winners": [
+          "We miss you...",
+          "Is this goodbye?",
+          "One last thing before you go"
+        ]
+      }
+    },
+    "subject_line_performance": {
+      "personalization": {
+        "with_first_name": "+26% open rate vs generic",
+        "with_location": "+19% open rate",
+        "with_past_behavior": "+34% click rate"
+      },
+      "length": {
+        "optimal_characters": "40-50",
+        "mobile_optimal": "30-40",
+        "too_short": "< 20 chars (looks spammy)",
+        "too_long": "> 60 chars (gets cut off)"
+      },
+      "elements_that_work": {
+        "questions": "+8% open rate",
+        "numbers": "+12% open rate",
+        "urgency": "+11% open rate (but +15% unsubscribe if overused)",
+        "curiosity_gap": "+22% open rate",
+        "emojis": "+15% open rate (B2C), -5% open rate (B2B)"
+      },
+      "words_to_avoid": {
+        "spam_triggers": [
+          "Free",
+          "Act now",
+          "Limited time",
+          "Guarantee",
+          "No obligation"
+        ],
+        "note": "These can work if used strategically, but trigger spam filters when overused"
+      }
+    },
+    "list_health_metrics": {
+      "engagement_rate": {
+        "calculation": "(Opens + Clicks) / Delivered",
+        "poor": "< 10%",
+        "average": "15-25%",
+        "good": "30-40%",
+        "excellent": "> 45%"
+      },
+      "list_growth_rate": {
+        "calculation": "(New Subs - Unsubs) / Total List",
+        "poor": "< 1% monthly",
+        "average": "2-4% monthly",
+        "good": "5-8% monthly",
+        "excellent": "> 10% monthly"
+      },
+      "list_decay_rate": {
+        "natural_decay": "25-30% annually",
+        "action_required_if": "> 35% annually",
+        "prevention": "Regular engagement campaigns"
+      },
+      "inactive_subscribers": {
+        "definition": "No opens in 90+ days",
+        "acceptable": "< 20% of list",
+        "concerning": "20-35% of list",
+        "action_required": "> 35% of list",
+        "solution": "Re-engagement campaign or list cleaning"
+      }
+    },
+    "deliverability_benchmarks": {
+      "inbox_placement_rate": {
+        "excellent": "> 95%",
+        "good": "90-95%",
+        "concerning": "80-90%",
+        "poor": "< 80%"
+      },
+      "spam_complaint_rate": {
+        "acceptable": "< 0.1%",
+        "concerning": "0.1-0.3%",
+        "dangerous": "> 0.3%",
+        "note": "Above 0.3% can trigger ESP account suspension"
+      },
+      "bounce_rate": {
+        "soft_bounce_acceptable": "< 2%",
+        "hard_bounce_acceptable": "< 1%",
+        "action_required": "> 2% hard bounce",
+        "note": "Clean list regularly to maintain low bounce rate"
+      },
+      "authentication": {
+        "required": [
+          "SPF",
+          "DKIM",
+          "DMARC"
+        ],
+        "impact_without": "-15 to -30% deliverability"
+      }
+    },
+    "revenue_per_subscriber": {
+      "by_industry": {
+        "ecommerce": {
+          "poor": "< $0.50/month",
+          "average": "$1-2/month",
+          "good": "$3-5/month",
+          "excellent": "> $6/month"
+        },
+        "digital_products": {
+          "poor": "< $1/month",
+          "average": "$2-4/month",
+          "good": "$5-8/month",
+          "excellent": "> $10/month"
+        },
+        "saas": {
+          "poor": "< $0.30/month",
+          "average": "$0.50-1/month",
+          "good": "$1.50-3/month",
+          "excellent": "> $4/month"
+        },
+        "high_ticket": {
+          "poor": "< $2/month",
+          "average": "$5-10/month",
+          "good": "$15-25/month",
+          "excellent": "> $30/month"
+        }
+      },
+      "calculation_note": "Total email revenue / Total subscribers / Months active"
+    },
+    "testing_benchmarks": {
+      "subject_line_tests": {
+        "minimum_sample_size": "1,000 subscribers per variant",
+        "typical_lift": "5-15% open rate improvement",
+        "confidence_level": "95%",
+        "test_duration": "Same time, same day for both variants"
+      },
+      "content_tests": {
+        "minimum_sample_size": "2,000 subscribers per variant",
+        "typical_lift": "10-30% click rate improvement",
+        "what_to_test": [
+          "CTA placement",
+          "CTA copy",
+          "Email length",
+          "Story vs educational",
+          "Images vs text-only"
+        ]
+      },
+      "send_time_tests": {
+        "test_duration": "2-4 weeks",
+        "typical_variance": "20-40% between best and worst time",
+        "note": "Varies significantly by audience. Always test."
+      }
+    },
+    "sequence_performance": {
+      "email_1": {
+        "expected_open_rate": "60-70%",
+        "expected_click_rate": "15-25%",
+        "purpose": "Welcome + set expectations",
+        "conversion_contribution": "30-40% of sequence total"
+      },
+      "email_2": {
+        "expected_open_rate": "45-55%",
+        "expected_click_rate": "10-15%",
+        "purpose": "Quick win + establish value",
+        "conversion_contribution": "20-30% of sequence total"
+      },
+      "email_3": {
+        "expected_open_rate": "35-45%",
+        "expected_click_rate": "8-12%",
+        "purpose": "Social proof + soft sell",
+        "conversion_contribution": "15-20% of sequence total"
+      },
+      "email_4": {
+        "expected_open_rate": "28-38%",
+        "expected_click_rate": "6-10%",
+        "purpose": "Education + authority",
+        "conversion_contribution": "10-15% of sequence total"
+      },
+      "email_5+": {
+        "expected_open_rate": "22-32%",
+        "expected_click_rate": "4-8%",
+        "purpose": "Nurture + secondary offers",
+        "note": "Diminishing returns after email 7"
+      },
+      "optimal_sequence_length": {
+        "welcome": "5-7 emails",
+        "nurture": "8-12 emails",
+        "sales": "4-6 emails",
+        "onboarding": "10-15 emails"
+      }
+    },
+    "segmentation_impact": {
+      "behavioral_segmentation": {
+        "engaged_vs_unengaged": "+45% conversion rate",
+        "past_buyers_vs_leads": "+67% purchase rate",
+        "high_value_vs_low_value": "+89% revenue per email"
+      },
+      "demographic_segmentation": {
+        "by_location": "+12% relevance",
+        "by_age_group": "+18% engagement",
+        "by_industry": "+34% click rate (B2B)"
+      },
+      "lifecycle_segmentation": {
+        "new_vs_loyal": "+56% effectiveness",
+        "at_risk_vs_active": "+72% retention",
+        "churned_vs_active": "+41% winback rate"
+      }
+    },
+    "mobile_optimization": {
+      "mobile_open_rate": "60-70% of all opens",
+      "mobile_click_rate": "Typically lower by 15-25%",
+      "requirements": {
+        "responsive_design": "Mandatory",
+        "single_column_layout": "Highly recommended",
+        "font_size_minimum": "14px",
+        "cta_button_minimum": "44x44px (Apple guideline)",
+        "preview_text": "40-90 characters"
+      },
+      "impact_of_not_optimizing": "-40 to -60% mobile conversions"
+    },
+    "automation_roi": {
+      "welcome_sequence": {
+        "setup_time": "4-8 hours",
+        "avg_revenue_contribution": "25-35% of total email revenue",
+        "roi": "10-20x setup cost"
+      },
+      "abandoned_cart": {
+        "setup_time": "2-4 hours",
+        "recovery_rate": "8-12% of abandoned carts",
+        "avg_revenue": "$15-30 per recovered cart",
+        "roi": "15-30x setup cost"
+      },
+      "post_purchase": {
+        "setup_time": "3-6 hours",
+        "repeat_purchase_lift": "+18-25%",
+        "review_generation": "+40-60%",
+        "roi": "8-15x setup cost"
+      },
+      "re_engagement": {
+        "setup_time": "2-3 hours",
+        "reactivation_rate": "2-5% of inactive list",
+        "ltv_contribution": "$5-15 per reactivated subscriber",
+        "roi": "5-12x setup cost"
+      }
+    }
+  }
+}

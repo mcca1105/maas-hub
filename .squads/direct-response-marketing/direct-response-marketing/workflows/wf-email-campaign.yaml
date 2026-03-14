@@ -1,0 +1,268 @@
+id: wf-email-campaign
+name: Email Campaign Workflow
+description: >
+  Workflow for planning, writing, and launching a complete email campaign —
+  from list segmentation through sequence copywriting to deliverability setup.
+  Frank Kern's principle: Every email must earn the right to the next email.
+
+version: "1.0"
+author: drm-chief
+agents:
+  - drm-chief
+  - frank-kern
+  - robert-cialdini
+
+triggers:
+  - "New product launch requiring email campaign"
+  - "Promotional campaign to existing list"
+  - "Lead nurture sequence for new opt-ins"
+  - "Re-engagement campaign for cold list"
+  - "Webinar promotion sequence"
+
+phases:
+  - id: phase-1
+    name: Campaign Strategy & List Segmentation
+    agent: drm-chief
+    duration_estimate: "1 hour"
+    description: >
+      Define the campaign objective, segment the list, and map the email sequence
+      architecture before writing a single word.
+
+    inputs:
+      - campaign_objective
+      - list_size_and_segments
+      - offer_details
+      - AVATAR-MASTER.yaml
+
+    tasks:
+      - id: P1-T1
+        action: "Define campaign objective and primary metric"
+        output: campaign_brief.yaml
+        required_fields:
+          - campaign_type: "[launch/nurture/promo/re-engagement/webinar]"
+          - primary_metric: "[revenue/opt-ins/webinar registrations/show-up rate]"
+          - list_segments: "[who gets which emails]"
+          - campaign_duration: "[days]"
+          - send_frequency: "[daily/every 2 days/etc.]"
+
+      - id: P1-T2
+        action: "Map sequence architecture — number of emails, timing, branching"
+        output: sequence_map.yaml
+        structure_by_type:
+          launch_sequence:
+            - "Day 0: Announcement email"
+            - "Day 1: Value email (teaching)"
+            - "Day 2: Case study / proof email"
+            - "Day 3: Objection handling email"
+            - "Day 4: Closing email (deadline)"
+            - "Day 5: Last chance (deadline day)"
+          nurture_sequence:
+            - "Email 1: Welcome + quick win"
+            - "Email 2-4: Teaching + story"
+            - "Email 5: First offer introduction"
+            - "Email 6-8: More value"
+            - "Email 9: Second offer push"
+          re_engagement:
+            - "Email 1: Pattern interrupt subject"
+            - "Email 2: Re-introduce value"
+            - "Email 3: Special offer for inactive"
+            - "Email 4: Break-up email"
+
+    veto_conditions:
+      - "VETO if campaign has no clear offer or CTA defined"
+      - "VETO if sequence sends more than 1 email per day without genuine reason"
+      - "VETO if list is not segmented (buyers should NOT receive purchase prompts)"
+
+    checkpoint:
+      question: "Is the sequence map complete with timing and branching for each segment?"
+      pass: "Proceed to Phase 2"
+      fail: "Complete sequence map before writing"
+
+  - id: phase-2
+    name: Subject Line Arsenal
+    agent: frank-kern
+    duration_estimate: "1 hour"
+    description: >
+      Write all subject lines before writing email bodies.
+      Subject lines determine 50% of open rates — treat them as the headline.
+
+    inputs:
+      - campaign_brief.yaml
+      - sequence_map.yaml
+      - AVATAR-MASTER.yaml
+
+    tasks:
+      - id: P2-T1
+        action: "Write 3 subject line options per email (all emails in sequence)"
+        output: subject_line_options.yaml
+        formula_types:
+          - "Curiosity gap: '[Something] they don't know about [topic]'"
+          - "Direct benefit: '[Specific result] in [timeframe]'"
+          - "Story tease: 'How I/She/He [result without explaining how]'"
+          - "Question: 'Are you [problem situation]?'"
+          - "Pattern interrupt: '[Unexpected/contrarian statement]'"
+          - "Time/urgency: '[Hours/days] left to [get/join/save]'"
+
+      - id: P2-T2
+        action: "Select winning subject line per email + define A/B test variant"
+        output: final_subject_lines.yaml
+        rule: "One subject line per email deployed, one for A/B test"
+
+    veto_conditions:
+      - "VETO if any subject line is over 60 characters (mobile truncation)"
+      - "VETO if subject lines use spam trigger words (FREE, URGENT, CLICK HERE)"
+      - "VETO if all subject lines use the same formula type (must have variety)"
+
+    checkpoint:
+      question: "Would YOU open each of these emails based on subject alone?"
+      pass: "Proceed to Phase 3"
+      fail: "Rewrite weak subject lines before proceeding"
+
+  - id: phase-3
+    name: Email Copywriting
+    agent: frank-kern
+    duration_estimate: "3-5 hours"
+    description: >
+      Write complete email copy for every email in the sequence.
+      Frank Kern format: Hook → Story → Lesson → CTA.
+
+    inputs:
+      - campaign_brief.yaml
+      - sequence_map.yaml
+      - final_subject_lines.yaml
+      - AVATAR-MASTER.yaml
+      - proof_inventory.yaml (if available)
+
+    tasks:
+      - id: P3-T1
+        action: "Execute write-email-sequence.md for primary sequence"
+        output: email_sequence.md
+
+      - id: P3-T2
+        action: "Write objection-handling emails for launch sequences"
+        task_reference: "write-objection-handlers.md"
+        output: objection_emails.md
+        note: "Every launch sequence needs at least 1 dedicated objection email"
+
+      - id: P3-T3
+        action: "Write urgency/deadline emails for closing sequence"
+        task_reference: "craft-urgency-scarcity.md (Format D — Email Urgency)"
+        output: urgency_emails.md
+
+    veto_conditions:
+      - "VETO if any email exceeds 500 words (unless case study or long-form value email)"
+      - "VETO if email doesn't have a story (Kern rule: value + story in every email)"
+      - "VETO if CTA is missing from any email (every email needs a link)"
+      - "VETO if all emails sound like corporate email blasts (must feel 1:1)"
+
+    checkpoint:
+      question: "Read email 1 aloud. Does it sound like a real person talking to a friend?"
+      pass: "Proceed to Phase 4"
+      fail: "Rewrite to remove corporate language and add conversational tone"
+
+  - id: phase-4
+    name: Persuasion Layer Integration
+    agent: robert-cialdini
+    duration_estimate: "1 hour"
+    description: >
+      Review all emails for missing Cialdini principles and add persuasion
+      elements where they're absent.
+
+    inputs:
+      - email_sequence.md
+      - objection_emails.md
+      - urgency_emails.md
+
+    tasks:
+      - id: P4-T1
+        action: "Audit all emails for Cialdini principle coverage"
+        audit_checklist:
+          - "Reciprocity: Value given before asking?"
+          - "Social proof: At least one email with specific testimonial?"
+          - "Authority: Credibility established in Email 1?"
+          - "Scarcity: Genuine scarcity in closing emails?"
+          - "Liking: Personal story or vulnerability shared?"
+          - "Commitment: Small yes before big yes?"
+          - "Unity: Shared identity/values with reader?"
+        output: persuasion_audit.yaml
+
+      - id: P4-T2
+        action: "Add missing persuasion elements to emails — edit inline, not add new emails"
+        output: email_sequence_v2.md
+
+    veto_conditions:
+      - "VETO if social proof is missing from entire sequence"
+      - "VETO if no genuine scarcity in a launch campaign"
+
+    checkpoint:
+      question: "Does the sequence systematically build trust, proof, and desire?"
+      pass: "Proceed to Phase 5"
+      fail: "Add missing persuasion elements"
+
+  - id: phase-5
+    name: Deliverability & Technical Setup
+    agent: drm-chief
+    duration_estimate: "30 minutes"
+    description: >
+      Prepare emails for deliverability — formatting, link structure, and ESP setup.
+
+    tasks:
+      - id: P5-T1
+        action: "Format emails for deliverability"
+        checklist:
+          - "Text-to-image ratio at least 60/40 (more text than images)"
+          - "Single CTA link per email (not 5 links)"
+          - "Unsubscribe link present in every email"
+          - "Preview text (preheader) written for each email"
+          - "Plain text version matches HTML version"
+
+      - id: P5-T2
+        action: "Write email metadata for ESP"
+        output: esp_setup_sheet.yaml
+        required_fields:
+          - email_name: "[Internal name]"
+          - send_date_time: "[Date + time + timezone]"
+          - segment: "[Who receives this email]"
+          - from_name: "[Sender name]"
+          - reply_to: "[Reply email address]"
+          - subject_line: "[Final selected]"
+          - ab_test_subject: "[Variant for A/B test]"
+          - utm_params: "[Tracking params for links]"
+
+    veto_conditions:
+      - "VETO if any email has no unsubscribe link"
+      - "VETO if send schedule isn't mapped to actual calendar dates"
+
+    deliverables:
+      - email_sequence_v2.md (final approved copy)
+      - subject_line_options.yaml
+      - esp_setup_sheet.yaml
+      - persuasion_audit.yaml
+
+handoffs:
+  - to: "write-facebook-ad-copy.md"
+    when: "Campaign has a paid traffic component"
+  - to: "diagnose-funnel-leak.md"
+    when: "After campaign runs — if open rates or click rates underperform benchmarks"
+  - to: "write-email-sequence.md"
+    when: "Creating a new sequence type not covered in this campaign"
+
+benchmarks:
+  open_rate:
+    cold_list: "15-20% acceptable, 25%+ excellent"
+    warm_list: "25-35% acceptable, 40%+ excellent"
+  click_rate:
+    cold_list: "1-2% acceptable, 3%+ excellent"
+    warm_list: "3-5% acceptable, 7%+ excellent"
+  unsubscribe:
+    acceptable: "<0.5% per email"
+    concerning: ">1% — review list quality and relevance"
+
+quality_standards:
+  - "Every email deliverable as a standalone read"
+  - "Subject line tested (A/B) for all emails over 5,000 recipients"
+  - "All links tracked with UTM parameters"
+  - "Buyer segment excluded from purchase-prompting emails"
+  - "Sequence reads as a coherent narrative, not disconnected emails"
+
+estimated_total_duration: "7-9 hours"

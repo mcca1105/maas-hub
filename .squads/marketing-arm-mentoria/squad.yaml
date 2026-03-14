@@ -1,0 +1,215 @@
+name: marketing-arm-mentoria
+title: Marketing ARM - Mentoria & Consultoria
+description: Squad de marketing para empresa de mentoria e consultoria empresarial focado em geração de leads
+version: 1.0.0
+author: Craft (Squad Creator)
+created: 2026-02-08
+updated: 2026-02-08
+
+# ========================================
+# CONTEXTO DO SQUAD
+# ========================================
+context:
+  industry: Serviços & Educação
+  segment: Mentoria & Consultoria Empresarial
+  target_audience:
+    - Autônomos
+    - Médicos
+    - Advogados
+  channels:
+    - Instagram (Reels, Stories, Posts)
+    - LinkedIn (Artigos, Posts, Carousel)
+    - YouTube (Vídeos longos, Tutoriais)
+  goals:
+    - Gerar leads qualificados
+    - Aumentar brand awareness
+    - Posicionar expertise
+    - Build community
+  metrics_focus:
+    - Lead generation rate
+    - Engagement rate
+    - Video views
+    - Conversion rate
+  volume:
+    content_per_week: 15-25
+    posts_instagram: 8-10
+    posts_linkedin: 8-10
+  cycle: Weekly
+
+# ========================================
+# 7 FUNCIONÁRIOS (AGENTES)
+# ========================================
+agents:
+  - id: cmo
+    name: Chief Marketing Officer
+    title: CMO - Liderança Estratégica
+    responsibility: Liderança, estratégia e aprovações
+    reports_to: CEO
+    salary_range: "R$ 5.000 - 10.000"
+    status: active
+
+  - id: ideacao-instagram
+    name: Content Ideator - Instagram
+    title: Especialista em Ideação Instagram
+    responsibility: Gerar ideias para Instagram (8-10/semana)
+    reports_to: cmo
+    salary_range: "R$ 2.500 - 3.500"
+    status: active
+
+  - id: ideacao-linkedin
+    name: Content Ideator - LinkedIn
+    title: Especialista em Ideação LinkedIn
+    responsibility: Gerar ideias para LinkedIn (8-10/semana)
+    reports_to: cmo
+    salary_range: "R$ 2.500 - 3.500"
+    status: active
+
+  - id: producao
+    name: Content Producer
+    title: Produtor de Conteúdo
+    responsibility: Gravar, editar e criar conteúdo
+    reports_to: cmo
+    salary_range: "R$ 2.500 - 3.500"
+    status: active
+
+  - id: designer
+    name: Designer Gráfico
+    title: Designer Visual & Branding
+    responsibility: Design visual e identidade
+    reports_to: cmo
+    salary_range: "R$ 2.500 - 3.500"
+    status: active
+
+  - id: distribuicao
+    name: Content Manager
+    title: Gerenciador de Distribuição
+    responsibility: Publicar, agendar e gerenciar comunidade
+    reports_to: cmo
+    salary_range: "R$ 2.500 - 3.500"
+    status: active
+
+  - id: metricas
+    name: Analytics Manager
+    title: Gerenciador de Métricas
+    responsibility: Medir, analisar e otimizar
+    reports_to: cmo
+    salary_range: "R$ 2.500 - 3.500"
+    status: active
+
+# ========================================
+# WORKFLOW SEMANAL
+# ========================================
+workflows:
+  weekly_cycle:
+    name: "Ciclo Semanal de Marketing"
+    duration: "7 dias"
+    start_day: "Segunda-feira"
+    phases:
+      - day: "1-2 (Seg-Ter)"
+        phase: "Ideação"
+        responsible:
+          - ideacao-instagram
+          - ideacao-linkedin
+        deliverable: "20 ideias (10 IG + 10 LinkedIn)"
+        duration: "6 horas/dia"
+
+      - day: "3-4 (Qua-Qui)"
+        phase: "Produção & Design"
+        responsible:
+          - producao
+          - designer
+        deliverable: "10 conteúdos finalizados"
+        duration: "8 horas/dia"
+
+      - day: "5-6 (Sex-Sab)"
+        phase: "Distribuição & Comunidade"
+        responsible:
+          - distribuicao
+        deliverable: "Posts publicados, comunidade engajada"
+        duration: "4 horas/dia"
+
+      - day: "7 (Domingo)"
+        phase: "Análise & Planejamento"
+        responsible:
+          - metricas
+          - cmo
+        deliverable: "Relatório semanal + plano próxima semana"
+        duration: "4 horas"
+
+# ========================================
+# MÉTRICAS & KPIs
+# ========================================
+kpis:
+  instagram:
+    reach: "5.000+ pessoas/semana"
+    engagement_rate: "> 5%"
+    followers_growth: "100-150/semana"
+    leads_instagram: "> 5/semana"
+
+  linkedin:
+    reach: "2.000+ pessoas/semana"
+    engagement_rate: "> 3%"
+    followers_growth: "50-100/semana"
+    leads_linkedin: "> 10/semana"
+
+  youtube:
+    views: "500+ views/semana"
+    subscribers: "20-30/semana"
+    watch_time: "100+ horas/mês"
+    leads_youtube: "> 3/semana"
+
+  overall:
+    total_leads: "> 20/semana"
+    cost_per_lead: "< R$ 50"
+    conversion_rate: "> 10%"
+    team_satisfaction: "> 8/10"
+
+# ========================================
+# RECURSOS NECESSÁRIOS
+# ========================================
+resources:
+  tools:
+    - Buffer / Later (Agendamento de posts)
+    - Canva Pro / Adobe Creative Suite (Design)
+    - CapCut / Adobe Premiere (Edição de vídeo)
+    - Google Analytics / Meta Business Suite (Métricas)
+    - Notion / Asana (Gerenciamento de projetos)
+    - Slack (Comunicação interna)
+
+  budget_estimate: "R$ 2.000-5.000/mês"
+  team_size: 7
+  onboarding_time: "2 semanas"
+
+# ========================================
+# STATUS & CHECKLIST
+# ========================================
+status: active
+created_at: 2026-02-08T00:00:00Z
+updated_at: 2026-02-08T00:00:00Z
+
+checklist:
+  - item: "Squad.yaml criado"
+    status: true
+  - item: "Job descriptions documentadas"
+    status: true
+  - item: "Workflow semanal definido"
+    status: false
+  - item: "Content guidelines criadas"
+    status: false
+  - item: "KPI dashboard montado"
+    status: false
+  - item: "Templates de conteúdo criados"
+    status: false
+  - item: "Equipe recrutada"
+    status: false
+  - item: "Tools configuradas"
+    status: false
+  - item: "Primeira semana planejada"
+    status: false
+
+metadata:
+  visibility: private
+  squad_type: marketing
+  complexity: medium
+  estimated_monthly_cost: 15000
+  expected_monthly_leads: 80

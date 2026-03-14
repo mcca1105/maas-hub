@@ -1,0 +1,344 @@
+# Direct Response Marketing Squad — The Masters of Persuasion v2.0
+# Six elite minds. One objective: make words sell.
+
+pack:
+  name: direct-response-marketing
+  title: "Direct Response Marketing Squad — The Masters of Persuasion"
+  version: "2.0.0"
+  author: "Gabriel Assis Rodrigues"
+  description: "6 elite direct response minds, each mastering one discipline of persuasion, conversion, and response-driven marketing"
+  icon: "🎯"
+  slash_prefix: "direct-response-marketing"
+  entry_agent: drm-chief
+
+metadata:
+  created: 2026-02-19
+  redesigned: 2026-02-19
+  redesign_reason: "Brownfield upgrade — separated fused minds, added tier system, DNA extraction, validation system"
+  source_minds:
+    - stefan_georgi
+    - eugene_schwartz
+    - gary_halbert
+    - frank_kern
+    - ryan_deiss
+    - robert_cialdini
+  fidelity_target: 0.90
+  total_agents: 7
+  total_tasks: 38
+  total_workflows: 7
+  total_checklists: 25
+  mmos_artifacts: 14
+
+# MMOS Integration
+mmos_integration:
+  enabled: true
+  log_source: true
+  fallback_behavior: "graceful"
+  mind_mapping:
+    drm-chief: orchestrator
+    stefan-georgi: stefan_georgi
+    eugene-schwartz: eugene_schwartz
+    gary-halbert: gary_halbert
+    frank-kern: frank_kern
+    ryan-deiss: ryan_deiss
+    robert-cialdini: robert_cialdini
+
+# Agents — Organized by Tier
+agents:
+  # Tier 0: Orchestrator
+  - id: drm-chief
+    name: "DRM Chief"
+    role: "Master orchestrator — diagnoses, routes, coordinates 6 specialists"
+    tier: 0
+    file: agents/drm-chief.md
+
+  # Tier 1: Foundational Theorists (Frameworks that define the field)
+  - id: eugene-schwartz
+    name: "Eugene Schwartz"
+    role: "5 Stages of Awareness, Market Sophistication, mass desire channeling"
+    tier: 1
+    primary_sources:
+      - "Breakthrough Advertising (1966)"
+      - "Five Stages of Awareness framework"
+      - "Market Sophistication levels 1-5"
+      - "Mass desire theory"
+    file: agents/eugene-schwartz.md
+
+  - id: robert-cialdini
+    name: "Robert Cialdini"
+    role: "7 Principles of Influence, persuasion science, pre-suasion"
+    tier: 1
+    primary_sources:
+      - "Influence: The Psychology of Persuasion (1984)"
+      - "Pre-Suasion (2016)"
+      - "7 Principles: Reciprocity, Commitment, Social Proof, Authority, Liking, Scarcity, Unity"
+    file: agents/robert-cialdini.md
+
+  # Tier 2: Master Practitioners (Elite craft and execution)
+  - id: stefan-georgi
+    name: "Stefan Georgi"
+    role: "RMBC Method, VSL creation, $1B+ in direct response copy"
+    tier: 2
+    primary_sources:
+      - "RMBC Method (Research, Mechanism, Brief, Copy)"
+      - "VSL Blueprint Bundle"
+      - "RMBC II — AI-integrated direct response"
+      - "Copy Accelerator programs"
+    file: agents/stefan-georgi.md
+
+  - id: gary-halbert
+    name: "Gary Halbert"
+    role: "Starving Crowd principle, sales letters, The Boron Letters"
+    tier: 2
+    primary_sources:
+      - "The Boron Letters (1984)"
+      - "The Gary Halbert Letter newsletters"
+      - "Starving Crowd principle"
+      - "Fascination bullets methodology"
+    file: agents/gary-halbert.md
+
+  - id: frank-kern
+    name: "Frank Kern"
+    role: "Intent Based Branding, Behavioral Dynamic Response, pre-framing"
+    tier: 2
+    primary_sources:
+      - "Intent Based Branding course"
+      - "Mass Control methodology"
+      - "4 Day Cash Machine framework"
+      - "Behavioral Dynamic Response system"
+    file: agents/frank-kern.md
+
+  # Tier 3: Systems Architects (Optimization and scale)
+  - id: ryan-deiss
+    name: "Ryan Deiss"
+    role: "Customer Value Optimization, CVO funnel, LTV maximization"
+    tier: 3
+    primary_sources:
+      - "Customer Value Optimization methodology"
+      - "DigitalMarketer CVO framework"
+      - "Perpetual Traffic system"
+      - "5-step CVO funnel (Lead Magnet → Tripwire → Core → Profit Maximizer → Return Path)"
+    file: agents/ryan-deiss.md
+
+# Mental Models (8 confirmed — the operating system of direct response)
+mental_models:
+  - id: MM_DRM_001
+    name: "Mass Desire Channeling"
+    formula: "Copy cannot create desire — it channels desire that already exists"
+    source: "Eugene Schwartz — Breakthrough Advertising"
+    type: universal
+    transferability: 0.95
+
+  - id: MM_DRM_002
+    name: "Awareness Stage Matching"
+    insight: "The right message depends entirely on where the prospect is in their awareness journey"
+    source: "Eugene Schwartz — 5 Stages of Awareness"
+    type: domain
+    transferability: 0.90
+
+  - id: MM_DRM_003
+    name: "Starving Crowd First"
+    formula: "Market > Offer > Copy — find hungry people before you write a single word"
+    source: "Gary Halbert — The Boron Letters"
+    type: universal
+    transferability: 0.85
+
+  - id: MM_DRM_004
+    name: "RMBC Systematic Copy"
+    insight: "Research defines the mechanism; mechanism defines the brief; brief produces the copy"
+    source: "Stefan Georgi — RMBC Method"
+    type: domain
+    transferability: 0.80
+
+  - id: MM_DRM_005
+    name: "Pre-Suasion Window"
+    insight: "What captures attention in the moment before the message determines how the message is received"
+    source: "Robert Cialdini — Pre-Suasion"
+    type: universal
+    transferability: 0.88
+
+  - id: MM_DRM_006
+    name: "Intent Before Pitch"
+    insight: "Bond emotionally before selling — people must know, like, and trust before they buy"
+    source: "Frank Kern — Intent Based Branding"
+    type: universal
+    transferability: 0.85
+
+  - id: MM_DRM_007
+    name: "Customer Value Ladder"
+    formula: "Lead Magnet → Tripwire → Core Offer → Profit Maximizer → Return Path"
+    source: "Ryan Deiss — CVO Framework"
+    type: domain
+    transferability: 0.88
+
+  - id: MM_DRM_008
+    name: "Behavioral Response Sequencing"
+    insight: "Customize your marketing message based on what the prospect DID, not who they are"
+    source: "Frank Kern — Behavioral Dynamic Response"
+    type: domain
+    transferability: 0.75
+
+# Tier Definitions
+tier_definitions:
+  tier_0:
+    name: "Orchestrator"
+    role: "Routes, diagnoses, coordinates — never executes without context"
+    agents: [drm-chief]
+
+  tier_1:
+    name: "Foundational Theorists"
+    role: "Universal frameworks that underpin all direct response — consult before executing"
+    agents: [eugene-schwartz, robert-cialdini]
+    when_to_use: "Before writing copy, designing campaigns, or building funnels — diagnose with Tier 1 first"
+
+  tier_2:
+    name: "Master Practitioners"
+    role: "Elite execution specialists — they write, create, and produce"
+    agents: [stefan-georgi, gary-halbert, frank-kern]
+    when_to_use: "When you need actual copy, ads, or content produced"
+
+  tier_3:
+    name: "Systems Architects"
+    role: "Funnel and LTV optimization — they build the machine that makes copy work"
+    agents: [ryan-deiss]
+    when_to_use: "When designing funnel sequences, CVO strategy, or scaling"
+
+# Workflows
+workflows:
+  - id: wf-cold-traffic-vsl
+    name: "Cold Traffic VSL Creation"
+    file: workflows/wf-cold-traffic-vsl.yaml
+    phases: 5
+    agents: [drm-chief, eugene-schwartz, stefan-georgi, robert-cialdini, ryan-deiss]
+
+  - id: wf-sales-letter
+    name: "Long-Form Sales Letter"
+    file: workflows/wf-sales-letter.yaml
+    phases: 4
+    agents: [drm-chief, eugene-schwartz, gary-halbert, robert-cialdini]
+
+  - id: wf-ad-campaign
+    name: "Direct Response Ad Campaign"
+    file: workflows/wf-ad-campaign.yaml
+    phases: 4
+    agents: [drm-chief, frank-kern, stefan-georgi, ryan-deiss]
+
+  - id: wf-funnel-build
+    name: "Full Funnel Build"
+    file: workflows/wf-funnel-build.yaml
+    phases: 6
+    agents: [drm-chief, ryan-deiss, stefan-georgi, gary-halbert, robert-cialdini]
+
+  - id: wf-launch-sequence
+    name: "Product Launch Sequence"
+    file: workflows/wf-launch-sequence.yaml
+    phases: 5
+    agents: [drm-chief, frank-kern, gary-halbert, stefan-georgi, ryan-deiss]
+
+  - id: wf-copy-audit
+    name: "Copy & Funnel Audit"
+    file: workflows/wf-copy-audit.yaml
+    phases: 3
+    agents: [drm-chief, eugene-schwartz, robert-cialdini, ryan-deiss]
+
+  - id: wf-email-sequence
+    name: "Email Nurture & Conversion Sequence"
+    file: workflows/wf-email-sequence.yaml
+    phases: 4
+    agents: [drm-chief, frank-kern, gary-halbert, ryan-deiss]
+
+# Sources
+sources:
+  minds_path: squads/direct-response-marketing/data/minds
+  case_library: squads/direct-response-marketing/data/drm-case-library.yaml
+
+# Shared Data Files
+shared_data:
+  voice_dna: data/minds/drm-voice-dna.yaml
+  case_library: data/drm-case-library.yaml
+  benchmarks: data/benchmarks/
+  swipe_files: data/swipe-files/
+  frameworks: data/frameworks/
+
+  # Per-agent DNA
+  agent_dna:
+    stefan-georgi: data/minds/stefan-georgi-dna.yaml
+    eugene-schwartz: data/minds/eugene-schwartz-dna.yaml
+    gary-halbert: data/minds/gary-halbert-dna.yaml
+    frank-kern: data/minds/frank-kern-dna.yaml
+    ryan-deiss: data/minds/ryan-deiss-dna.yaml
+    robert-cialdini: data/minds/robert-cialdini-dna.yaml
+
+# Veto Conditions (Centralized)
+veto_conditions:
+  config_file: config/veto-conditions.yaml
+  enforcement: strict
+  categories:
+    universal: 5      # Apply to ALL agents
+    copy_quality: 6   # Apply to all copy-producing agents
+    funnel_logic: 4   # Apply to funnel/CVO work
+    research: 3       # Apply before writing
+  mandatory_checklists:
+    awareness_check: checklists/awareness-stage-checklist.md
+    copy_quality: checklists/copy-quality-checklist.md
+    pre_launch: checklists/pre-launch-master-checklist.md
+    cialdini_audit: checklists/cialdini-principles-checklist.md
+
+# Validation Scripts
+validation_scripts:
+  awareness_validator:
+    path: scripts/validate-awareness-stage.py
+    usage: "python squads/direct-response-marketing/scripts/validate-awareness-stage.py --stage <1-5>"
+    trigger: "Before writing any copy — confirm awareness stage of target"
+    returns: "PASS (exit 0) or FAIL (exit 1) with recommended copy approach"
+
+  cvo_validator:
+    path: scripts/validate-cvo-funnel.py
+    usage: "python squads/direct-response-marketing/scripts/validate-cvo-funnel.py --funnel <file.yaml>"
+    trigger: "Before launching any funnel — validate CVO logic"
+    returns: "PASS (exit 0) or FAIL (exit 1) with gap analysis"
+
+  cialdini_validator:
+    path: scripts/validate-cialdini.py
+    usage: "python squads/direct-response-marketing/scripts/validate-cialdini.py --copy <file.md>"
+    trigger: "Before finalizing copy — check principle usage"
+    returns: "PASS (exit 0) or WARN (exit 1) with missing principles"
+
+# Dependencies
+dependencies:
+  - aios-core
+
+tags:
+  - direct-response
+  - copywriting
+  - vsl
+  - sales-letters
+  - funnels
+  - conversion-optimization
+  - persuasion
+  - customer-value-optimization
+  - behavioral-marketing
+  - email-marketing
+
+# Deprecated Agents (v1.0 — replaced in v2.0)
+deprecated_agents:
+  - id: vsl-master
+    replaced_by: stefan-georgi
+    reason: "Named after generic role, not the mind. Separated to single-mind principle."
+  - id: copy-legend
+    replaced_by: [eugene-schwartz, gary-halbert]
+    reason: "Fused two distinct minds with incompatible voices. Separated into individual agents."
+  - id: ad-creative-genius
+    replaced_by: frank-kern
+    reason: "Generic name, diffuse identity. Anchored to Frank Kern's documented methodology."
+  - id: funnel-architect
+    replaced_by: ryan-deiss
+    reason: "Fused Brunson (separate squad) with Deiss. Focused on Ryan Deiss CVO exclusively."
+  - id: conversion-scientist
+    replaced_by: ryan-deiss
+    reason: "Merged into ryan-deiss — CVO and conversion science are Ryan Deiss's domain."
+  - id: landing-page-psychologist
+    replaced_by: robert-cialdini
+    reason: "Anchored to Cialdini's documented persuasion science rather than generic role."
+
+# Criado com Squad Creator do AIOSPRO | Redesign v2.0 — 2026-02-19
