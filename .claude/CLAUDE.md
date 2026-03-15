@@ -2,6 +2,69 @@
 
 You are working with Synkra AIOX, an AI-Orchestrated System for Full Stack Development.
 
+<!-- CONTEXT-SYNC-START -->
+## 🔗 Contexto de Usuário — Sincronização Obrigatória
+
+**IMPORTANTE:** Este arquivo é complementado por **`CLAUDE-MARIANA.md`**.
+
+| Arquivo | Propósito | Quando Aplicar |
+|---------|----------|----------------|
+| **CLAUDE.md** (este) | Framework técnico, agentes, desenvolvimento profissional | Sempre (contexto padrão) |
+| **CLAUDE-MARIANA.md** | Perfil educacional, onboarding iniciante de Mariana | Quando user = Mariana OU task = ensino/aprendizado |
+
+### Detecção Automática de Contexto
+
+**Claude DEVE detectar e informar mudança de contexto:**
+
+```
+✅ Contexto Técnico (CLAUDE.md):
+   - Desenvolvendo features do AIOX
+   - Executando tasks de agentes
+   - Trabalhando em código produção
+   → Usar rigor técnico, padrões framework
+
+⚠️ Contexto Educacional (CLAUDE-MARIANA.md):
+   - Mariana fazendo perguntas
+   - Tarefas de aprendizado (E1-E5)
+   - Explicações de conceitos
+   → Usar linguagem simples, exemplos práticos, sem jargão
+```
+
+**Exemplo de detecção:**
+- User: "como abrir o terminal?" → CLAUDE-MARIANA.md (ensino)
+- User: "implemente a story 4.1" → CLAUDE.md (desenvolvimento)
+
+### Handoff Protocol
+
+Quando detectada mudança de contexto:
+
+```
+[CONTEXTO ALTERADO: CLAUDE.md → CLAUDE-MARIANA.md]
+
+Você entrou em modo educacional.
+- Linguagem: Simples, sem jargão técnico
+- Velocidade: Passo a passo
+- Validação: Confirme cada etapa com Mariana
+
+Referência: CLAUDE-MARIANA.md (módulos E1-E5, level iniciante)
+```
+
+Ou o inverso:
+
+```
+[CONTEXTO ALTERADO: CLAUDE-MARIANA.md → CLAUDE.md]
+
+Você entrou em modo desenvolvimento AIOX.
+- Padrão: Framework técnico, agentes, stories
+- Velocidade: Eficiência máxima
+- Validação: Siga rules de agent-authority.md
+
+Referência: CLAUDE.md (Constitution, Sistema de Agentes)
+```
+
+<!-- CONTEXT-SYNC-END -->
+
+
 <!-- AIOX-MANAGED-START: core-framework -->
 ## Core Framework Understanding
 
@@ -414,5 +477,69 @@ npm run trace -- workflow-name
 - Keep README synchronized with actual behavior
 - Document breaking changes prominently
 
+<!-- CONTEXT-SYNC-RULES-START -->
+## 🔄 Regras de Sincronização com CLAUDE-MARIANA.md
+
+### Quando Alternar Contexto
+
+**Detecte automaticamente estas situações e AVISE o usuário:**
+
+#### 1️⃣ Mudança: Técnico → Educacional
+```
+TRIGGERS:
+- Mariana pergunta "como faz X?" (learning)
+- Tarefa é sobre módulos E1-E5
+- Pergunta usa termos de iniciante
+
+AÇÃO:
+[CONTEXTO ALTERADO → CLAUDE-MARIANA.md]
+Você entrou em modo EDUCACIONAL.
+- Vou explicar de forma bem simples
+- Sem jargão técnico
+- Passo a passo
+
+REFERÊNCIA: CLAUDE-MARIANA.md (seu perfil pessoal)
+```
+
+#### 2️⃣ Mudança: Educacional → Técnico
+```
+TRIGGERS:
+- Mariana pede "implemente a story 4.1"
+- Tarefa envolve agentes (@dev, @qa, etc)
+- Trabalho é desenvolvimento produção
+
+AÇÃO:
+[CONTEXTO ALTERADO → CLAUDE.md]
+Você entrou em modo DESENVOLVIMENTO AIOX.
+- Vou usar rigor técnico
+- Padrões do framework
+- Execução eficiente
+
+REFERÊNCIA: CLAUDE.md (Constitution, Agentes)
+```
+
+### Regras de Comportamento por Contexto
+
+| Aspecto | CLAUDE.md | CLAUDE-MARIANA.md |
+|---------|-----------|------------------|
+| **Linguagem** | Técnica, precisa | Simples, analogias |
+| **Velocidade** | Máxima eficiência | Passo a passo |
+| **Código** | Completo, otimizado | Comentado, explicado |
+| **Erros** | Diagnóstico técnico | "O que deu errado e por quê?" |
+| **Validação** | Testes automáticos | Confirmação manual |
+| **Tools** | Todos disponíveis | Filtrados (apenas CLI básico) |
+
+### Checklist de Sincronização
+
+Quando alternar contexto:
+- [ ] Identifique qual arquivo será primário
+- [ ] Avise o usuário sobre a mudança
+- [ ] Adapte tom/velocidade/detalhamento
+- [ ] Cite o arquivo de referência
+- [ ] Mantenha coerência com perfil do usuário
+
+<!-- CONTEXT-SYNC-RULES-END -->
+
 ---
 *Synkra AIOX Claude Code Configuration v2.0*
+*Sincronizado com CLAUDE-MARIANA.md em 2026-03-14*

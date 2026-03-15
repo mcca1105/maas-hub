@@ -13,6 +13,22 @@ Este arquivo é um **índice compacto**. Conteúdo detalhado foi movido para top
 - ✅ StatusLine removida (sem mais exibição de tokens/gastos)
 - Commit: 15616e0
 
+### Context Synchronization — NOVO! ✨
+**File**: `context-sync-status.md`
+- ✅ Sincronização automática ativada (2026-03-14)
+- **CLAUDE.md** ↔️ **CLAUDE-MARIANA.md**
+- Claude detecta contexto automaticamente
+- Avisos claros quando contexto muda
+- 📖 Guias: `CONTEXT-SYNC-GUIDE.md` e `CONTEXT-SYNC-EXAMPLES.md`
+
+### Statusline v2.0 — Redesenhada ✨
+**File**: `statusline-v2.md`
+- ✅ Ícones/emojis antes de cada seção
+- ✅ Barra visual (██░░░░░░░░) + % + tokens
+- ✅ Custo em Real brasileiro (R$)
+- ✅ Alertas automáticos (60%, 70%, 85%)
+- 📖 Guia completo: `.claude/STATUSLINE-v2-GUIDE.md`
+
 ## 🚀 Active Projects
 
 ### Squad de Vendas — Landing Page
