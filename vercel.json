@@ -1,0 +1,6 @@
+{
+  "buildCommand": "echo 'MaaS Hub - Static HTML'",
+  "outputDirectory": ".",
+  "framework": "other",
+  "regions": ["sfo1"]
+}
