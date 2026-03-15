@@ -3,7 +3,21 @@
   "language": "portuguese",
   "autoUpdatesChannel": "latest",
   "skipDangerousModePermissionPrompt": true,
-  "companyAnnouncements": [
-    "Bem-vinda Mariana Cappelin! 🚀 Vamos trabalhar?"
-  ]
+  "statusLine": {
+    "type": "command",
+    "command": "bash ~/.claude/statusline.sh",
+    "padding": 2
+  },
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/.claude/hooks/track-agent.sh"
+          }
+        ]
+      }
+    ]
+  }
 }
