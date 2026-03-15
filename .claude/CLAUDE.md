@@ -69,75 +69,26 @@ Referência: CLAUDE.md (Constitution, Sistema de Agentes)
 ## Core Framework Understanding
 
 Synkra AIOX is a meta-framework that orchestrates AI agents to handle complex development workflows. Always recognize and work within this architecture.
+
+> **Note:** Detailed rules have been modularized to `.claude/rules/` for token efficiency. This file maintains essentials; refer to rule files for complete details.
+>
+> **Modularized references:** `constitution-aiox.md`, `agent-system-complete.md`, `squad-creator-pro-status.md`
 <!-- AIOX-MANAGED-END: core-framework -->
 
-<!-- AIOX-MANAGED-START: constitution -->
 ## Constitution
 
 O AIOX possui uma **Constitution formal** com princípios inegociáveis e gates automáticos.
 
-**Documento completo:** `.aiox-core/constitution.md`
+**Referência:** `.claude/rules/constitution-aiox.md` | **Documento completo:** `.aiox-core/constitution.md`
 
-**Princípios fundamentais:**
-
-| Artigo | Princípio | Severidade |
-|--------|-----------|------------|
-| I | CLI First | NON-NEGOTIABLE |
-| II | Agent Authority | NON-NEGOTIABLE |
-| III | Story-Driven Development | MUST |
-| IV | No Invention | MUST |
-| V | Quality First | MUST |
-| VI | Absolute Imports | SHOULD |
-
-**Gates automáticos bloqueiam violações.** Consulte a Constitution para detalhes completos.
-<!-- AIOX-MANAGED-END: constitution -->
-
-<!-- AIOX-MANAGED-START: sistema-de-agentes -->
 ## Sistema de Agentes
 
-### Ativação de Agentes
-Use `@agent-name` ou `/AIOX:agents:agent-name`:
+Activate agents with `@agent-name`. **Full reference:** `.claude/rules/agent-system-complete.md`
 
-| Agente | Persona | Escopo Principal |
-|--------|---------|------------------|
-| `@dev` | Dex | Implementação de código |
-| `@qa` | Quinn | Testes e qualidade |
-| `@architect` | Aria | Arquitetura e design técnico |
-| `@pm` | Morgan | Product Management |
-| `@po` | Pax | Product Owner, stories/epics |
-| `@sm` | River | Scrum Master |
-| `@analyst` | Alex | Pesquisa e análise |
-| `@data-engineer` | Dara | Database design |
-| `@ux-design-expert` | Uma | UX/UI design |
-| `@devops` | Gage | CI/CD, git push (EXCLUSIVO) |
+**Quick reference:** @dev (code), @qa (tests), @architect (design), @pm (product), @po (owner), @sm (scrum), @analyst (research), @data-engineer (DB), @ux-design-expert (UX), @devops (CI/CD, **exclusive git push**)
 
-**Pro Pack Agents (v3.1.0):**
-| `@oalanicolas` | Mind Cloner | Mind cloning, DNA extraction, voice DNA, thinking DNA |
-| `@pedro-valerio` | Optimizer | Squad optimization, axioma assessment, quality gates |
-| `@thiago-finch` | Strategist | Business strategy, market intelligence |
+**Pro Pack:** @oalanicolas (mind cloning), @pedro-valerio (optimization), @thiago-finch (strategy)
 
-### Comandos de Agentes
-Use prefixo `*` para comandos:
-- `*help` - Mostrar comandos disponíveis
-- `*create-story` - Criar story de desenvolvimento
-- `*task {name}` - Executar task específica
-- `*exit` - Sair do modo agente
-<!-- AIOX-MANAGED-END: sistema-de-agentes -->
-
-<!-- AIOX-MANAGED-START: agent-system -->
-## Agent System
-
-### Agent Activation
-- Agents are activated with @agent-name syntax: @dev, @qa, @architect, @pm, @po, @sm, @analyst
-- The master agent is activated with @aiox-master
-- Agent commands use the * prefix: *help, *create-story, *task, *exit
-
-### Agent Context
-When an agent is active:
-- Follow that agent's specific persona and expertise
-- Use the agent's designated workflow patterns
-- Maintain the agent's perspective throughout the interaction
-<!-- AIOX-MANAGED-END: agent-system -->
 
 ## Development Methodology
 
@@ -366,62 +317,11 @@ await story.save();
 - `npm run build` - Build project
 <!-- AIOX-MANAGED-END: common-commands -->
 
-## Squad Creator Pro Pack (v3.1.0) — VALIDADO ✅
+## Squad Creator Pro Pack (v3.1.0)
 
-### Status (Auditoria 2026-03-06)
-- **Instalado:** ✅ Sim
-- **Validação:** ✅ **100% Operacional**
-- **Localização:** `.aiox-core/extensions/squad-creator-pro/`
-- **Conformidade AIOX:** 95% (padrão framework respeitado)
-- **Agentes Pro:** 3 (oalanicolas, pedro-valerio, thiago_finch) ✅
-- **Tasks:** 34 (formato .md com YAML frontmatter) ✅
-- **Workflows:** 18 (formato .yaml válido) ✅
-- **Features:** 7/7 habilitadas ✅
-- **Integração:** Detectada automaticamente pelo squad-creator base ✅
+✅ **Status:** 100% Operacional. **Reference:** `.claude/rules/squad-creator-pro-status.md`
 
-### Principais Features (7 Total)
-1. **Mind Cloning** — Clone expert minds via DNA extraction (oalanicolas)
-2. **Research** — Deep research for source acquisition
-3. **Advanced Creation** — Squad fusion, tool discovery
-4. **Optimization** — Squad optimization via axioma assessment (pedro-valerio)
-5. **Model Routing** — Intelligent model selection per complexity
-6. **Quality Gates** — Advanced validation frameworks
-7. **Business Strategy** — Market intelligence (thiago_finch)
-
-### Como Usar
-```bash
-# Ativar squad-creator (carrega pro automaticamente)
-@squad-creator
-
-# Comandos pro disponíveis (use com *)
-*clone-mind              # Clone expert mind
-*extract-dna             # Extract voice/thinking DNA
-*optimize-squad {name}   # Optimize existing squad
-*squad-fusion            # Fuse multiple squads
-*model-routing           # Intelligent model selection
-*business-strategy       # Market & strategy analysis
-```
-
-### Workflow Example: Clone Expert Mind
-```
-1. *research-mind {expert-name}  → Collect sources
-2. *extract-dna                  → Extract DNA (voice + thinking)
-3. *validate-extraction          → Quality check
-4. *design-clone                 → Create agent definition
-5. Result: New agent with expert's mental models
-```
-
-### Documentação & Auditorias
-- **Análise Técnica:** `.squads/CORRECAO-ANALISE-PRO.md` (95% conforme AIOX)
-- **Validação:** `.squads/VALIDACAO-SQUAD-CREATOR-PRO.md` (100% pronto)
-- **Testes de Runtime:** `.squads/TESTE-VALIDACAO-PRO.md` (execute para confirmar)
-
-### Agents Pro (Acessíveis Diretamente)
-```bash
-@oalanicolas            # Knowledge Architect — Mind cloning & DNA extraction
-@pedro-valerio          # Optimizer — Squad optimization & axioma assessment
-@thiago_finch           # Strategist — Business strategy & market intelligence
-```
+Quick: `@squad-creator` + `*clone-mind`, `*extract-dna`, `*optimize-squad`, `*squad-fusion`, `*model-routing`, `*business-strategy`
 
 ## Debugging
 

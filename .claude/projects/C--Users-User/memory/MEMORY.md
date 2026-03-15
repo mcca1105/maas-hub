@@ -92,11 +92,12 @@ Este arquivo é um **índice compacto**. Conteúdo detalhado foi movido para top
 
 ## ⚡ Próximas Ações (Ordem Prioritária)
 
-1. **Desabilitar voice mode** — `/voice disable` (economiza 50% tokens)
-2. **Deploy Squad Vendas** — Push GitHub + Vercel (2 min)
-3. **Continuar Assessment** — `/zona-genialidade start` (Bloco 3)
-4. **Implementar Story 4.1** — Prospect Hunter Backend (6-8h)
-5. **NÃO criar novos squads** — Orçamento limitado
+1. ✅ **CLAUDE.md Otimizado** — Phase 1+2 completas (-20% tokens)
+2. 🔄 **MCPs em Configuração** — @oalanicolas delegado (Phase 3)
+3. **Desabilitar voice mode** — `/voice disable` (economiza 50% tokens)
+4. **Deploy Squad Vendas** — Push GitHub + Vercel (2 min)
+5. **Continuar Assessment** — `/zona-genialidade start` (Bloco 3)
+6. **Implementar Story 4.1** — Prospect Hunter Backend (6-8h)
 
 ## 🎯 Git Status
 - **Branch**: master
