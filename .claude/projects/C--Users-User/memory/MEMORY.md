@@ -31,6 +31,14 @@ Este arquivo é um **índice compacto**. Conteúdo detalhado foi movido para top
 
 ## 🚀 Active Projects
 
+### IA Alan Nicolas — 44 Prompts + 17 Commands ✨ NOVO!
+**File**: `ia-alan-instalacao.md`
+- ✅ 17 Commands integrados automaticamente
+- ✅ 44 Prompts prontos em `~/ia/prompts/`
+- ✅ 3 Documentos: Guia, Índice, Status
+- 📖 Start: `/ia-alan:marketing:social-media`
+- Localização: `~/.claude/commands/ia-alan/`
+
 ### Squad de Vendas — Landing Page
 **File**: `squad-vendas-progress.md`
 - ✅ Landing page completa (490 linhas HTML+CSS)
